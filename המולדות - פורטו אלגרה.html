@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="he">
+    <head>
+        <meta charset="utf-8" />
+        <title>מולדות</title>
+    </head>
+    <body dir="rtl" style="text-align:center">
+        <script lang="javascript">
+            var LT = new Date()
+            var T = (LT.getUTCHours()/24)+(LT.getUTCMinutes()/1440)+(LT.getSeconds()/86400)+(LT.getMilliseconds()/86400000)
+			var D = LT.getUTCDate()
+			var M = LT.getUTCMonth() + 2
+			var Y = LT.getUTCFullYear()
+            if (Y < 0) {Y ++}
+            if (M < 4) {M += 12 , Y --}
+            var L = 0
+            if (Y > 1582 || Y == 1582 && (M > 11 || (M == 11 && D > 14))) {L = Math.floor(Y / 100) - Math.floor(Y / 400) - 2}
+            var JD = Math.floor((Y + 4716) * 365.25) + Math.floor(M * 30.6) + D - L - 1524.5 + T
+            var TL = JD - 348346.3922
+			var NH = "יום "
+			if ((TL % 1) < 0.5) {NH = "ליל "}
+            var DSC = Math.floor(TL) + 1
+			var ymot = ["שבת","ראשון","שני","שלישי","רביעי","חמישי","ששי"]
+			var xabat = ymot[DSC % 7]
+            var gim1 = ["","א","ב","ג","ד","ה","ו","ז","ח","ט"]
+            var gim2 = ["","י","כ","ל","מ","נ","ס","ע","פ","צ"]
+            var gim3 = ["","ק","ר","ש"]
+			function gimatria(num){ gim2[1] = "י"
+			if ((num % 100) == 15 || (num % 100) == 16)  {gim2[1] = "ט" , num ++}
+			var tem = gim3[Math.floor((num % 400) / 100)] + gim2[Math.floor((num % 100) / 10)] + gim1[num % 10]
+            while (num > 399) {tem = "ת" + tem , num -= 400}
+			var ans = tem + "'"
+			if (tem.length > 1) {ans = tem.substr(0,tem.length - 1) + '"' + tem.substr(tem.length - 1)}
+			return ans}
+            const ML = 765433 / 25920
+            var AM = Math.floor((TL - (67 / 12)) / ML)
+			function MQ(a) {return Math.floor((a + 50) * 19 / 235) - 2}
+			function CQ(b) {return Math.floor((((b - 1) * 235) + 1) / 19) - 12}
+            function taaric(ecad,xeni){
+            var tixrei = ((ecad * ML) + (79 / 12))
+            var ymei_molad = Math.floor(tixrei)
+            var yom_molad = ymei_molad % 7
+			var calakim = Math.round((tixrei % 1) * 25920)
+			var xaqot = Math.floor(calakim / 1080)
+			var celek = calakim % 1080
+            var qibur = (xeni % 19)
+            if ([3,6,8,11,14,17].includes(qibur)) {qibur = 0}
+            if ([4,7,9,12,15,18].includes(qibur)) {qibur = 1}
+            var rox_haxana = ymei_molad
+            if (xaqot > 17) {rox_haxana ++}
+            else if (yom_molad == 3 && ((xaqot == 9 && celek > 203) || xaqot > 9) && qibur!= 0) {rox_haxana ++}
+            else if (yom_molad == 2 && ((xaqot == 15 && celek > 588) || xaqot > 15) && qibur == 1) {rox_haxana ++}
+            if ([1,4,6].includes(rox_haxana % 7)) {rox_haxana ++}
+            return rox_haxana}
+            var xana_zo = MQ(AM)
+            var roxana_zo = taaric(CQ(xana_zo),xana_zo)
+            var roxana_haba = taaric(CQ(xana_zo + 1),xana_zo + 1)
+            if (roxana_zo > DSC) {roxana_haba = roxana_zo , roxana_zo = taaric(CQ(xana_zo -= 1),xana_zo)}
+            if (roxana_haba == DSC) {roxana_zo = roxana_haba , xana_zo ++}
+			var elef = Math.ceil(xana_zo / 1000) - 1
+			var prat = ((xana_zo - 1) % 1000) + 1
+            var xana = gimatria(elef) + gimatria(prat)
+			if (gimatria(elef).length > 2) {xana = gimatria(elef) + " " + gimatria(prat)}
+            var orec_xana = roxana_haba - roxana_zo
+            var qibur = (xana_zo % 19)
+            if ([3,6,8,11,14,17].includes(qibur)) {qibur = 0}
+            var orec_codex = [30,29,30,29,30,30,29,30,29,30,29,30,29]
+            if (orec_xana == 385 || orec_xana == 355) {orec_codex[1] = 30}
+            if (orec_xana == 383 || orec_xana == 353) {orec_codex[2] = 29}
+            if (qibur != 0) {orec_codex[5] = 0}
+            var yom_xana = DSC - roxana_zo
+            var mispar_codex = 0
+            while (yom_xana >= 0) {yom_xana -= orec_codex[mispar_codex] , mispar_codex ++}
+            mispar_codex --
+            var xmot_codaxim = ["תשרי","מרחשון","כסלו","טבת","שבט","אדר א'","אדר","ניסן","אייר","סיון","תמוז","אב","אלול"]
+            var codex = xmot_codaxim[mispar_codex]
+            if (qibur == 0 && mispar_codex == 6) {codex = "אדר ב'"}
+            var yom_codex = yom_xana + orec_codex[mispar_codex] + 1
+            var yom = gimatria(yom_codex)
+            var rexit = roxana_zo - (roxana_zo % 7) + 22
+            if (rexit > DSC) {roxana_haba = roxana_zo , roxana_zo = taaric(CQ(xana_zo -= 1),xana_zo)}
+            var YR = roxana_zo % 7
+            rexit = roxana_zo - YR + 22
+            var YP = roxana_haba % 7
+            var Q = xana_zo % 19
+            if ([3,6,8,11,14,17].includes(Q)) {Q = 0}
+            var paraxot = ["בראשית","נח","לך לך","וירא","חיי שרה","תולדת","ויצא","וישלח","וישב","מקץ","ויגש","ויחי","שמות","וארא","בא",
+            "בשלח","יתרו","משפטים","תרומה","תצוה","כי תשא","ויקהל","ויקרא","צו","שמיני","תזריע","אחרי מות","אמר","בהר","במדבר","נשא",
+            "בהעלתך","שלח","קרח","חקת","בלק","פינחס","מטות","דברים","ואתחנן","עקב","ראה","שפטים","כי תצא","כי תבא","נצבים"]
+            if ((YR == 5 && YP == 2) || Q == 0) {paraxot.splice(29,0,"בחקתי")}
+            if (Q != 0) {paraxot.splice(24,0,"פסח")}
+            if ((YR == 5 && YP == 3) || Q == 0) {paraxot.splice(22,0,"פקדי")}
+            if (Q == 0) {paraxot.splice(28,0,"קדשים") , paraxot.splice(27,0,"מצרע")}
+            if (Q == 0 && (YR == 5 || YP == 2)) {paraxot.splice(42,0,"מסעי")}
+            if (Q == 0 && YR == 5) {paraxot.splice(29,0,"פסח")}
+            if (Q == 0 && [0,2,3].includes(YR)) {paraxot.splice(28,0,"פסח")}
+            if (YP == 5) {paraxot.push("האזינו","יום כפור","סכות")}
+            if (YP == 0) {paraxot.push("ראש השנה","האזינו","סכות","וזאת הברכה")}
+            if (YP == 2 || YP == 3) {paraxot.push("וילך","האזינו","סכות")}
+            var paraxa = paraxot[Math.floor((DSC - rexit) / 7)]
+			if (yom_codex < 23 && (DSC - rexit) < 5) {paraxa = "וזאת הברכה"}
+            document.write("עכשיו ",NH," ",xabat," פרשת ",paraxa," ",yom," ",codex," ",xana,"<br />")
+			var GM = ["ינואר","פברואר","מרץ","אפריל","מאי","יוני","יולי","אוגוסט","ספטמבר","אוקטובר","נובמבר","דצמבר"]
+			var XY = LT.getFullYear()
+			var XZ = LT.getMonth()
+			var XD = LT.getDate()
+            var XH = LT.getHours()
+            var XM = LT.getMinutes()
+            var XS = LT.getSeconds()
+			var XMS = LT.getMilliseconds()
+            document.write("השעה ",XH,":",XM,":",XS,"<br />")
+			var TSC = JD - 348346.1521227
+            var MT0 = ((Math.floor((TSC - (67 / 12)) / ML)) * ML) + (79 / 12)
+            var MD0 = ymot[Math.floor(MT0) % 7]
+			var M0 = Math.round((MT0 % 1) * 25920)
+            var MH0 = Math.floor(M0 / 1080)
+            var MP0 = M0 % 1080
+			var dis0 = TSC - MT0 + 1
+			var dd0 = Math.floor(dis0)
+			var dh0 = Math.floor((dis0 % 1) * 24)
+			var dm0 = Math.floor(((dis0 * 24) % 1) * 60)
+			var ds0 = (Math.floor(dis0 * 86400)) % 60
+			var dms0 = (dis0 * 86400000) % 1000
+			var tom0 = new Date(XY,XZ,XD-dd0,XH-dh0,XM-dm0,XS-ds0,XMS-dms0)
+			var xy0 = tom0.getFullYear()
+			var xz0 = GM[tom0.getMonth()]
+			var xd0 = tom0.getDate()
+            var xh0 = tom0.getHours()
+            var xm0 = tom0.getMinutes()
+            var xs0 = tom0.getSeconds()
+			if (xs0 % 10 == 6) {xs0 ++}
+			document.write("<br />המולד הקודם היה ב",MD0," ",MH0," שעות ו",MP0," חלקים","<br />")
+			document.write(xd0," ",xz0," ",xy0," ",xh0,":",xm0,":",xs0)
+			document.write("<br />לפני ",dd0," ימים ",dh0," שעות ",dm0," דקות ו",ds0," שניות<br />")
+			var MT1 = MT0 + ML
+			var MD1 = ymot[Math.floor(MT1) % 7]
+			var M1 = Math.round((MT1 % 1) * 25920)
+            var MH1 = Math.floor(M1 / 1080)
+            var MP1 = M1 % 1080
+			var dis1 = MT1 - TSC - 1
+			var dd1 = Math.floor(dis1)
+			var dh1 = Math.floor((dis1 % 1) * 24)
+			var dm1 = Math.floor(((dis1 * 24) % 1) * 60)
+			var ds1 = (Math.floor(dis1 * 86400)) % 60
+			var dms1 = (dis1 * 86400000) % 1000
+			var tom1 = new Date(XY,XZ,XD+dd1,XH+dh1,XM+dm1,XS+ds1,XMS+dms1)
+			var xy1 = tom1.getFullYear()
+			var xz1 = GM[tom1.getMonth()]
+			var xd1 = tom1.getDate()
+            var xh1 = tom1.getHours()
+            var xm1 = tom1.getMinutes()
+            var xs1 = tom1.getSeconds()
+			if (xs1 % 10 == 6) {xs1 ++}
+			document.write("<br />המולד הבא יהיה ב",MD1," ",MH1," שעות ו",MP1," חלקים","<br />")
+			document.write(xd1," ",xz1," ",xy1," ",xh1,":",xm1,":",xs1)
+			document.write("<br />בעוד ",dd1," ימים ",dh1," שעות ",dm1," דקות ו",ds1," שניות<br />")
+        </script>
+    </body>
+</html>
