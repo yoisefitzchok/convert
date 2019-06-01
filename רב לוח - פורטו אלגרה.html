@@ -43,15 +43,15 @@
 			function MQ(a) {return Math.floor((a + 50) * 19 / 235) - 2}
 			function CQ(b) {return Math.floor((((b - 1) * 235) + 1) / 19) - 12}
             const ML = 765433 / 25920
-			const ZSL = 487/16
+	    const ZSL = 487/16
             var MN_C = [19,15,15,15,15,19,15,15,15]
             function taaric(ecad,xeni){
             var tixrei = ((ecad * ML) + (79 / 12))
             var ymei_molad = Math.floor(tixrei)
             var yom_molad = ymei_molad % 7
-			var calakim = Math.round((tixrei % 1) * 25920)
-			var xaqot = Math.floor(calakim / 1080)
-			var celek = calakim % 1080
+	    var calakim = Math.round((tixrei % 1) * 25920)
+	    var xaqot = Math.floor(calakim / 1080)
+	    var celek = calakim % 1080
             var Q = (xeni % 19)
             if ([3,6,8,11,14,17].includes(Q)) {Q = 0}
             if ([4,7,9,12,15,18].includes(Q)) {Q = 1}
@@ -61,7 +61,7 @@
             else if (yom_molad == 2 && ((xaqot == 15 && celek > 588) || xaqot > 15) && Q == 1) {rox_haxana ++}
             if ([1,4,6].includes(rox_haxana % 7)) {rox_haxana ++}
             return rox_haxana}
-			function sdarim(YR,YP,Q){
+	    function sdarim(YR,YP,Q){
             var paraxot = ["בראשית","נח","לך לך","וירא","חיי שרה","תולדת","ויצא","וישלח","וישב","מקץ","ויגש","ויחי","שמות","וארא","בא",
             "בשלח","יתרו","משפטים","תרומה","תצוה","כי תשא","ויקהל","ויקרא","צו","שמיני","תזריע","אחרי מות","אמר","בהר","במדבר","נשא",
             "בהעלתך","שלח","קרח","חקת","בלק","פינחס","מטות","דברים","ואתחנן","עקב","ראה","שפטים","כי תצא","כי תבא","נצבים"]
@@ -75,33 +75,34 @@
             if (YP == 5) {paraxot.push("האזינו","יום כפור","סכות")}
             if (YP == 0) {paraxot.push("ראש השנה","האזינו","סכות","וזאת הברכה")}
             if (YP == 2 || YP == 3) {paraxot.push("וילך","האזינו","וזאת הברכה")}
-			return paraxot}
-			function luac(OD){
+	    return paraxot}
+	    function luac(OD){
             var TSC = OD
-			if (OD == "עתה") {TSC = JD - 348346.3922}
-			var NH = "יום "
-			if ((TSC % 1) < 0.5) {NH = "ליל "}
+	    if (OD == "עתה") {TSC = JD - 348346.3922}
+	    var NH = "יום "
+	    if ((TSC % 1) < 0.5) {NH = "ליל "}
             var DSC = Math.floor(TSC) + 1
-			var WD = DSC % 7
+	    var WD = DSC % 7
             if (DSC > 0) {document.write("יום ",DSC," לבריאת העולם","<br />")}
             var BAN = ["אליעזר","שבניהו","יושפט","נתנאל","עמשי","זכריהו","בניהו"]
             var BA = BAN[WD]
             var ST1 = TSC - 1068927.75
+	    if (OD == null) {ST1 = JD - 1417273.9021227}
             if (ST1 > 3080) {ST1 -= 7}
-            var ST2 = TSC - 1246426.75
-            var BT = TSC - 1238558.75
+            var ST2 = ST1 - 177492
+            var BT = ST2 + 7868
             var PD = "לא ידועה"
             var CPD = "לא ידוע"
             if (ST1 > 0) {PD = PDN[Math.ceil((ST1 % 168) / 7) - 1] , CPD = Math.ceil(ST1 / 168) + "א"}
             if (BT > 0) {PD = FPD[Math.ceil((BT % 28) / 7) - 1] , CPD = Math.ceil(BT / 28) + "ב"}
             if(ST2 > 0) {PD = PDN[Math.ceil((ST2 % 168) / 7) - 1] , CPD = Math.ceil(ST2 / 168)}
-			if (DSC > 894313) {document.write(BA," ",PD," ",CPD,"<br />")}
+	    if (DSC > 894313) {document.write(BA," ",PD," ",CPD,"<br />")}
             var SG = DSC + 730499
             var DOG = (SG % 30) + 1
             var MOG = Math.floor((SG % 750) / 30) + 1
             var GOG = Math.floor(SG / 750) + 1
-			if (SG < 0) {document.write("לא הוה מדעם קדים לאורייתא<br />")}
-			else {document.write("יום ",DOG," בגוש ",MOG," דור ",GOG,"<br />")}
+	    if (SG < 0) {document.write("לא הוה מדעם קדים לאורייתא<br />")}
+    	    else {document.write("יום ",DOG," בגוש ",MOG," דור ",GOG,"<br />")}
             var day_names = ["אפמיא","רבא","טיבריא","סמכו","מילחא","חולתא","שליית"]
             var day = day_names[WD]
             var week_names = ["גד","דן","אשר","נפתלי","מנשה","אפרים","ראובן","יהודה","לוי","בנימין","שמעון","יששכר","זבולן"]
