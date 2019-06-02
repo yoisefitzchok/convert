@@ -274,12 +274,12 @@
 			var calakim = Math.round((ZM % 1) * 25920)
 			var xaqot = Math.floor(calakim / 1080)
 			var celek = calakim % 1080
-			document.write(yom," ",xaqot," ",celek," ",MAP,"<br />")}
+			if (qavru >= 0) {document.write(yom," ",xaqot," ",celek," ",MAP,"<br />")}
+			else {document.write(yom + 7," ",xaqot + 24," ",(celek + 1080) % 1080,"<br />")}}
 			function rxima(xana){
 			var codaxim = 12
 			if ([0,3,6,8,11,14,17].includes(xana % 19)) {codaxim = 13}
-			var xanim = [0,12,25,37,49,62,74,87,99,111,124,136,148,161,173,185,198,210,223]
-			var sac = (Math.floor((xana - 2) /19) * 235) + xanim[(xana - 2) % 19]
+			var sac = CQ(xana)
 			var codex = 0
 			while (codex < codaxim) {molad(sac + codex) , codex ++}
 			document.write("<br />")}
