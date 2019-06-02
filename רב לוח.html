@@ -88,8 +88,8 @@
             var BA = BAN[WD]
             var ST1 = TSC - 1068927.75
             if (ST1 > 3080) {ST1 -= 7}
-            var ST2 = TSC - 1246426.75
-            var BT = TSC - 1238558.75
+            var ST2 = ST1 - 177492
+            var BT = ST2 + 7868
             var PD = "לא ידועה"
             var CPD = "לא ידוע"
             if (ST1 > 0) {PD = PDN[Math.ceil((ST1 % 168) / 7) - 1] , CPD = Math.ceil(ST1 / 168) + "א"}
