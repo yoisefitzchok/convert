@@ -311,8 +311,12 @@
 			days -= dapim[masecet] , masecet ++
 			if (cycle > 7) {dapim[4] = 21}}
 			days += dapim[masecet - 1] + 1
+			if (masecet == 37) {days += 20}
+			if (masecet == 38) {days += 24}
+			if (masecet == 39) {days += 32}
 			if (days % 100 == 15 || days % 100 == 16) {gim2[1] = "ט" , days ++}
 			var daf = " " + gim3[Math.floor(days / 100)] + gim2[Math.floor((days % 100) / 10)] + gim1[days % 10]
+			gim2[1] = "י"
 			if (TSC >= 2075327) {document.write(masectot[masecet - 1],daf,"<br />")}
 			else document.write("עדיין לא התחילו<br />")}
 			var LOM = [31,28,31,30,31,30,31,31,30,31,30,31]
