@@ -9,14 +9,19 @@
             var LT = new Date()
             //document.write("<br />",LT,"<br />")
             var T = (LT.getUTCHours()/24)+(LT.getUTCMinutes()/1440)+(LT.getSeconds()/86400)+(LT.getMilliseconds()/86400000)
-			var D = LT.getUTCDate() , M = LT.getUTCMonth() + 2 , Y = LT.getUTCFullYear()
+			var D = LT.getUTCDate() , M = LT.getUTCMonth() + 2 , Y = LT.getUTCFullYear() , L = 0
             if (Y < 0) {Y ++}
             if (M < 4) {M += 12 , Y --}
-            var L = 0
             if (Y > 1582 || Y == 1582 && (M > 11 || (M == 11 && D > 14))) {L = Math.floor(Y / 100) - Math.floor(Y / 400) - 2}
             var JD = Math.floor((Y + 4716) * 365.25) + Math.floor(M * 30.6) + D - L - 1524.5 + T
 			var jd = JD + L
             //document.write("<br />","יום יוליאני ",JD,"<br />")
+			var zacar = ["","אחד","שני","שלשה","ארבעה","חמשה","ששה","שבעה","שמנה","תשעה","עשרה"]
+            var nkeva = ["","אחת","שתים","שלש","ארבע","חמש","שש","שבע","שמנה","תשע","עשר"]
+            var qeser = [""," ו","עשרים","שלשים","ארבעים","חמשים","ששים"]
+            var MN_I = ["שביעי","ראשון","שני","שלישי","רביעי","חמישי","ששי","שביעי","שמיני","תשיעי","עשירי",
+            "אחד עשר","שנים עשר","שלשה עשר","ארבעה עשר","חמשה עשר","ששה עשר","שבעה עשר","שמנה עשר","תשעה עשר"]
+            var WN_I = ["שביעית","ראשונה","שניה","שלישית","רביעית","חמישית","ששית","שביעית"]
             var APN = ["שבתאי","צדק","מאדים","חמה","נוגה","כוכב","לבנה"]
             var PDN = ["יהויריב","ידעיה","חרם","שערים","מלכיה","מימן","הקוץ","אביה","ישוע","שכניהו","אלישיב","יקים",
             "חפה","ישבאב","בלגה","אמר","חזיר","הפצץ","פתחיה","יחזקאל","יכין","גמול","דליהו","מעזיהו"]
@@ -73,14 +78,15 @@
             if (YP == 0) {paraxot.push("ראש השנה","האזינו","סכות","וזאת הברכה")}
             if (YP == 2 || YP == 3) {paraxot.push("וילך","האזינו","וזאת הברכה")}
 			return paraxot}
-			function luac(OD){
-            var TSC = OD
+			function YOM(OD){
+            this.TSC = OD
 			if (OD == null) {TSC = JD - 348346.3922}
-            var DSC = Math.floor(TSC) + 1
-			var WD = DSC % 7
-            if (DSC > 0) {document.write("יום ",DSC," לבריאת העולם","<br />")}
+            this.DSC = Math.floor(TSC) + 1
+			return this}
+            function KY(OD) {if (YOM(OD).DSC > 0) {document.write("יום ",DSC," לבריאת העולם","<br />")}}
+			function MIX(OD){
             var BAN = ["אליעזר","שבניהו","יושפט","נתנאל","עמשי","זכריהו","בניהו"]
-            var BA = BAN[WD]
+            var BA = BAN[YOM(OD).DSC % 7]
             var ST1 = TSC - 1068927.75
 			if (OD == null) {ST1 = JD - 1417273.9021227}
             if (ST1 > 3080) {ST1 -= 7}
@@ -90,15 +96,17 @@
             if (ST1 > 0) {PD = PDN[Math.ceil((ST1 % 168) / 7) - 1] , CPD = Math.ceil(ST1 / 168) + "א"}
             if (BT > 0) {PD = FPD[Math.ceil((BT % 28) / 7) - 1] , CPD = Math.ceil(BT / 28) + "ב"}
             if (ST2 > 0) {PD = PDN[Math.ceil((ST2 % 168) / 7) - 1] , CPD = Math.ceil(ST2 / 168)}
-			if (DSC > 894313) {document.write(BA," ",PD," ",CPD,"<br />")}
-            var SG = DSC + 730499
+			if (DSC > 894313) {document.write(BA," ",PD," ",CPD,"<br />")}}
+			function DOR(OD){
+            var SG = YOM(OD).DSC + 730499
             var DOG = (SG % 30) + 1
             var MOG = Math.floor((SG % 750) / 30) + 1
             var GOG = Math.floor(SG / 750) + 1
 			if (SG < 0) {document.write("לא הוה מדעם קדים לאורייתא<br />")}
-			else {document.write("יום ",DOG," בגוש ",MOG," דור ",GOG,"<br />")}
+			else {document.write("יום ",DOG," בגוש ",MOG," דור ",GOG,"<br />")}}
+			function XEV(OD){
             var day_names = ["אפמיא","רבא","טיבריא","סמכו","מילחא","חולתא","שליית"]
-            var day = day_names[WD]
+            var day = day_names[YOM(OD).DSC % 7]
             var week_names = ["גד","דן","אשר","נפתלי","מנשה","אפרים","ראובן","יהודה","לוי","בנימין","שמעון","יששכר","זבולן"]
             var week = week_names[Math.ceil(DSC / 7) % 13]
             var season_names = ["ארקא","ארץ","תבל","אדמה"]
@@ -109,8 +117,9 @@
             var jubilee = jubilee_Letter[Math.ceil(DSC / 17836) % 22]
             var cycle = Math.ceil(DSC / 392392)
             cycle = gim2[Math.floor(cycle / 10)] + gim1[cycle % 10]
-            if (DSC > 0) {document.write(day," ",week," ",season," ",year," ",release," ",jubilee," ",cycle,"<br />")}
-            var SC = DSC + 178
+            if (DSC > 0) {document.write(day," ",week," ",season," ",year," ",release," ",jubilee," ",cycle,"<br />")}}
+			function HAM(OD){
+            var SC = YOM(OD).DSC + 178
             var SB = Math.floor(SC / 10227) + 1
             var AP = APN[Math.floor(SC / 1461) % 7]
 			var SYN = ["הרים","ישוב","ימים","מדבר"]
@@ -119,89 +128,95 @@
 			var ZSN = ["טלה","שור","תאומים","סרטן","אריה","בתולה","מאזנים","עקרב","קשת","גדי","דלי","דגים"]
 			var ZS = ZSN[ZSC % 12]
 			var DM = SC - Math.round(ZSC * ZSL) + 1
-            if (SC >= 0) {document.write("\u200F",DM," ב",ZS," ",SY," ",AP," ",SB,"<br />")}
-            var AM = Math.floor((TSC - (67 / 12)) / ML)
+            if (SC >= 0) {document.write("\u200F",DM," ב",ZS," ",SY," ",AP," ",SB,"<br />")}}
+			function HOD(OD){
+            this.AM = Math.floor((YOM(OD).TSC - (67 / 12)) / ML)
             var MT = (AM * ML) + (79 / 12)
             var CMT = Math.floor(MT)
             var MD = CMT % 7
             var MH = Math.floor((MT % 1) * 24)
             var MP = (Math.round(MT * 25920)) % 1080
-            var MN_I = ["שביעי","ראשון","שני","שלישי","רביעי","חמישי","ששי","שביעי","שמיני","תשיעי","עשירי",
-            "אחד עשר","שנים עשר","שלשה עשר","ארבעה עשר","חמשה עשר","ששה עשר","שבעה עשר","שמנה עשר","תשעה עשר"]
-            var DN = MN_I[WD]
-            var RM = AM - 83
-            var WN_I = ["שביעית","ראשונה","שניה","שלישית","רביעית","חמישית","ששית","שביעית"]
+            this.DN = MN_I[DSC % 7]
+            this.RM = AM - 83
             var WN_C = (DSC - CMT) + MD
-            var WN = WN_I[Math.ceil(WN_C / 7)]
+            this.WN = WN_I[Math.ceil(WN_C / 7)]
             if (WN_C == 36) {WN = WN_I[1] , RM ++}
             if (DSC == CMT && (MD != 1 || (MD == 1 && (MH > 12 || (MH == 12 && MP > 792)))))  {WN = WN_I[5] , RM --}
             var MIC = RM % 1080 , GIC = 1
             while (MIC >= 0) {MIC -= MN_C[GIC % 9] , GIC ++} GIC --
-            var MN = MN_I[MIC + MN_C[GIC % 9] + 1]
-			var zacar = ["","אחד","שני","שלשה","ארבעה","חמשה","ששה","שבעה","שמנה","תשעה","עשרה"]
-            var nkeva = ["","אחת","שתים","שלש","ארבע","חמש","שש","שבע","שמנה","תשע","עשר"]
-            var qeser = [""," ו","עשרים","שלשים","ארבעים","חמשים","ששים"]
-            var GN = nkeva[GIC]
+            this.MN = MN_I[MIC + MN_C[GIC % 9] + 1]
+            this.GN = nkeva[GIC]
             if (GIC > 10) {GN = nkeva[GIC % 10] +" עשרה"}
 			if ((GIC % 10) == 0) {qeser[1] = ""}
             if (GIC > 19) {GN = qeser[Math.floor(GIC / 10)] + qeser[1] + nkeva[GIC % 10]}
-            var CN = Math.floor(RM / 1080) + 1
-            if (RM >= 0) {document.write("ה",DN," ב",WN," ל",MN," מ",GN," מחזור ",CN,"<br />")}
-			console.log(AM + 1)
-            var xana_zo = MQ(AM)
-            var roxana_zo = taaric(CQ(xana_zo),xana_zo) , roxana_haba = taaric(CQ(xana_zo + 1),xana_zo + 1)
-            if (roxana_zo > DSC) {roxana_haba = roxana_zo , roxana_zo = taaric(CQ(-- xana_zo),xana_zo)}
+            this.CN = Math.floor(RM / 1080) + 1
+			return this}
+            function KH(OD) {if (HOD(OD).RM >= 0) {document.write("ה",DN," ב",WN," ל",MN," מ",GN," מחזור ",CN,"<br />")}}
+			function QIV(OD){
+            this.xana_zo = MQ(HOD(OD).AM)
+            this.roxana_zo = taaric(CQ(xana_zo),xana_zo) , roxana_haba = taaric(CQ(xana_zo + 1),xana_zo + 1)
+            if (roxana_zo > YOM(OD).DSC) {roxana_haba = roxana_zo , roxana_zo = taaric(CQ(-- xana_zo),xana_zo)}
             if (roxana_haba == DSC) {roxana_zo = roxana_haba , xana_zo ++}
 			var elef = Math.ceil(xana_zo / 1000) - 1 , prat = ((xana_zo - 1) % 1000) + 1
-            var xana = gimatria(elef) + gimatria(prat)
+            this.xana = gimatria(elef) + gimatria(prat)
 			if (gimatria(elef).length > 2) {xana = gimatria(elef) + " " + gimatria(prat)}
             var OX = roxana_haba - roxana_zo
-            var Q = (xana_zo % 19)
+            this.Q = (xana_zo % 19)
             if ([3,6,8,11,14,17].includes(Q)) {Q = 0}
             var orec_codex = [30,29,30,29,30,30,29,30,29,30,29,30,29]
             if (OX == 385 || OX == 355) {orec_codex[1] = 30}
             if (OX == 383 || OX == 353) {orec_codex[2] = 29}
             if (Q != 0) {orec_codex[5] = 0}
-            var yom_xana = DSC - roxana_zo , mispar_codex = 0
+            var yom_xana = DSC - roxana_zo
+			this.mispar_codex = 0
             while (yom_xana >= 0) {yom_xana -= orec_codex[mispar_codex] , mispar_codex ++}
             mispar_codex --
             var xmot_codaxim = ["תשרי","מרחשון","כסלו","טבת","שבט","אדר א'","אדר","ניסן","אייר","סיון","תמוז","אב","אלול"]
-            var codex = xmot_codaxim[mispar_codex]
+            this.codex = xmot_codaxim[mispar_codex]
             if (Q == 0 && mispar_codex == 6) {codex = "אדר ב'"}
-            var yom_codex = yom_xana + orec_codex[mispar_codex] + 1
+            this.yom_codex = yom_xana + orec_codex[mispar_codex] + 1
 			if (DSC < 7) {yom_codex = DSC + 24 , codex = "אלול" , xana = "א'"}
-            var yom = gimatria(yom_codex)
+            this.yom = gimatria(yom_codex)
 			if (xana_zo < 4120) {yom = yom + "?" , codex = codex + "?"}
-			var NH = "יום "
+			this.NH = "יום "
 			if ((TSC % 1) < 0.5) {NH = "ליל "}
-            if (DSC > 0) {document.write(NH,yom," ",codex," ",xana,"<br />")}
+			return this}
+			function KQ(OD) {if (YOM(OD).DSC > 0) {document.write(QIV(OD).NH,yom," ",codex," ",xana,"<br />")}}
+			function PAR(OD){
+            var xemot = ["חיים","שלום","חכמה","עושר","זרע","חן","ממשלה"]
+            var xem_yom = xemot[YOM(OD).DSC % 7]
+			var F = QIV(OD).roxana_zo , G = QIV(OD).roxana_haba , I = QIV(OD).xana_zo
+            var rexit = F - (F % 7) + 22
+            if (rexit > DSC) {G = F , F = taaric(CQ(-- I),I)}
+            var YR = F % 7 , YP = G % 7
+            rexit = F - YR + 22
+            var Q = (I % 19)
+            if ([3,6,8,11,14,17].includes(Q)) {Q = 0}
+            var paraxa = sdarim(YR,YP,Q)[Math.floor((DSC - rexit) / 7)]
+            var mabul = I - 1657
+			if (mabul < 3300) {paraxa = paraxa + "?"}
+			if (mabul >= 0) {document.write(xem_yom," ",paraxa," ",mabul,"<br />")}}
+			function luac(OD) {KY(OD),MIX(OD),DOR(OD),XEV(OD),HAM(OD),KH(OD),KQ(OD),PAR(OD),document.write("<br />")} luac()
+			function MSH(OD){
+			var C = QIV(OD)
 			var xvatim = ["בנימין","דן","נפתלי","גד","אשר","מנשה","אפרים","ראובן","שמעון","לוי","יהודה","יששכר","זבולן"]
-			if (Q != 0 && mispar_codex == 6) {xvatim[6] = "יוסף"}
-			var xevet = xvatim[mispar_codex] , yshia = xana_zo - 2449
-			if (mispar_codex > 6) yshia ++
-			if (yshia > 0) {console.log(yshia,xevet,yom_codex)}
-			var xmita = "מעשר שני,"
-			if ((xana_zo % 7) == 0) {xmita = "שמיטה,"}
-			if ([3,6].includes(xana_zo % 7)) {xmita = "מעשר עני,"}
-			var MY = xana_zo - 3410
+			if (C.Q != 0 && C.mispar_codex == 6) {xvatim[6] = "יוסף"}
+			var xevet = xvatim[C.mispar_codex] , yshia = C.xana_zo - 2449
+			if (C.mispar_codex > 6) yshia ++
+			if (yshia > 0) {document.write("\u200F",C.yom_codex," ",xevet," ",yshia,"<br />")}}
+			function SAF(OD){
+			var E = QIV(OD).xana_zo
+			var xmita = "מעשר שני"
+			if ((E % 7) == 0) {xmita = "שמיטה"}
+			if ([3,6].includes(E % 7)) {xmita = "מעשר עני"}
+			var MY = E - 3410
 			var xanim = (MY % 49) + 1
 			var minyan = "שנה " + WN_I[xanim % 7] + " בשמיטה " + WN_I[Math.ceil(xanim / 7)] + " ביובל " + (Math.floor(MY / 49) + 1)
 			var yovel = xanim + " ביובל"
 			if (xanim == 1) {yovel = "שנת היובל ה" + (MY / 49)}
-			if (MY >= 0) {console.log(xmita,yovel) , console.log(minyan)}
-            var xemot = ["חיים","שלום","חכמה","עושר","זרע","חן","ממשלה"]
-            var xem_yom = xemot[WD]
-            var rexit = roxana_zo - (roxana_zo % 7) + 22
-            if (rexit > DSC) {roxana_haba = roxana_zo , roxana_zo = taaric(CQ(-- xana_zo),xana_zo)}
-            var YR = roxana_zo % 7 , YP = roxana_haba % 7
-            rexit = roxana_zo - YR + 22
-            Q = (xana_zo % 19)
-            if ([3,6,8,11,14,17].includes(Q)) {Q = 0}
-            var paraxa = sdarim(YR,YP,Q)[Math.floor((DSC - rexit) / 7)]
-            var mabul = xana_zo - 1657
-			if (mabul < 3300) {paraxa = paraxa + "?"}
-			if (mabul >= 0) {document.write(xem_yom," ",paraxa," ",mabul,"<br />")}
-			var qomer = DSC - roxana_haba + 163
+			if (MY >= 0) {document.write(xmita,", ",yovel,"<br />",minyan,"<br />")}}
+			function QOM(OD){
+			var qomer = YOM(OD).DSC - QIV(OD).roxana_haba + 163
 			var XQ = Math.floor(qomer / 7)
 			var xavuq = " שהם " + zacar[XQ] +" שבועות"
 			if (XQ == 0) {xavuq = ""}
@@ -217,8 +232,8 @@
 			if (qomer > 19) {sfira = zacar[QQ] + " ו" + qeser[Math.floor(qomer / 10)] + " יום"
 			if (QQ == 0) {sfira = qeser[qomer / 10] + " יום"}}
 			var SQ = sfira + xavuq + yamim + " לעומר"
-			if (qomer > 0 && qomer < 50) {console.log(SQ)}
-			document.write("<br />")}
+			if (OD == null) {SQ = "היום " + SQ}
+			if (qomer > 0 && qomer < 50) {document.write(SQ,"<br />")}}
 			function qivri(xana,codex,yom){
             var roxana_zo = taaric(CQ(xana),xana)
             var roxana_haba = taaric(CQ(xana + 1),xana + 1)
@@ -257,7 +272,6 @@
 			return ((xabat - 1) * 7) + yom - 1 + zman - (zman % 7)}
 			function galgal(braca,kocav,xana,mazal,yom){
 			return ((braca - 1) * 10227) + ((kocav - 1) * 1461) + Math.round((((xana - 1) * 12) + mazal - 1) * ZSL) + yom - 180}
-			luac()
 			function molad(qavru){
 			var ZM = ((qavru * ML) + (79 / 12))
 			var MAP = APN[(Math.floor(ZM * 24) - 179) % 7]
@@ -327,10 +341,9 @@
 			var date = SAD + LOM[month - 1]
             if (date > 0) {document.write(date,"/",month,"/",year,"<br />")}}
 			function umot(Y,M,D,H,m,s){
-			var T = (H / 24) + (m / 1440) + (s / 86400)
+			var T = (H / 24) + (m / 1440) + (s / 86400) , L = 0
             if (Y < 0) {Y ++}
             if (M < 3) {M += 12 , Y --}
-            var L = 0
             if (Y > 1582 || Y == 1582 && (M > 11 || (M == 11 && D > 14))) {L = Math.floor(Y / 100) - Math.floor(Y / 400) - 2}
             return Math.floor((Y + 3760) * 365.25) + Math.floor((M + 1) * 30.6) + D - L - 691.7672 + T}
         </script>
