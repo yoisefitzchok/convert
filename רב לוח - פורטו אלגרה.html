@@ -76,8 +76,6 @@
 			function luac(OD){
             var TSC = OD
 			if (OD == null) {TSC = JD - 348346.3922}
-			var NH = "יום "
-			if ((TSC % 1) < 0.5) {NH = "ליל "}
             var DSC = Math.floor(TSC) + 1
 			var WD = DSC % 7
             if (DSC > 0) {document.write("יום ",DSC," לבריאת העולם","<br />")}
@@ -174,6 +172,8 @@
 			if (DSC < 7) {yom_codex = DSC + 24 , codex = "אלול" , xana = "א'"}
             var yom = gimatria(yom_codex)
 			if (xana_zo < 4120) {yom = yom + "?" , codex = codex + "?"}
+			var NH = "יום "
+			if ((TSC % 1) < 0.5) {NH = "ליל "}
             if (DSC > 0) {document.write(NH,yom," ",codex," ",xana,"<br />")}
 			var xvatim = ["בנימין","דן","נפתלי","גד","אשר","מנשה","אפרים","ראובן","שמעון","לוי","יהודה","יששכר","זבולן"]
 			if (Q != 0 && mispar_codex == 6) {xvatim[6] = "יוסף"}
