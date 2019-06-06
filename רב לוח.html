@@ -184,7 +184,7 @@
 			function PAR(OD){
             var xemot = ["חיים","שלום","חכמה","עושר","זרע","חן","ממשלה"]
             var xem_yom = xemot[YOM(OD).DSC % 7]
-			var F = QIV(OD).roxana_zo , G = QIV(OD).roxana_haba , I = QIV(OD).xana_zo
+			var I = QIV(OD).xana_zo , F = roxana_zo , G = roxana_haba
             var rexit = F - (F % 7) + 22
             if (rexit > DSC) {G = F , F = taaric(CQ(-- I),I)}
             var YR = F % 7 , YP = G % 7
