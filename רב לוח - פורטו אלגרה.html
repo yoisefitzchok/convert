@@ -264,8 +264,7 @@
 			else {return scum + 1068752}}
 			else if (ot == "ב") {return scum + 1238383}
 			else {return scum + 1246251}}
-			function dorot (dor,gux,yom){
-			return ((dor - 975) * 750) + ((gux - 1) * 30) + yom - 1}
+			function dorot (dor,gux,yom) {return ((dor - 975) * 750) + ((gux - 1) * 30) + yom - 1}
 			function moladot(maczor,kvusha,codex,xabat,yom){
 			while (kvusha > 1) {codex += MN_C[(kvusha - 1) % 9] , kvusha --}
 			var zman = ((((maczor - 1) * 1080) + codex + 82) * ML) + (79 / 12)
@@ -290,9 +289,10 @@
 			document.write("<br />")}
 			function sig(OD){
             var TSC = OD
-			if (OD == null) {TSC = JD - 348346.3922}
+			if (OD == null) {TSC = JD - 348346.1521227}
             var HSC = Math.floor(TSC * 24) + 1 , MSC = Math.floor(TSC * 1440) + 1
-            var HAP1 = HSC - 72 , HAP2 = HSC - 156
+            var HAP1 = Math.floor(YOM(OD).TSC * 24) - 71
+			var HAP2 = HAP1 - 84
 			var APH = APN[(HAP2 - 1) % 7]
 			var APC1 = Math.ceil(HAP1 / 7) , APC2 = Math.ceil(HAP2 / 7)
             //document.write(HSC," שעות לבריאת העולם","<br />")
@@ -300,9 +300,7 @@
             //document.write("שעות הכוכבים לדעת רש\"ד","<br />",HAP2,"<br />")
             document.write(MSC," דקות לבריאת העולם<br />שעת שליטת ",APH,"<br />")}
 			function DAF(OD){
-            var TSC = OD
-			if (OD == null) {TSC = JD - 348346.3922}
-            var days = Math.floor(TSC) - 2075326
+            var days = Math.floor(YOM(OD).TSC) - 2075326
 			var masectot = ["ברכות","שבת","עירובין","פסחים","שקלים","יומא","סוכה","ביצה","ראש השנה","תענית","מגילה","מועד קטן","חגיגה",
 			"יבמות","כתובות","נדרים","נזיר","סוטה","גיטין","קידושין","בבא קמא","בבא מציעא","בבא בתרא","סנהדרין","מכות","שבועות","עבודה זרה","הוריות",
 			"זבחים","מנחות","חולין","בכורות","ערכין","תמורה","כריתות","מעילה","קינים","תמיד","מידות","נדה"]
