@@ -284,7 +284,8 @@
             //document.write(HSC," שעות לבריאת העולם","<br />")
             //document.write("שעות הכוכבים לדעת ראב\"ח","<br />",HAP1,"<br />")
             //document.write("שעות הכוכבים לדעת רש\"ד","<br />",HAP2,"<br />")
-            document.write(MSC," דקות לבריאת העולם<br />שעת שליטת ",APH,"<br />")}
+            if (MSC > 0) {document.write(MSC," דקות לבריאת העולם<br />")}
+			if (HAP2 > 0) {document.write("שעת שליטת ",APH,"<br />")}}
 			function DAF(OD){
             var days = Math.floor(YOM(OD).TSC) - 2075326
 			var masectot = ["ברכות","שבת","עירובין","פסחים","שקלים","יומא","סוכה","ביצה","ראש השנה","תענית","מגילה","מועד קטן","חגיגה",
