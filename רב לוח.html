@@ -80,6 +80,16 @@
             if (YP == 0) {paraxot.push("ראש השנה","האזינו","סכות","וזאת הברכה")}
             if (YP == 2 || YP == 3) {paraxot.push("וילך","האזינו","וזאת הברכה")}
 			return paraxot}
+			function OC(RZ,RB,MX){
+            var OX = RB - RZ
+			if (MX == 1) {OX = 0}
+            this.Q = MX % 19
+            if ([3,6,8,11,14,17].includes(Q)) {Q = 0}
+            this.ymei_codex = [30,29,30,29,30,30,29,30,29,30,29,30,29]
+            if (OX == 385 || OX == 355) {ymei_codex[1] = 30}
+            if (OX == 383 || OX == 353) {ymei_codex[2] = 29}
+            if (Q != 0) {ymei_codex[5] = 0}
+			return this}
 			function YOM(OD){
             this.TSC = OD
 			if (OD == null) {TSC = JD - 348346.1521227}
@@ -156,14 +166,7 @@
 			var elef = Math.ceil(xana_zo / 1000) - 1 , prat = ((xana_zo - 1) % 1000) + 1
             this.xana = gimatria(elef) + gimatria(prat)
 			if (gimatria(elef).length > 2) {xana = gimatria(elef) + " " + gimatria(prat)}
-            var OX = roxana_haba - roxana_zo
-            if (xana_zo == 1) {OX = 0}
-            this.Q = (xana_zo % 19)
-            if ([3,6,8,11,14,17].includes(Q)) {Q = 0}
-            var orec_codex = [30,29,30,29,30,30,29,30,29,30,29,30,29]
-            if (OX == 385 || OX == 355) {orec_codex[1] = 30}
-            if (OX == 383 || OX == 353) {orec_codex[2] = 29}
-            if (Q != 0) {orec_codex[5] = 0}
+            var orec_codex = OC(roxana_zo,roxana_haba,xana_zo).ymei_codex
             var yom_xana = DSC - roxana_zo
 			this.mispar_codex = 0
             while (yom_xana >= 0) {yom_xana -= orec_codex[mispar_codex] , mispar_codex ++}
@@ -196,7 +199,7 @@
 			function MSH(OD){
 			var C = QIV(OD)
 			var xvatim = ["בנימין","דן","נפתלי","גד","אשר","מנשה","אפרים","ראובן","שמעון","לוי","יהודה","יששכר","זבולן"]
-			if (C.Q != 0 && C.mispar_codex == 6) {xvatim[6] = "יוסף"}
+			if (OC(0,0,C.xana_zo).Q != 0 && C.mispar_codex == 6) {xvatim[6] = "יוסף"}
 			var xevet = xvatim[C.mispar_codex] , yshia = C.xana_zo - 2449
 			if (C.mispar_codex > 6) yshia ++
 			if (yshia > 0) {document.write("\u200F",C.yom_codex," ",xevet," ",yshia,"<br />")}}
@@ -233,14 +236,7 @@
 			function qivri(xana,codex,yom){
             var roxana_zo = taaric(CQ(xana),xana)
             var roxana_haba = taaric(CQ(xana + 1),xana + 1)
-            var OX = roxana_haba - roxana_zo
-			if (xana == 1) {OX = 0}
-            var Q = (xana % 19)
-            if ([3,6,8,11,14,17].includes(Q)) {Q = 0}
-            var orec_codex = [30,29,30,29,30,30,29,30,29,30,29,30]
-            if (OX == 385 || OX == 355) {orec_codex[1] = 30}
-            if (OX == 383 || OX == 353) {orec_codex[2] = 29}
-            if (Q != 0) {orec_codex[5] = 0}
+            var orec_codex = OC(roxana_zo,roxana_haba,xana_zo).ymei_codex
 			var yom_xana = yom - 2
 			while (codex > 0) {yom_xana += orec_codex[codex - 1] , codex --}
 			return roxana_zo + yom_xana}
