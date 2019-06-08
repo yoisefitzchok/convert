@@ -237,7 +237,7 @@
 			function qivri(xana,codex,yom){
             var roxana_zo = taaric(CQ(xana),xana)
             var roxana_haba = taaric(CQ(xana + 1),xana + 1)
-            var orec_codex = OC(roxana_zo,roxana_haba,xana_zo).ymei_codex
+            var orec_codex = OC(roxana_zo,roxana_haba,xana).ymei_codex
 			var yom_xana = yom - 2
 			while (codex > 0) {yom_xana += orec_codex[codex - 1] , codex --}
 			return roxana_zo + yom_xana}
