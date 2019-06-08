@@ -55,10 +55,13 @@
 			this.MH = Math.floor(ADP / 1080) , MP = ADP % 1080
 			this.MAP = APN[(Math.floor(MT * 24) - 180) % 7]
 			return this}
-            function taaric(codaxim,xana){
-            var Q = (xana % 19)
+			function qibur(xana){
+			var Q = (xana % 19)
             if ([3,6,8,11,14,17].includes(Q)) {Q = 0}
             if ([4,7,9,12,15,18].includes(Q)) {Q = 1}
+			return Q}
+            function taaric(codaxim,xana){
+            var Q = qibur(xana)
             var rox_haxana = cixuv(codaxim).CMT
             if (MH > 17) {rox_haxana ++}
             else if (MD == 3 && ((MH == 9 && MP > 203) || MH > 9) && Q != 0) {rox_haxana ++}
@@ -83,13 +86,12 @@
 			function OC(RZ,RB,MX){
             var OX = RB - RZ
 			if (MX == 1) {OX = 0}
-            this.Q = MX % 19
-            if ([3,6,8,11,14,17].includes(Q)) {Q = 0}
+            var Q = qibur(MX)
             this.ymei_codex = [30,29,30,29,30,30,29,30,29,30,29,30,29]
             if (OX == 385 || OX == 355) {ymei_codex[1] = 30}
             if (OX == 383 || OX == 353) {ymei_codex[2] = 29}
             if (Q != 0) {ymei_codex[5] = 0}
-			return this}
+			return ymei_codex}
 			function YOM(OD){
             this.TSC = OD
 			if (OD == null) {TSC = JD - 348346.1521227}
@@ -166,14 +168,14 @@
 			var elef = Math.ceil(xana_zo / 1000) - 1 , prat = ((xana_zo - 1) % 1000) + 1
             this.xana = gimatria(elef) + gimatria(prat)
 			if (gimatria(elef).length > 2) {xana = gimatria(elef) + " " + gimatria(prat)}
-            var orec_codex = OC(roxana_zo,roxana_haba,xana_zo).ymei_codex
+            var orec_codex = OC(roxana_zo,roxana_haba,xana_zo)
             var yom_xana = DSC - roxana_zo
 			this.mispar_codex = 0
             while (yom_xana >= 0) {yom_xana -= orec_codex[mispar_codex] , mispar_codex ++}
             mispar_codex --
-            var xmot_codaxim = ["תשרי","מרחשון","כסלו","טבת","שבט","אדר א'","אדר","ניסן","אייר","סיון","תמוז","אב","אלול"]
+            var xmot_codaxim = ["תשרי","מרחשון","כסלו","טבת","שבט","אדר א'","אדר ב'","ניסן","אייר","סיון","תמוז","אב","אלול"]
+            if (qibur(xana_zo) != 0) {xmot_codaxim[6] = "אדר"}
             this.codex = xmot_codaxim[mispar_codex]
-            if (Q == 0 && mispar_codex == 6) {codex = "אדר ב'"}
             this.yom_codex = yom_xana + orec_codex[mispar_codex] + 1
             this.yom = gimatria(yom_codex)
 			if (xana_zo < 4120) {yom = yom + "?" , codex = codex + "?"}
@@ -189,20 +191,18 @@
             if (rexit > DSC) {G = F , F = taaric(CQ(-- I),I)}
             var YR = F % 7 , YP = G % 7
             rexit = F - YR + 22
-            var Q = (I % 19)
-            if ([3,6,8,11,14,17].includes(Q)) {Q = 0}
+            var Q = qibur(I)
             var paraxa = sdarim(YR,YP,Q)[Math.floor((DSC - rexit) / 7)]
             var mabul = I - 1657
 			if (mabul < 3300) {paraxa = paraxa + "?"}
 			if (mabul >= 0) {document.write(xem_yom," ",paraxa," ",mabul,"<br />")}}
 			function luac(OD) {KY(OD),MIX(OD),DOR(OD),XEV(OD),HAM(OD),KH(OD),KQ(OD),PAR(OD),document.write("<br />")} luac()
-			function MSH(OD){
-			var C = QIV(OD)
+			function MSH(OD){ QIV(OD)
 			var xvatim = ["בנימין","דן","נפתלי","גד","אשר","מנשה","אפרים","ראובן","שמעון","לוי","יהודה","יששכר","זבולן"]
-			if (OC(0,0,C.xana_zo).Q != 0 && C.mispar_codex == 6) {xvatim[6] = "יוסף"}
-			var xevet = xvatim[C.mispar_codex] , yshia = C.xana_zo - 2449
-			if (C.mispar_codex > 6) yshia ++
-			if (yshia > 0) {document.write("\u200F",C.yom_codex," ",xevet," ",yshia,"<br />")}}
+			if (qibur(xana_zo) != 0) {xvatim[6] = "יוסף"}
+			var xevet = xvatim[mispar_codex] , yshia = xana_zo - 2449
+			if (mispar_codex > 6) yshia ++
+			if (yshia > 0) {document.write("\u200F",yom_codex," ",xevet," ",yshia,"<br />")}}
 			function SAF(OD){
 			var E = QIV(OD).xana_zo
 			var xmita = "מעשר שני"
@@ -236,7 +236,7 @@
 			function qivri(xana,codex,yom){
             var roxana_zo = taaric(CQ(xana),xana)
             var roxana_haba = taaric(CQ(xana + 1),xana + 1)
-            var orec_codex = OC(roxana_zo,roxana_haba,xana).ymei_codex
+            var orec_codex = OC(roxana_zo,roxana_haba,xana)
 			var yom_xana = yom - 2
 			while (codex > 0) {yom_xana += orec_codex[codex - 1] , codex --}
 			return roxana_zo + yom_xana}
@@ -244,8 +244,7 @@
 			var xana = mabul + 1657
 			var RX = taaric(CQ(xana),xana)
             var YR = RX % 7 , YP = taaric(CQ(xana + 1),xana + 1) % 7
-            var Q = (xana % 19)
-            if ([3,6,8,11,14,17].includes(Q)) {Q = 0}
+            var Q = qibur(xana)
 			for (var kria = 0; kria < sdarim(YR,YP,Q).length; kria ++)
 			{if (sdarim(YR,YP,Q)[kria] == seder) return RX + (kria * 7) + yom + 20 - YR} return "שגיאה"}
 			function xviqit(day,week,season,year,release,jubilee,cycle){
