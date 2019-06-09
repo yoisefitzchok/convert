@@ -51,8 +51,8 @@
 			this.MT = (codex * ML) + (79 / 12)
 			this.CMT = Math.floor(MT)
             this.MD = CMT % 7
-			this.ADP = Math.round((MT % 1) * 25920)
-			this.MH = Math.floor(ADP / 1080) , MP = ADP % 1080
+			this.DP = Math.round((MT % 1) * 25920)
+			this.MH = Math.floor(DP / 1080) , MP = DP % 1080
 			this.MAP = APN[(Math.floor(MT * 24) - 180) % 7]
 			return this}
 			function qibur(xana){
