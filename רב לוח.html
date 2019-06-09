@@ -322,7 +322,7 @@
 			if (year > 1600 && [100,200,300].includes(year % 400)) {LOM[1] = 28}}
 			var date = day + LOM[month - 1]
             document.write(date,"/",month,"/",year,"<br />")}
-			else {day = 1 - day , month = 12
+			if (day < 1) {day = 1 - day , month = 12
 			while (day > 0) {if (month == 0) {month = 12 , year ++}
 			month -- , day -= LOM[month]
 			if (year % 4 == 1) {LOM[1] = 29}
