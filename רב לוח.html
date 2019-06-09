@@ -38,7 +38,7 @@
 			if (tem.length == 1) {ans = tem + "'"}
 			if (tem.length > 1) {ans = tem.substr(0,tem.length - 1) + '"' + tem.substr(tem.length - 1)}
 			return ans}
-			function xaqa(H,M,S){ H += 6 , M += 20 , S += 56.6
+			function xaqa(H,M,S){ H += 6 , M += 20 , S += 56.602
 			while (S >= 60) {S -= 60 , M ++}
 			while (M >= 60) {M -= 60 , H ++}
 			while (H >= 24) {H -= 24}
@@ -95,7 +95,7 @@
 			function YOM(OD){
             this.TSC = OD
 			if (OD == null) {TSC = JD - 348346.1521227}
-            this.DSC = Math.floor(TSC) + 1
+            this.DSC = Math.floor(TSC) + 1 , CT = TSC
 			return this}
             function KY(OD) {if (YOM(OD).DSC > 0) {document.write("יום ",DSC," לבריאת העולם","<br />")}}
 			function MIX(OD){
@@ -312,7 +312,7 @@
 			if (TSC >= 2075327) {document.write(masectot[masecet - 1],daf,"<br />")}
 			else document.write("עדיין לא התחילו<br />")}
 			var LOM = [31,28,31,30,31,30,31,31,30,31,30,31]
-			function laqaz(OD){ var day = Math.floor(OD) - 1373076 , year = 1
+			function laqaz(OD){ var day = Math.floor(OD - 1373076.264544) , year = 1
 			if (day > 577737) {day += 10}
 			if (day > 0) {var month = 0
 			while (day > 0) {if (month == 12) {month = 0 , year ++}
@@ -320,7 +320,7 @@
 			if (year % 4 == 0) {LOM[1] = 29}
 			else {LOM[1] = 28}
 			if (year > 1600 && [100,200,300].includes(year % 400)) {LOM[1] = 28}}
-			var day = day + LOM[month - 1]
+			day = day + LOM[month - 1]
             document.write(day,"/",month,"/",year,"<br />")}
 			if (day < 1) {day = 1 - day , month = 12
 			while (day > 0) {if (month == 0) {month = 12 , year ++}
