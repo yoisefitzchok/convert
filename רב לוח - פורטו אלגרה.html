@@ -189,7 +189,7 @@
             var xem_yom = xemot[YOM(OD).DSC % 7]
 			var I = QIV(OD).xana_zo , F = roxana_zo , G = roxana_haba
             var rexit = F - (F % 7) + 22
-            if (rexit > DSC) {G = F , F = taaric(I)}
+            if (rexit > DSC) {G = F , F = taaric(-- I)}
             var YR = F % 7 , YP = G % 7
             rexit = F - YR + 22
             var Q = qibur(I)
