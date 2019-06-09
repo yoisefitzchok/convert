@@ -320,8 +320,8 @@
 			if (year % 4 == 0) {LOM[1] = 29}
 			else {LOM[1] = 28}
 			if (year > 1600 && [100,200,300].includes(year % 400)) {LOM[1] = 28}}
-			var date = day + LOM[month - 1]
-            document.write(date,"/",month,"/",year,"<br />")}
+			var day = day + LOM[month - 1]
+            document.write(day,"/",month,"/",year,"<br />")}
 			if (day < 1) {day = 1 - day , month = 12
 			while (day > 0) {if (month == 0) {month = 12 , year ++}
 			month -- , day -= LOM[month]
