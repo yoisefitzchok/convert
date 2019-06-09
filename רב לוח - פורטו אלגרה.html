@@ -30,15 +30,15 @@
             var gim2 = ["","י","כ","ל","מ","נ","ס","ע","פ","צ"]
             var gim3 = ["","ק","ר","ש"]
 			function gimatria(num){
-			if (num % 100 == 15 || num % 100 == 16)  {gim2[1] = "ט" , num ++}
+			if ((num % 100) == 15 || (num % 100) == 16)  {gim2[1] = "ט" , num ++}
 			var tem = gim3[Math.floor((num % 400) / 100)] + gim2[Math.floor((num % 100) / 10)] + gim1[num % 10]
             while (num > 399) {tem = "ת" + tem , num -= 400}
-			gim2[1] = "י"
+            gim2[1] = "י"
 			var ans = tem
 			if (tem.length == 1) {ans = tem + "'"}
 			if (tem.length > 1) {ans = tem.substr(0,tem.length - 1) + '"' + tem.substr(tem.length - 1)}
 			return ans}
-			function xaqa(H,M,S){ H += 5 , M += 35 , S += 13.92
+			function xaqa(H,M,S){ H += 6 , M += 20 , S += 56.602
 			while (S >= 60) {S -= 60 , M ++}
 			while (M >= 60) {M -= 60 , H ++}
 			while (H >= 24) {H -= 24}
@@ -87,22 +87,21 @@
             var OX = RB - RZ
 			if (MX == 1) {OX = 0}
             var Q = qibur(MX)
-            var ymei_codex = [30,29,30,29,30,30,29,30,29,30,29,30,29]
+            this.ymei_codex = [30,29,30,29,30,30,29,30,29,30,29,30,29]
             if (OX == 385 || OX == 355) {ymei_codex[1] = 30}
             if (OX == 383 || OX == 353) {ymei_codex[2] = 29}
             if (Q != 0) {ymei_codex[5] = 0}
 			return ymei_codex}
 			function YOM(OD){
             this.TSC = OD
-			if (OD == null) {TSC = JD - 348346.3922}
-            this.DSC = Math.floor(TSC) + 1
+			if (OD == null) {TSC = JD - 348346.1521227}
+            this.DSC = Math.floor(TSC) + 1 , CT = TSC
 			return this}
             function KY(OD) {if (YOM(OD).DSC > 0) {document.write("יום ",DSC," לבריאת העולם","<br />")}}
 			function MIX(OD){
             var BAN = ["אליעזר","שבניהו","יושפט","נתנאל","עמשי","זכריהו","בניהו"]
             var BA = BAN[YOM(OD).DSC % 7]
             var ST1 = TSC - 1068927.75
-			if (OD == null) {ST1 = JD - 1417273.9021227}
             if (ST1 > 3080) {ST1 -= 7}
             var ST2 = ST1 - 177492
             var BT = ST2 + 7868
@@ -284,11 +283,8 @@
 			if (y0 > 6) {y0 -= 7}}
 			return codex}}
 			function sig(OD){
-            var TSC = OD
-			if (OD == null) {TSC = JD - 348346.1521227}
-            var HSC = Math.floor(TSC * 24) + 1 , MSC = Math.floor(TSC * 1440) + 1
-            var HAP1 = Math.floor(YOM(OD).TSC * 24) - 71
-			var HAP2 = HAP1 - 84
+            var HSC = Math.floor(YOM(OD).TSC * 24) + 1 , MSC = Math.floor(TSC * 1440) + 1
+            var HAP1 = HSC - 72 , HAP2 = HSC - 156
 			var APH = APN[(HAP2 - 1) % 7]
 			var APC1 = Math.ceil(HAP1 / 7) , APC2 = Math.ceil(HAP2 / 7)
             //document.write(HSC," שעות לבריאת העולם","<br />")
@@ -316,7 +312,7 @@
 			if (TSC >= 2075327) {document.write(masectot[masecet - 1],daf,"<br />")}
 			else document.write("עדיין לא התחילו<br />")}
 			var LOM = [31,28,31,30,31,30,31,31,30,31,30,31]
-			function laqaz(OD){ var day = Math.floor(OD) - 1373076 , year = 1
+			function laqaz(OD){ var day = Math.floor(OD - 1373076.264544) , year = 1
 			if (day > 577737) {day += 10}
 			if (day > 0) {var month = 0
 			while (day > 0) {if (month == 12) {month = 0 , year ++}
@@ -324,7 +320,7 @@
 			if (year % 4 == 0) {LOM[1] = 29}
 			else {LOM[1] = 28}
 			if (year > 1600 && [100,200,300].includes(year % 400)) {LOM[1] = 28}}
-			var day = day + LOM[month - 1]
+			day = day + LOM[month - 1]
             document.write(day,"/",month,"/",year,"<br />")}
 			if (day < 1) {day = 1 - day , month = 12
 			while (day > 0) {if (month == 0) {month = 12 , year ++}
@@ -337,7 +333,7 @@
             if (Y < 0) {Y ++}
             if (M < 3) {M += 12 , Y --}
             if (Y > 1582 || Y == 1582 && (M > 11 || (M == 11 && D > 14))) {L = Math.floor(Y / 100) - Math.floor(Y / 400) - 2}
-            return Math.floor((Y + 3760) * 365.25) + Math.floor((M + 1) * 30.6) + D - L - 691.7672 + T}
+            return Math.floor((Y + 3760) * 365.25) + Math.floor((M + 1) * 30.6) + D - L - 691.735456 + T}
         </script>
     </body>
 </html>
