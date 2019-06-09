@@ -60,9 +60,9 @@
             if ([3,6,8,11,14,17].includes(Q)) {Q = 0}
             if ([4,7,9,12,15,18].includes(Q)) {Q = 1}
 			return Q}
-            function taaric(codaxim,xana){
+            function taaric(xana){
             var Q = qibur(xana)
-            var rox_haxana = cixuv(codaxim).CMT
+            var rox_haxana = cixuv(CQ(xana)).CMT
             if (MH > 17) {rox_haxana ++}
             else if (MD == 3 && ((MH == 9 && MP > 203) || MH > 9) && Q != 0) {rox_haxana ++}
             else if (MD == 2 && ((MH == 15 && MP > 588) || MH > 15) && Q == 1) {rox_haxana ++}
@@ -163,8 +163,8 @@
             function KH(OD) {if (HOD(OD).RM >= 0) {document.write("ה",DN," ב",WN," ל",MN," מ",GN," מחזור ",CN,"<br />")}}
 			function QIV(OD){
             this.xana_zo = MQ(HOD(OD).AM)
-            this.roxana_zo = taaric(CQ(xana_zo),xana_zo) , roxana_haba = taaric(CQ(xana_zo + 1),xana_zo + 1)
-            if (roxana_zo > YOM(OD).DSC) {roxana_haba = roxana_zo , roxana_zo = taaric(CQ(-- xana_zo),xana_zo)}
+            this.roxana_zo = taaric(xana_zo) , roxana_haba = taaric(xana_zo + 1)
+            if (roxana_zo > YOM(OD).DSC) {roxana_haba = roxana_zo , roxana_zo = taaric(-- xana_zo)}
             if (roxana_haba == DSC) {roxana_zo = roxana_haba , xana_zo ++}
 			var elef = Math.ceil(xana_zo / 1000) - 1 , prat = ((xana_zo - 1) % 1000) + 1
             this.xana = gimatria(elef) + gimatria(prat)
@@ -189,7 +189,7 @@
             var xem_yom = xemot[YOM(OD).DSC % 7]
 			var I = QIV(OD).xana_zo , F = roxana_zo , G = roxana_haba
             var rexit = F - (F % 7) + 22
-            if (rexit > DSC) {G = F , F = taaric(CQ(-- I),I)}
+            if (rexit > DSC) {G = F , F = taaric(I)}
             var YR = F % 7 , YP = G % 7
             rexit = F - YR + 22
             var Q = qibur(I)
@@ -235,16 +235,16 @@
 			if (OD == null) {SQ = "היום " + SQ}
 			if (qomer > 0 && qomer < 50) {document.write(SQ,"<br />")}}
 			function qivri(xana,codex,yom){
-            var roxana_zo = taaric(CQ(xana),xana)
-            var roxana_haba = taaric(CQ(xana + 1),xana + 1)
+            var roxana_zo = taaric(xana)
+            var roxana_haba = taaric(xana + 1)
             var orec_codex = OC(roxana_zo,roxana_haba,xana)
 			var yom_xana = yom - 2
 			while (codex > 0) {yom_xana += orec_codex[codex - 1] , codex --}
 			return roxana_zo + yom_xana}
 			function kriot(mabul,seder,yom){
 			var xana = mabul + 1657
-			var RX = taaric(CQ(xana),xana)
-            var YR = RX % 7 , YP = taaric(CQ(xana + 1),xana + 1) % 7
+			var RX = taaric(xana)
+            var YR = RX % 7 , YP = taaric(xana + 1) % 7
             var Q = qibur(xana)
 			for (var kria = 0; kria < sdarim(YR,YP,Q).length; kria ++)
 			{if (sdarim(YR,YP,Q)[kria] == seder) return RX + (kria * 7) + yom + 20 - YR} return "שגיאה"}
