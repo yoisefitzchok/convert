@@ -166,7 +166,7 @@
 			this.NH = "יום "
 			if ((TSC % 1) < 0.5) {NH = "ליל "}
 			return this}
-			function KQ(OD) {if (YOM(OD).DSC > 0) {document.write(QIV(OD).NH,yom," ",codex," ",xana,"<br />")}}
+			function KQ(OD) {if (YOM(OD).DSC > 0) {document.write(QIV(OD).NH,yom," ",codex," ",xana,"\u200F<br />")}}
 			function PAR(OD){ var I = QIV(OD).xana_zo , F = roxana_zo , G = roxana_haba
             var rexit = F - (F % 7) + 22
             if (rexit > DSC) {G = F , F = taaric(-- I)}
