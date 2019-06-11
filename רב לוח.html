@@ -224,7 +224,7 @@
 			if (ot == "א") {if (scum > 3250) {return scum + 1068759} else {return scum + 1068752}}
 			else if (ot == "ב") {return scum + 1238383} else {return scum + 1246251}}
 			function dorot (dor,gux,yom) {return ((dor - 975) * 750) + ((gux - 1) * 30) + yom - 1}
-			function moladot(maczor,kvusha,codex,xabat,yom){
+			function kocavim(maczor,kvusha,codex,xabat,yom){
 			while (kvusha > 1) {codex += MN_C[(kvusha - 1) % 9] , kvusha --}
 			var zman = ((((maczor - 1) * 1080) + codex + 82) * ML) + (79 / 12)
 			return ((xabat - 1) * 7) + yom - 1 + zman - (zman % 7)}
