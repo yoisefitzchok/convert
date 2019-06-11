@@ -229,8 +229,7 @@
 			while (kvusha > 1) {codex += MN_C[(kvusha - 1) % 9] , kvusha --}
 			var zman = ((((maczor - 1) * 1080) + codex + 82) * ML) + (79 / 12)
 			return ((xabat - 1) * 7) + yom - 1 + zman - (zman % 7)}
-			function galgal(braca,kocav,xana,mazal,yom){
-			return ((braca - 1) * 10227) + ((kocav - 1) * 1461) + Math.round((((xana - 1) * 12) + mazal - 1) * ZSL) + yom - 180}
+			function galgal(braca,kocav,xana,mazal,yom) {return ((braca-1)*10227)+((kocav-1)*1461)+Math.round((((xana-1)*12)+mazal-1)*ZSL)+yom-180}
 			function molad(codex){ cixuv(codex)
 			if (codex >= 0) {document.write(MD," ",MH," ",MP," ",MAP,"<br />")}
 			else {document.write(MD + 7," ",MH + 24," ",(MP + 1080) % 1080,"<br />")}}
@@ -240,11 +239,8 @@
 			while (codex < codaxim) {molad(CQ(xana) + codex) , codex ++} document.write("<br />")}
 			function cipus(yom,xaqa,celek){if (yom == 7) {yom = 0} var y0 = 6 , x0 = 14 , c0 = 0 , codex = 0
 			if (yom<0||yom>6||xaqa<0||xaqa>23||celek<0||celek>1079||yom%1!=0||xaqa%1!=0||celek%1!=0) {document.write("שגיאה<br />")}
-			else {while (c0 != celek) {c0 += 793 , x0 += 12 , y0 += 1 , codex ++
-			if (c0 > 1079) {c0 -= 1080 , x0 ++} if (x0 > 23) {x0 -= 24 , y0 ++} if (y0 > 6) {y0 -= 7}}
-			while (x0 != xaqa || y0 != yom) {x0 ++ , y0 ++ , codex += 1080
-			if (x0 > 23) {x0 -= 24 , y0 ++} if (y0 > 6) {y0 -= 7}}
-			return codex}}
+			else {while (c0 != celek || x0 != xaqa || y0 != yom) {c0 += 793 , x0 += 12 , y0 += 1 , codex ++
+			if (c0 > 1079) {c0 -= 1080 , x0 ++} if (x0 > 23) {x0 -= 24 , y0 ++} if (y0 > 6) {y0 -= 7}} return codex}}
 			function sig(OD){ YOM(OD)
             var HSC = Math.floor(TL * 24) + 1 , MSC = Math.floor(TL * 1440) + 1
             var HAP1 = Math.floor(TSC * 24) - 71
@@ -288,6 +284,10 @@
             if (M < 3) {M += 12 , Y --}
             if (Y > 1582 || Y == 1582 && (M > 11 || (M == 11 && D > 14))) {L = Math.floor(Y / 100) - Math.floor(Y / 400) - 2}
             return Math.floor((Y + 3760) * 365.25) + Math.floor((M + 1) * 30.6) + D - L - 691.7672 + T}
+			function xaqon(codex){ laqaz(YOM(cixuv(codex).MT - 1).CT)
+			var Z = Math.round(((CT - 0.2328) % 1) * 86400) , M = 0 , H = 0
+			while (Z > 59) {Z -= 60 , M ++} while (M > 59) {M -= 60 , H ++}
+			document.write(H,":",M,":",Z,"<br />")}
         </script>
     </body>
 </html>
