@@ -265,16 +265,15 @@
 			var LOM = [31,28,31,30,31,30,31,31,30,31,30,31]
 			function laqaz(OD){ var day = Math.floor(OD - 1373076.2328) , year = 1
 			if (day > 577737) {day += 10}
+			if (day < 1) {day = 1 - day , month = 12
+			while (day > 0) {if (month == 0) {month = 12 , year ++} month -- , day -= LOM[month]
+			if (year % 4 == 1) {LOM[1] = 29} else {LOM[1] = 28}}
+			document.write(1 - day,"/",month + 1,"/",0 - year,"<br />")}
 			if (day > 0) {var month = 0
 			while (day > 0) {if (month == 12) {month = 0 , year ++} day -= LOM[month] , month ++
 			if (year % 4 == 0) {LOM[1] = 29} else {LOM[1] = 28}
 			if (year > 1600 && [100,200,300].includes(year % 400)) {LOM[1] = 28}}
-			day += LOM[month - 1]
-            document.write(day,"/",month,"/",year,"<br />")}
-			if (day < 1) {day = 1 - day , month = 12
-			while (day > 0) {if (month == 0) {month = 12 , year ++} month -- , day -= LOM[month]
-			if (year % 4 == 1) {LOM[1] = 29} else {LOM[1] = 28}}
-			document.write(1 - day,"/",month + 1,"/",0 - year,"<br />")}}
+            document.write(day + LOM[month - 1],"/",month,"/",year,"<br />")}}
 			function umot(Y,M,D,H,m,s){ var T = (H / 24) + (m / 1440) + (s / 86400) , L = 0
             if (Y < 0) {Y ++}
             if (M < 3) {M += 12 , Y --}
