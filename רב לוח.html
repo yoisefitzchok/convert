@@ -27,7 +27,7 @@
             var gim1 = ["","א","ב","ג","ד","ה","ו","ז","ח","ט"]
             var gim2 = ["","י","כ","ל","מ","נ","ס","ע","פ","צ"]
             var gim3 = ["","ק","ר","ש"]
-			function gimatria(num){ if ((num % 100) == 15 || (num % 100) == 16)  {gim2[1] = "ט" , num ++}
+			function gimatria(num){ if (num % 100 == 15 || num % 100 == 16)  {gim2[1] = "ט" , num ++}
 			var tem = gim3[Math.floor((num % 400) / 100)] + gim2[Math.floor((num % 100) / 10)] + gim1[num % 10]
             while (num > 399) {tem = "ת" + tem , num -= 400} gim2[1] = "י"
 			var ans = tem
@@ -279,7 +279,7 @@
             return Math.floor((Y + 3760) * 365.25) + Math.floor((M + 1) * 30.6) + D - L - 691.735456 + T}
 			function xaqon(codex){ laqaz(YOM(cixuv(codex).MT - 1).CT)
 			var Z = Math.round(((CT - 0.264544) % 1) * 86400) , M = 0 , H = 0
-			while (Z > 59) {Z -= 60 , M ++} while (M > 59) {M -= 60 , H ++}
+			if (Z < 0) {Z += 86400} while (Z > 59) {Z -= 60 , M ++} while (M > 59) {M -= 60 , H ++}
 			document.write(H,":",M,":",Z,"<br />")}
         </script>
     </body>
