@@ -281,7 +281,7 @@
             return Math.floor((Y + 3760) * 365.25) + Math.floor((M + 1) * 30.6) + D - L - 691.7672 + T}
 			function xaqon(codex){ laqaz(YOM(cixuv(codex).MT - 1).CT)
 			var Z = Math.round(((CT - 0.2328) % 1) * 86400) , M = 0 , H = 0
-			while (Z > 59) {Z -= 60 , M ++} while (M > 59) {M -= 60 , H ++}
+			if (Z < 0) {Z += 86400} while (Z > 59) {Z -= 60 , M ++} while (M > 59) {M -= 60 , H ++}
 			document.write(H,":",M,":",Z,"<br />")}
         </script>
     </body>
