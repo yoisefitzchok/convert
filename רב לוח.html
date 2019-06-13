@@ -114,7 +114,7 @@
             var year = Math.floor(((DSC - 1) % 2548) / 364) + 1
             var release = Math.floor(((DSC -1) % 17836) / 2548) + 1
             var jubilee_Letter = "תאבגדהוזחטיכלמנסעפצקרש"
-            var jubilee = jubilee_Letter.charAt(Math.ceil(DSC / 17836) % 22)
+            var jubilee = jubilee_Letter[Math.ceil(DSC / 17836) % 22]
             var cycle = Math.ceil(DSC / 392392)
             cycle = gim2[Math.floor(cycle / 10)] + gim1[cycle % 10]
             if (DSC > 0) {document.write(day," ",week," ",season," ",year," ",release," ",jubilee," ",cycle,"<br />")}}
