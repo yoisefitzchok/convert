@@ -81,15 +81,15 @@ if (OX == 385 || OX == 355) {YC[1] = 30}
 if (OX == 383 || OX == 353) {YC[2] = 29}
 return YC}
 function YOM(OD){
-this.TSC = OD
-if (OD == null) {TSC = JD - 348346.525}
-this.DSC = Math.floor(TSC) + 1 , CT = TSC - 0.3728773 , TL = TSC + 0.3728773
+this.TL = OD
+if (OD == null) {TL = JD - 348346.525}
+this.DSC = Math.floor(TL) + 1 , CT = TL - 0.3728773 , TSC = TL + 0.3728773
 return this}
 function KY(OD) {if (YOM(OD).DSC > 0) {DOC("יום ",DSC," לבריאת העולם")}}
 function MIX(OD){
 var BAN = ["אליעזר","שבניהו","יושפט","נתנאל","עמשי","זכריהו","בניהו"]
 var BA = BAN[YOM(OD).DSC % 7]
-var ST1 = TSC - 1068927.75
+var ST1 = TL - 1068927.75
 if (OD == null) {ST1 = JD - 1417273.9021227}
 if (ST1 > 3080) {ST1 -= 7}
 var ST2 = ST1 - 177492
@@ -126,10 +126,10 @@ var ZSC = Math.floor((SC + 0.49) / ZSL)
 var ZS = ZSN[ZSC % 12] , DM = SC - Math.round(ZSC * ZSL) + 1
 if (SC >= 0) {DOC("\u200F",DM," ב",ZS," ",SY," ",AP," ",SB)}
 var qonot = ["זרע","חרף","קר","קציר","קיץ","חם"]
-return qonot[Math.floor((TSC - 604872.84375) / ZSL / 2) % 6]}
+return qonot[Math.floor((TL - 604872.84375) / ZSL / 2) % 6]}
 function HOD(OD){ YOM(OD)
 while (DSC < 0) {DSC += 7} this.DN = seder[DSC % 7]
-this.AM = Math.floor((TSC - (67 / 12)) / ML)
+this.AM = Math.floor((TL - (67 / 12)) / ML)
 this.RM = AM - 83
 var WNC = (DSC - cixuv(AM).CMT) + MD
 this.WN = xevaq[Math.ceil(WNC / 7)]
@@ -162,7 +162,7 @@ yom_codex += orec_codex[mispar_codex] + 1
 this.yom = gimatria(yom_codex)
 if (xana_zo < 4120) {yom = yom + "?" , codex = codex + "?"}
 this.NH = "יום "
-if ((TSC % 1) < 0.5) {NH = "ליל "}
+if ((TL % 1) < 0.5) {NH = "ליל "}
 return this}
 function KQ(OD) {if (YOM(OD).DSC > 0) {DOC(QIV(OD).NH,yom," ",codex," ",xana,"\u200F")}}
 function PAR(OD){ var I = QIV(OD).xana_zo , F = roxana_zo , G = roxana_haba
@@ -238,13 +238,13 @@ if (yom<0||yom>6||xaqa<0||xaqa>23||celek<0||celek>1079||yom%1!=0||xaqa%1!=0||cel
 while (c0 != celek || x0 != xaqa || y0 != yom) {c0 += 793 , x0 += 12 , y0 += 1 , codex ++
 if (c0 > 1079) {c0 -= 1080 , x0 ++} if (x0 > 23) {x0 -= 24 , y0 ++} if (y0 > 6) {y0 -= 7}} return codex}
 function sig(OD){ YOM(OD)
-var HSC = Math.floor(TL * 24) + 1 , MSC = Math.floor(TL * 1440) + 1
-var HAP = Math.floor(TSC * 24) - 156
+var HSC = Math.floor(TSC * 24) + 1 , MSC = Math.floor(TSC * 1440) + 1
+var HAP = Math.floor(TL * 24) - 156
 var APH = APN[HAP % 7]
 if (MSC > 0) {DOC("דקה ",MSC," לבריאת העולם")}
 if (HAP >= 0) {DOC("שעת שליטת ",APH)}
 return "שעה " + HSC + " לבריאת העולם"}
-function DAF(OD){ var days = Math.floor(YOM(OD).TSC) - 2075326 , masecet = 0 , cycle = 1
+function DAF(OD){ var days = Math.floor(YOM(OD).TL) - 2075326 , masecet = 0 , cycle = 1
 var dapim = [63,156,104,120,12,87,55,39,34,30,31,28,26,121,111,90,65,48,89,81,118,118,175,112,23,48,75,13,119,109,141,60,33,33,27,20,4,8,4,72]
 while (days > 0) {if (masecet == 40) {masecet = 0 , cycle ++} days -= dapim[masecet] , masecet ++
 if (cycle > 7) {dapim[4] = 21}} days += dapim[masecet - 1] + 1
@@ -254,10 +254,10 @@ var daf = " " + gim3[Math.floor(days / 100)] + gim2[Math.floor((days % 100) / 10
 var masectot = ["ברכות","שבת","עירובין","פסחים","שקלים","יומא","סוכה","ביצה","ראש השנה","תענית","מגילה","מועד קטן","חגיגה",
 "יבמות","כתובות","נדרים","נזיר","סוטה","גיטין","קידושין","בבא קמא","בבא מציעא","בבא בתרא","סנהדרין","מכות","שבועות","עבודה זרה","הוריות",
 "זבחים","מנחות","חולין","בכורות","ערכין","תמורה","כריתות","מעילה","קינים","תמיד","מידות","נדה"]
-if (TSC >= 2075327) {DOC(masectot[masecet - 1],daf)}
+if (TL >= 2075327) {DOC(masectot[masecet - 1],daf)}
 else {DOC("עדיין לא התחילו")}
 gim2[1] = "י"}
-function laqaz(OD){ var z = Math.floor(OD - 1373076.2328) , t = 0
+function laqaz(OD){ var z = Math.floor(OD - 1373076.225) , t = 0
 if (z > 577737) {t = Math.floor((z - 145793.25 ) / 36524.25) , z += t - Math.floor(t / 4) + 1}
 var h = z + 428
 var x = Math.floor((h - 122.1) / 365.25)
