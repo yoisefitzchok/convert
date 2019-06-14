@@ -257,17 +257,15 @@ var masectot = ["ברכות","שבת","עירובין","פסחים","שקלים"
 if (TSC >= 2075327) {DOC(masectot[masecet - 1],daf)}
 else {DOC("עדיין לא התחילו")}
 gim2[1] = "י"}
-var LOM = [31,28,31,30,31,30,31,31,30,31,30,31]
-function laqaz(OD){ var day = Math.floor(OD - 1373076.225) , year = 1
-if (day > 577737) {day += 10}
-if (day < 1) {day = 1 - day , month = 12
-while (day > 0) {if (month == 0) {month = 12 , year ++} month -- , day -= LOM[month]
-if (year % 4 == 1) {LOM[1] = 29} else {LOM[1] = 28}}
-DOC(1 - day,"/",month + 1,"/",0 - year)}
-if (day > 0) {var month = 0
-while (day > 0) {if (month == 12) {month = 0 , year ++} day -= LOM[month] , month ++
-if (year % 4 == 0) {LOM[1] = 29} else {LOM[1] = 28} if (year > 1600 && [100,200,300].includes(year % 400)) {LOM[1] = 28}}
-DOC(day + LOM[month - 1],"/",month,"/",year)}}
+function laqaz(OD){ var z = Math.floor(OD - 1373076.2328) , t = 0
+if (z > 577737) {t = Math.floor((z - 145793.25 ) / 36524.25) , z += t - Math.floor(t / 4) + 1}
+var h = z + 428
+var x = Math.floor((h - 122.1) / 365.25)
+var v = Math.floor(365.25 * x)
+var c = Math.floor((h - v) / 30.6001)
+var y = h - v - Math.floor(30.6001 * c)
+if (c > 13) {c -= 12} if (c > 3) {x --} if (x < 0) {x --}
+DOC(y,"/",c - 1,"/",x + 1)}
 function umot(Y,M,D,H,m,s){ var T = (H / 24) + (m / 1440) + (s / 86400) , L = 0
 if (Y < 0) {Y ++} if (M < 3) {M += 12 , Y --}
 if (Y > 1582 || Y == 1582 && (M > 11 || (M == 11 && D > 14))) {L = Math.floor(Y / 100) - Math.floor(Y / 400) - 2}
