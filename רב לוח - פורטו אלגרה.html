@@ -85,11 +85,8 @@ if (OD == null) {TL = JD - 348346.3922}
 this.DSC = Math.floor(TL) + 1 , CT = TL - 0.2400773 , TSC = TL + 0.2400773
 return this}
 function KY(OD) {if (YOM(OD).DSC > 0) {DOC("יום ",DSC," לבריאת העולם")}}
-function MIX(OD){
-var BAN = ["אליעזר","שבניהו","יושפט","נתנאל","עמשי","זכריהו","בניהו"]
-var BA = BAN[YOM(OD).DSC % 7]
+function MIX(OD){ if (OD == null) {TL = TSC}
 var ST1 = TL - 1068927.75
-if (OD == null) {ST1 = JD - 1417273.9021227}
 if (ST1 > 3080) {ST1 -= 7}
 var ST2 = ST1 - 177492
 var BT = ST2 + 7868
@@ -97,6 +94,8 @@ var PD = "לא ידועה" , CPD = "לא ידוע"
 if (ST1 > 0) {PD = PDN[Math.ceil((ST1 % 168) / 7) - 1] , CPD = Math.ceil(ST1 / 168) + "א"}
 if (BT > 0) {PD = FPD[Math.ceil((BT % 28) / 7) - 1] , CPD = Math.ceil(BT / 28) + "ב"}
 if (ST2 > 0) {PD = PDN[Math.ceil((ST2 % 168) / 7) - 1] , CPD = Math.ceil(ST2 / 168)}
+var BAN = ["אליעזר","שבניהו","יושפט","נתנאל","עמשי","זכריהו","בניהו"]
+var BA = BAN[YOM(OD).DSC % 7]
 if (DSC > 894313) {DOC(BA," ",PD," ",CPD)}}
 function DOR(OD){ var SG = YOM(OD).DSC + 730499
 var DOG = (SG % 30) + 1 , MOG = Math.floor((SG % 750) / 30) + 1 , GOG = Math.floor(SG / 750) + 1
@@ -253,9 +252,7 @@ var daf = " " + gim3[Math.floor(days / 100)] + gim2[Math.floor((days % 100) / 10
 var masectot = ["ברכות","שבת","עירובין","פסחים","שקלים","יומא","סוכה","ביצה","ראש השנה","תענית","מגילה","מועד קטן","חגיגה",
 "יבמות","כתובות","נדרים","נזיר","סוטה","גיטין","קידושין","בבא קמא","בבא מציעא","בבא בתרא","סנהדרין","מכות","שבועות","עבודה זרה","הוריות",
 "זבחים","מנחות","חולין","בכורות","ערכין","תמורה","כריתות","מעילה","קינים","תמיד","מידות","נדה"]
-if (TL >= 2075327) {DOC(masectot[masecet - 1],daf)}
-else {DOC("עדיין לא התחילו")}
-gim2[1] = "י"}
+if (TL >= 2075327) {DOC(masectot[masecet - 1],daf)} else {DOC("עדיין לא התחילו")} gim2[1] = "י"}
 function laqaz(OD){ var z = Math.floor(OD - 1373076.2328) , t = 0
 if (z > 577737) {t = Math.floor((z - 145793.25 ) / 36524.25) , z += t - Math.floor(t / 4) + 1}
 var h = z + 428
