@@ -85,9 +85,7 @@ if (OD == null) {TL = JD - 348346.1521277}
 this.DSC = Math.floor(TL) + 1 , CT = TL , TSC = TL
 return this}
 function KY(OD) {if (YOM(OD).DSC > 0) {DOC("יום ",DSC," לבריאת העולם")}}
-function MIX(OD){
-var BAN = ["אליעזר","שבניהו","יושפט","נתנאל","עמשי","זכריהו","בניהו"]
-var BA = BAN[YOM(OD).DSC % 7]
+function MIX(OD){ if (OD == null) {TL = TSC}
 var ST1 = TL - 1068927.75
 if (ST1 > 3080) {ST1 -= 7}
 var ST2 = ST1 - 177492
@@ -96,6 +94,8 @@ var PD = "לא ידועה" , CPD = "לא ידוע"
 if (ST1 > 0) {PD = PDN[Math.ceil((ST1 % 168) / 7) - 1] , CPD = Math.ceil(ST1 / 168) + "א"}
 if (BT > 0) {PD = FPD[Math.ceil((BT % 28) / 7) - 1] , CPD = Math.ceil(BT / 28) + "ב"}
 if (ST2 > 0) {PD = PDN[Math.ceil((ST2 % 168) / 7) - 1] , CPD = Math.ceil(ST2 / 168)}
+var BAN = ["אליעזר","שבניהו","יושפט","נתנאל","עמשי","זכריהו","בניהו"]
+var BA = BAN[YOM(OD).DSC % 7]
 if (DSC > 894313) {DOC(BA," ",PD," ",CPD)}}
 function DOR(OD){ var SG = YOM(OD).DSC + 730499
 var DOG = (SG % 30) + 1 , MOG = Math.floor((SG % 750) / 30) + 1 , GOG = Math.floor(SG / 750) + 1
