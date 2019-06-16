@@ -225,7 +225,7 @@ var zman = ((((maczor - 1) * 1080) + codex + 82) * ML) + (79 / 12)
 return zman - (zman % 7) + (xabat * 7) + yom - 8}
 function galgal(braca,kocav,xana,mazal,yom) {return (braca*10227)+(kocav*1461)+Math.round(((xana*12)+mazal-13)*ZSL)+yom-11868}
 function molad(codex){ cixuv(codex)
-if (codex>=0) {DOC(MD," ",MH," ",MP," ",MAP)} else {DOC(MD+7," ",MH+24," ",(MP+1080)%1080)}}
+if (codex>=0) {if (MD == 0){MD = 7} DOC("\u200E",MD," ",MH," ",MP," ",MAP)} else {DOC("\u200E",MD+7," ",MH+24," ",(MP+1080)%1080)}}
 function rxima(xana){ var codex = 0
 var codaxim = 12
 if ([-16,-13,-11,-8,-5,-2,0,3,6,8,11,14,17].includes(xana % 19)) {codaxim = 13}
@@ -259,7 +259,7 @@ var v = Math.floor(365.25 * x)
 var c = Math.floor((h - v) / 30.6001)
 var y = h - v - Math.floor(30.6001 * c)
 if (c > 13) {c -= 12} if (c > 3) {x --} if (x < 0) {x --}
-DOC(y,"/",c - 1,"/",x + 1)}
+DOC("\u200E",y,"/",c - 1,"/",x + 1)}
 function umot(Y,M,D,H,m,s){ var T = (H / 24) + (m / 1440) + (s / 86400) , L = 0
 if (Y < 0) {Y ++} if (M < 3) {M += 12 , Y --}
 if (Y > 1582 || Y == 1582 && (M > 11 || (M == 11 && D > 14))) {L = Math.floor(Y / 100) - Math.floor(Y / 400) - 2}
