@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="he"><head><meta charset="utf-8" /><title>תאריכים</title></head>
+<!DOCTYPE html><html lang="he"><head><meta http-equiv="refresh" content="60"><title>תאריכים</title></head>
 <body><script lang="javascript">
 function DOC(a,b,c,d,e,f,g,h,i,j,k,l,m){if(b==null){b=""}if(c==null){c=""}if(d==null){d=""}if(e==null){e=""}if(f==null){f=""}
 if(g==null){g=""}if(h==null){h=""}if(i==null){i=""}if(j==null){j=""}if(k==null){k=""}if(l==null){l=""}if(m==null){m=""}
@@ -225,7 +225,7 @@ var zman = ((((maczor - 1) * 1080) + codex + 82) * ML) + (79 / 12)
 return zman - (zman % 7) + (xabat * 7) + yom - 8}
 function galgal(braca,kocav,xana,mazal,yom) {return (braca*10227)+(kocav*1461)+Math.round(((xana*12)+mazal-13)*ZSL)+yom-11868}
 function molad(codex){ cixuv(codex)
-if (codex>=0) {if (MD == 0){MD = 7} DOC("\u200E",MD," ",MH," ",MP," ",MAP)} else {DOC("\u200E",MD+7," ",MH+24," ",(MP+1080)%1080)}}
+if (codex>=0) {if (MD == 0){MD = 7} DOC(MD,",",MH,",",MP," - ",MAP)} else {DOC(MD+7,",",MH+24,",",(MP+1080)%1080)}}
 function rxima(xana){ var codex = 0
 var codaxim = 12
 if ([-16,-13,-11,-8,-5,-2,0,3,6,8,11,14,17].includes(xana % 19)) {codaxim = 13}
