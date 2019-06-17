@@ -68,7 +68,7 @@ var OX = RB - RZ; if (MX == 1) {OX = 0}
 if (OX == 385 || OX == 355) {yc[1] = 30} if (OX == 383 || OX == 353) {yc[2] = 29}
 return yc}
 function YOM(OD){ this.TL = OD; if (OD == null) {TL = JD - 348346.525}
-this.DSC = Math.floor(TL) + 1 , CT = TL - 0.3728773 , TSC = TL + 0.3728773
+this.DSC = Math.floor(TL) + 1 , WD = DSC % 7 , CT = TL - 0.3728773 , TSC = TL + 0.3728773
 return this}
 function KY(OD) {if (YOM(OD).DSC > 0) {DOC("יום ",DSC," לבריאת העולם")}}
 function MIX(OD){ YOM(OD)
@@ -79,14 +79,14 @@ if (ST1 > 0) {PD = PDN[Math.ceil((ST1 % 168) / 7) - 1] , CPD = Math.ceil(ST1 / 1
 if (BT > 0) {PD = FPD[Math.ceil((BT % 28) / 7) - 1] , CPD = Math.ceil(BT / 28) + "ב"}
 if (ST2 > 0) {PD = PDN[Math.ceil((ST2 % 168) / 7) - 1] , CPD = Math.ceil(ST2 / 168)}
 var BAN = ["אליעזר","שבניהו","יושפט","נתנאל","עמשי","זכריהו","בניהו"]
-var BA = BAN[DSC % 7]
+var BA = BAN[WD]
 if (DSC>894313){if (BA=="אליעזר"&&(DSC-TL)<0.25){DOC(BA," <font color=#00ff00>",PD,"</font> ",CPD)}else {DOC(BA," ",PD," ",CPD)}}}
 function DOR(OD){ var SG = YOM(OD).DSC + 730499
 var DOG = (SG % 30) + 1 , MOG = Math.floor((SG % 750) / 30) + 1 , GOG = Math.floor(SG / 750) + 1
 if (SG < 0) {DOC("לא הוה מדעם קדים לאורייתא")} else {DOC("יום ",DOG," בגוש ",MOG," דור ",GOG)}}
 function XEV(OD){ YOM(OD)
 var day_names = ["אפמיא","רבא","טיבריא","סמכו","מילחא","חולתא","שליית"]
-var day = day_names[DSC % 7]
+var day = day_names[WD]
 var week_names = ["גד","דן","אשר","נפתלי","מנשה","אפרים","ראובן","יהודה","לוי","בנימין","שמעון","יששכר","זבולן"]
 var week = week_names[Math.ceil(DSC / 7) % 13]
 var season_names = ["ארקא","ארץ","תבל","אדמה"]
@@ -108,7 +108,7 @@ if (SC >= 0) {DOC(DM," ב",ZS," ",SY," ",AP," ",SB)}
 var qonot = ["זרע","חרף","קר","קציר","קיץ","חם"]
 return qonot[Math.floor((TL - 604872.84375) / ZSL / 2) % 6]}
 function HOD(OD){ YOM(OD)
-while (DSC < 0) {DSC += 7} this.DN = seder[DSC % 7]
+if (WD < 0) {WD += 7} this.DN = seder[WD]
 this.AM = Math.floor((TL - (67 / 12)) / ML) , RM = AM - 83
 var WNC = (DSC - cixuv(AM).CMT) + MD
 this.WN = xevaq[Math.ceil(WNC / 7)]
@@ -125,7 +125,7 @@ return this}
 function KH(OD) {if (HOD(OD).RM >= 0) {DOC("ה",DN," ב",WN," ל",MN," מ",GN," מחזור ",CN)}}
 function QIV(OD){ this.XZ = MQ(HOD(OD).AM)
 this.RH = taaric(XZ) , RQ = taaric(XZ + 1)
-if (RH > YOM(OD).DSC) {RQ = RH , RH = taaric(-- XZ)} if (RQ == DSC) {RH = RQ , XZ ++}
+if (RH > DSC) {RQ = RH , RH = taaric(-- XZ)} if (RQ == DSC) {RH = RQ , XZ ++}
 var elef = Math.ceil(XZ / 1000) - 1 , prat = ((XZ - 1) % 1000) + 1
 this.xana = gimatria(elef) + gimatria(prat); if (gimatria(elef).length > 2) {xana = gimatria(elef) + " " + gimatria(prat)}
 var OC = oc(RH,RQ,XZ); this.YC = DSC - RH , MC = 0
@@ -143,7 +143,7 @@ var YR = F % 7 , YP = G % 7 , Q = qibur(I)
 rexit = F - YR + 22
 var paraxa = sdarim(YR,YP,Q)[Math.floor((DSC - rexit) / 7)]
 var xemot = ["חיים","שלום","חכמה","עושר","זרע","חן","ממשלה"]
-var xem_yom = xemot[YOM(OD).DSC % 7]
+var xem_yom = xemot[WD]
 var mabul = I - 1657
 if (mabul < 3300) {paraxa = paraxa + "?"}
 if (mabul >= 0) {DOC(xem_yom," ",paraxa," ",mabul)}}
@@ -159,7 +159,7 @@ var MY = E - 3410 , xanim = (MY % 49) + 1
 var yovel = xanim + " ביובל"; if (xanim == 1) {yovel = "שנת היובל ה" + (MY / 49)}
 var minyan = "שנה " + xevaq[xanim % 7] + " בשמיטה " + xevaq[Math.ceil(xanim / 7)] + " ביובל " + (Math.floor(MY / 49) + 1)
 if (MY >= 0) {DOC(xmita,", &nbsp",yovel) , DOC(minyan)}}
-function QOM(OD){ var qomer = YOM(OD).DSC - QIV(OD).RQ + 163
+function QOM(OD){ var qomer = 0 - QIV(OD).RQ + DSC + 163
 var XQ = Math.floor(qomer / 7)
 var xavuq = " שהם " + zacar[XQ] +" שבועות"
 if (XQ == 0) {xavuq = ""} if (XQ == 1) {xavuq = " שהם שבוע אחד"}
