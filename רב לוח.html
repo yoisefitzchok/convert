@@ -198,7 +198,7 @@ var c = Math.floor((h - v) / 30.6001) , y = h - v - Math.floor(30.6001 * c)
 if (c > 13) {c -= 12} if (c > 3) {x --} if (x < 0) {x --} DOC("\u200E",y,"/",c - 1,"/",x + 1)}
 function umot(Y,M,D,H,m,s){ var T = (H / 24) + (m / 1440) + (s / 86400) , L = 0
 if (Y < 0) {Y ++} if (M < 3) {M += 12 , Y --}
-if (Y > 1582 || Y == 1582 && (M > 11 || (M == 11 && D > 14))) {L = Math.floor(Y / 100) - Math.floor(Y / 400) - 2}
+if (Y > 1582 || Y == 1582 && (M > 10 || (M == 10 && D > 14))) {L = Math.floor(Y / 100) - Math.floor(Y / 400) - 2}
 return Math.floor((Y + 3760) * 365.25) + Math.floor((M + 1) * 30.6) + D - L - 691.735456 + T}
 function xaqon(codex){ laqaz(YOM(cixuv(codex).MT - 1).CT)
 var H = 0 , M = 0 , Z = Math.round(((CT - 0.264544) % 1) * 86400); if (Z < 0) {Z += 86400}
