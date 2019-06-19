@@ -5,9 +5,8 @@ if(g==null){g=""}if(h==null){h=""}if(i==null){i=""}if(j==null){j=""}if(k==null){
 document.write("<body style=text-align:center bgcolor=#ffffff><font color=#000000>\u200F",a,b,c,d,e,f,g,h,i,j,k,l,m,"<br /></font></body>")}
 var LT = new Date()
 var T = (LT.getUTCHours()/24)+(LT.getUTCMinutes()/1440)+(LT.getSeconds()/86400)+(LT.getMilliseconds()/86400000)
-var D = LT.getUTCDate() , M = LT.getUTCMonth() + 2 , Y = LT.getUTCFullYear() , L = 0
-if (Y < 0) {Y ++} if (M < 4) {M += 12 , Y --}
-if (Y > 1582 || Y == 1582 && (M > 11 || (M == 11 && D > 14))) {L = Math.floor(Y / 100) - Math.floor(Y / 400) - 2}
+var D = LT.getUTCDate() , M = LT.getUTCMonth() + 2 , Y = LT.getUTCFullYear(); if (Y < 0) {Y ++} if (M < 4) {M += 12 , Y --}
+var L = 0; if (Y > 1582 || Y == 1582 && (M > 11 || (M == 11 && D > 14))) {L = Math.floor(Y / 100) - Math.floor(Y / 400) - 2}
 var JD = Math.floor((Y + 4716) * 365.25) + Math.floor(M * 30.6) + D - L - 1524.5 + T
 console.log("יום יוליאני ",JD)
 var zacar = ["","אחד","שני","שלשה","ארבעה","חמשה","ששה","שבעה","שמנה","תשעה","עשרה"]
@@ -37,8 +36,7 @@ this.DP = Math.round((MT % 1) * 25920) , MH = Math.floor(DP / 1080) , MP = DP % 
 return this}
 function qibur(xana){ var Q = (xana % 19)
 if ([3,6,8,11,14,17].includes(Q)) {Q = 0} if ([4,7,9,12,15,18].includes(Q)) {Q = 1} return Q}
-function taaric(xana){ var Q = qibur(xana)
-var rox = cixuv(CQ(xana)).CMT
+function taaric(xana){ var rox = cixuv(CQ(xana)).CMT , Q = qibur(xana)
 if (MH > 17) {rox ++} else {if (MD == 3 && DP > 9923 && Q != 0) {rox ++} if (MD == 2 && DP > 16788 && Q == 1) {rox ++}}
 if ([1,4,6].includes(rox % 7)) {rox ++} return rox}
 function sdarim(YR,YP,Q){
