@@ -20,12 +20,11 @@ var PDN = ["יהויריב","ידעיה","חרם","שערים","מלכיה","מ�
 "חפה","ישבאב","בלגה","אמר","חזיר","הפצץ","פתחיה","יחזקאל","יכין","גמול","דליהו","מעזיהו"]
 var FPD = ["ידעיה","חרם","פשחור","אמר"]
 var gim1 = ["","א","ב","ג","ד","ה","ו","ז","ח","ט"] , gim2 = ["","י","כ","ל","מ","נ","ס","ע","פ","צ"] , gim3 = ["","ק","ר","ש"]
-function gimatria(num){ if (num % 100 == 15 || num % 100 == 16)  {gim2[1] = "ט" , num ++}
-var tem = gim3[Math.floor((num % 400) / 100)] + gim2[Math.floor((num % 100) / 10)] + gim1[num % 10]
-while (num > 399) {tem = "ת" + tem , num -= 400} gim2[1] = "י"
-var ans = tem
-if (tem.length == 1) {ans = tem + "'"} if (tem.length > 1) {ans = tem.substr(0,tem.length - 1) + '"' + tem.substr(tem.length - 1)}
-return ans}
+function gim(n,s){ if (s != 0 && (n % 100 == 15 || n % 100 == 16))  {gim2[1] = "ט" , n ++}
+var g = gim3[Math.floor((n % 400) / 100)] + gim2[Math.floor((n % 100) / 10)] + gim1[n % 10]
+while (n > 399) {g = "ת" + g , n -= 400} gim2[1] = "י"; return g}
+function ger(n){ var g = gim(n) , G = g
+if (g.length == 1) {G = g + "'"} if (g.length > 1) {G = g.substr(0,g.length - 1) + '"' + g.substr(g.length - 1)} return G}
 function xaqa(H,M,S){ H += 5 , M += 24
 while (S >= 60) {S -= 60 , M ++} while (M >= 60) {M -= 60 , H ++} while (H >= 24) {H -= 24} return (H / 24) + (M / 1440) + (S / 86400)}
 function MQ(a) {return Math.floor((a + 50) * 19 / 235) - 2}
@@ -82,8 +81,7 @@ var year = Math.floor(((DSC - 1) % 2548) / 364) + 1
 var release = Math.floor(((DSC -1) % 17836) / 2548) + 1
 var jubilee_Letter = "תאבגדהוזחטיכלמנסעפצקרש"
 var jubilee = jubilee_Letter[Math.ceil(DSC / 17836) % 22]
-var cycle = Math.ceil(DSC / 392392)
-cycle = gim2[Math.floor(cycle / 10)] + gim1[cycle % 10]
+var cycle = gim(Math.ceil(DSC / 392392),0)
 if (DSC > 0) {DOC(day," ",week," ",season," ",year," ",release," ",jubilee," ",cycle)}}
 function HAM(OD){ var SC = YOM(OD).DSC + 178
 var SB = Math.floor(SC / 10227) + 1 , AP = APN[Math.floor(SC / 1461) % 7]
@@ -112,12 +110,12 @@ function KH(OD) {if (HOD(OD).RM >= 0) {DOC("ה",DN," ב",WN," ל",MN," מ",GN," 
 function QIV(OD){ this.XZ = MQ(HOD(OD).AM) , RH = taaric(XZ) , RQ = taaric(XZ + 1)
 if (RH > DSC) {RQ = RH , RH = taaric(-- XZ)} if (RQ == DSC) {RH = RQ , XZ ++}
 var elef = Math.ceil(XZ / 1000) - 1 , prat = ((XZ - 1) % 1000) + 1
-this.xana = gimatria(elef) + gimatria(prat); if (gimatria(elef).length > 2) {xana = gimatria(elef) + " " + gimatria(prat)}
+this.xana = ger(elef) + ger(prat); if (ger(elef).length > 2) {xana = ger(elef) + " " + ger(prat)}
 var OC = oc(RH,RQ,XZ); this.YC = DSC - RH , MC = 0
 while (YC >= 0) {YC -= OC[MC] , MC ++} YC += OC[-- MC] + 1
 var XC = ["תשרי","מרחשון","כסלו","טבת","שבט","אדר א'","אדר ב'","ניסן","אייר","סיון","תמוז","אב","אלול"]
 if (qibur(XZ) != 0) {XC[6] = "אדר"}
-this.codex = XC[MC] , yom = gimatria(YC); if (XZ < 4120) {yom = yom + "?" , codex = codex + "?"}
+this.codex = XC[MC] , yom = ger(YC); if (XZ < 4120) {yom = yom + "?" , codex = codex + "?"}
 this.NH = "יום "; if ((TL % 1) < 0.5) {NH = "ליל "}
 return this}
 function KQ(OD) {if (YOM(OD).DSC > 0) {DOC(QIV(OD).NH,yom," ",codex," ",xana,"\u200F")}}
@@ -188,9 +186,7 @@ function DAF(OD){ var days = Math.floor(YOM(OD).TL) - 2075326 , masecet = 0 , cy
 var dapim = [63,156,104,120,12,87,55,39,34,30,31,28,26,121,111,90,65,48,89,81,118,118,175,112,23,48,75,13,119,109,141,60,33,33,27,20,4,8,4,72]
 while (days > 0) {if (masecet == 40) {masecet = 0 , cycle ++} days -= dapim[masecet] , masecet ++
 if (cycle > 7) {dapim[4] = 21}} days += dapim[masecet - 1] + 1
-if (masecet == 37) {days += 20} if (masecet == 38) {days += 24} if (masecet == 39) {days += 32}
-if (days % 100 == 15 || days % 100 == 16) {gim2[1] = "ט" , days ++}
-var daf = " " + gim3[Math.floor(days / 100)] + gim2[Math.floor((days % 100) / 10)] + gim1[days % 10]
+if (masecet == 37) {days += 20} if (masecet == 38) {days += 24} if (masecet == 39) {days += 32} var daf = " " + gim(days)
 var masectot = ["ברכות","שבת","עירובין","פסחים","שקלים","יומא","סוכה","ביצה","ראש השנה","תענית","מגילה","מועד קטן","חגיגה",
 "יבמות","כתובות","נדרים","נזיר","סוטה","גיטין","קידושין","בבא קמא","בבא מציעא","בבא בתרא","סנהדרין","מכות","שבועות","עבודה זרה","הוריות",
 "זבחים","מנחות","חולין","בכורות","ערכין","תמורה","כריתות","מעילה","קינים","תמיד","מידות","נדה"]
