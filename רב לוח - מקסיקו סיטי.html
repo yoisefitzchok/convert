@@ -27,7 +27,7 @@ function xaqa(H,M,S){ H += 5 , M += 24
 while (S >= 60) {S -= 60 , M ++} while (M >= 60) {M -= 60 , H ++} while (H >= 24) {H -= 24} return (H / 24) + (M / 1440) + (S / 86400)}
 function MQ(a) {return Math.floor((a + 50) * 19 / 235) - 2}
 function CQ(b) {return Math.floor((((b - 1) * 235) + 1) / 19) - 12}
-const ML = 765433 / 25920 , ZSL = 487/16 , MNI = [19,15,15,15,15,19,15,15,15]
+const ML = 765433 / 25920 , ZSL = 487 / 16 , MNI = [19,15,15,15,15,19,15,15,15]
 function cixuv(codex){ this.MT = (codex * ML) + (79 / 12) , CMT = Math.floor(MT) , MD = CMT % 7
 this.DP = Math.round((MT % 1) * 25920) , MH = Math.floor(DP / 1080) , MP = DP % 1080 , MAP = APN[(Math.floor(MT * 24) - 180) % 7]
 return this}
