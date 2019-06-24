@@ -128,11 +128,10 @@ var xvatim = ["בנימין","דן","נפתלי","גד","אשר","מנשה","א�
 if (qibur(XZ) != 0) {xvatim[6] = "יוסף"}
 var xevet = xvatim[MC] , yshia = XZ - 2449; if (MC > 6) {yshia ++}
 if (yshia > 0) {DOC(YC+" "+xevet+" "+yshia)}}
-function SAF(OD){ var E = QIV(OD).XZ
-var xmita = "מעשר שני"; if ([3,6].includes(E % 7)) {xmita = "מעשר עני"} if ((E % 7) == 0) {xmita = "שמיטה"}
-var MY = E - 3410 , xanim = (MY % 49) + 1
-var yovel = xanim + " ביובל"; if (xanim == 1) {yovel = "שנת היובל ה" + (MY / 49)}
+function SAF(OD){ var E = QIV(OD).XZ , MY = E - 3410 , xanim = (MY % 49) + 1
 var minyan = "שנה " + xevaq[xanim % 7] + " בשמיטה " + xevaq[Math.ceil(xanim / 7)] + " ביובל " + (Math.floor(MY / 49) + 1)
+var yovel = xanim + " ביובל"; if (xanim == 1) {yovel = "שנת היובל ה" + (MY / 49)}
+var xmita = "מעשר שני"; if ([3,6].includes(E % 7)) {xmita = "מעשר עני"} if ((E % 7) == 0) {xmita = "שמיטה"}
 if (MY >= 0) {DOC(xmita+", &nbsp"+yovel) , DOC(minyan)}}
 function QOM(OD){ var qomer = 0 - QIV(OD).RQ + DSC + 163
 var XQ = Math.floor(qomer / 7)
