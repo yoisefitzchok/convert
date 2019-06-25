@@ -23,7 +23,7 @@ var g = gim3[Math.floor((n % 400) / 100)] + gim2[Math.floor((n % 100) / 10)] + g
 while (n > 399) {g = "ת" + g , n -= 400} gim2[1] = "י"; return g}
 function ger(n){ var g = gim(n) , G = g
 if (g.length == 1) {G = g + "'"} if (g.length > 1) {G = g.substr(0,g.length - 1) + '"' + g.substr(g.length - 1)} return G}
-function xaqa(H,M,S){ H += 6 , M += 20 , S += 56.601
+function xaqa(H,M,S){ H += 6 , M += 20 , S += 56.602
 while (S >= 60) {S -= 60 , M ++} while (M >= 60) {M -= 60 , H ++} while (H >= 24) {H -= 24} return (H / 24) + (M / 1440) + (S / 86400)}
 function MQ(a) {return Math.floor((a + 50) * 19 / 235) - 2}
 function CQ(b) {return Math.floor((((b - 1) * 235) + 1) / 19) - 12}
@@ -120,8 +120,8 @@ function KQ(OD) {if (YOM(OD).DSC > 0) {DOC(QIV(OD).NH+yom+" "+codex+" "+xana+"\u
 function PAR(OD){ var I = QIV(OD).XZ , F = RH , G = RQ , rexit = F - (F % 7) + 22
 if (rexit > DSC) {G = F , F = taaric(-- I)} var YR = F % 7 , YP = G % 7 , Q = qibur(I) , rexit = F - YR + 22
 var paraxa = sdarim(YR,YP,Q)[Math.floor((DSC - rexit) / 7)] , mabul = I - 1657; if (mabul < 3300) {paraxa = paraxa + "?"}
-var xemot = ["חיים","שלום","חכמה","עושר","זרע","חן","ממשלה"] , xem_yom = xemot[WD]
-if (mabul >= 0) {DOC(xem_yom+" "+paraxa+" "+mabul)}}
+var xemot = ["חיים","שלום","חכמה","עושר","זרע","חן","ממשלה"] , xem = xemot[WD]
+if (mabul >= 0) {DOC(xem+" "+paraxa+" "+mabul)}}
 function luac(OD) {KY(OD),MIX(OD),DOR(OD),XEV(OD),HAM(OD),KH(OD),KQ(OD),PAR(OD),DOC("")} luac()
 function MSH(OD){ QIV(OD)
 var xvatim = ["בנימין","דן","נפתלי","גד","אשר","מנשה","אפרים","ראובן","שמעון","לוי","יהודה","יששכר","זבולן"]
@@ -155,18 +155,18 @@ var K = sdarim(YR,taaric(xana + 1) % 7,qibur(xana)).indexOf(sidra)
 if (K < 0) {return "שגיאה"} return RX - YR + (K * 7) + yom + 20}
 function xviqit(day,week,season,year,release,jubilee,cycle){
 return (cycle * 392392) + (jubilee * 17836) + (release * 2548) + (year * 364) + (season * 91) + (week * 7) + day - 413239}
-function mixmarot(beit_av,mixmar,maczor,ot){ var scum = (maczor * 168) + (mixmar * 7) + beit_av
+function mixmar(ba,mix,mac,ot){ var scum = (mac * 168) + (mix * 7) + ba
 if (ot=="א") {if (scum>3250) {return scum+1068759} return scum+1068752} if (ot=="ב") {return scum+1238383} return scum+1246251}
 function dorot (dor,gux,yom) {return (dor * 750) + (gux * 30) + yom - 731281}
-function kocavim(maczor,kvusha,codex,xabat,yom){
-while (kvusha > 1) {codex += MNI[(kvusha - 1) % 9] , kvusha --}
-var zman = ((((maczor - 1) * 1080) + codex + 82) * ML) + (79 / 12)
+function kocavim(mac,kvu,codex,xabat,yom){
+while (kvu > 1) {codex += MNI[(kvu - 1) % 9] , kvu --}
+var zman = ((((mac - 1) * 1080) + codex + 82) * ML) + (79 / 12)
 return zman - (zman % 7) + (xabat * 7) + yom - 8}
 function galgal(braca,kocav,xana,mazal,yom) {return (braca*10227)+(kocav*1461)+Math.round(((xana*12)+mazal-13)*ZSL)+yom-11868}
 function molad(codex){ cixuv(codex)
 if (codex >= 0) {if (MD == 0) {MD = 7} DOC(MD+","+MH+","+MP+" - "+MAP)} else {DOC((MD + 7)+","+(MH + 24)+","+(MP + 1080) % 1080)}}
-function rxima(xana){ var codex = 0 , codaxim = 12; if ([-16,-13,-11,-8,-5,-2,0,3,6,8,11,14,17].includes(xana % 19)) {codaxim = 13}
-while (codex < codaxim) {molad(CQ(xana) + codex) , codex ++} DOC("")}
+function rxima(xana){ var codex = 0 , CX = 12; if ([-16,-13,-11,-8,-5,-2,0,3,6,8,11,14,17].includes(xana % 19)) {CX = 13}
+while (codex < CX) {molad(CQ(xana) + codex) , codex ++} DOC("")}
 function cipus(yom,xaqa,celek){if (yom == 7) {yom = 0} var y0 = 6 , x0 = 14 , c0 = 0 , codex = 0
 if (yom<0||yom>6||xaqa<0||xaqa>23||celek<0||celek>1079||yom%1!=0||xaqa%1!=0||celek%1!=0) {return "שגיאה"}
 while (c0 != celek || x0 != xaqa || y0 != yom) {c0 += 793 , x0 += 12 , y0 += 1 , codex ++
@@ -174,14 +174,14 @@ if (c0 > 1079) {c0 -= 1080 , x0 ++} if (x0 > 23) {x0 -= 24 , y0 ++} if (y0 > 6) 
 function sig(OD){ YOM(OD)
 var HSC = Math.floor(TL * 24) + 1 , MSC = Math.floor(TL * 1440) + 1 , APH = APN[(HSC - 157) % 7]
 if (MSC > 0) {DOC("דקה "+MSC+" לבריאת העולם")} if (HSC > 156) {DOC("שעת שליטת "+APH)} return "שעה " + HSC + " לבריאת העולם"}
-function DAF(OD){ var days = Math.floor(YOM(OD).TL) - 2075326 , masecet = 0 , maczor = 1
+function DAF(OD){ var days = Math.floor(YOM(OD).TL) - 2075326 , mas = 0 , mac = 1
 var dapim = [63,156,104,120,12,87,55,39,34,30,31,28,26,121,111,90,65,48,89,81,118,118,175,112,23,48,75,13,119,109,141,60,33,33,27,20,4,8,4,72]
-while (days > 0) {if (masecet == 40) {masecet = 0 , maczor ++} if (maczor > 7) {dapim[4] = 21} days -= dapim[masecet] , masecet ++}
-if (masecet == 37) {days += 20} if (masecet == 38) {days += 24} if (masecet == 39) {days += 32} days += dapim[masecet - 1] + 1
-var masectot = ["ברכות","שבת","עירובין","פסחים","שקלים","יומא","סוכה","ביצה","ראש השנה","תענית","מגילה","מועד קטן","חגיגה",
-"יבמות","כתובות","נדרים","נזיר","סוטה","גיטין","קידושין","בבא קמא","בבא מציעא","בבא בתרא","סנהדרין","מכות","שבועות","עבודה זרה","הוריות",
-"זבחים","מנחות","חולין","בכורות","ערכין","תמורה","כריתות","מעילה","קינים","תמיד","מידות","נדה"]
-if (days > 0) {DOC(masectot[masecet - 1]+" "+gim(days))} else {DOC("עדיין לא התחילו")}}
+while (days > 0) {if (mas == 40) {mas = 0 , mac ++} if (mac > 7) {dapim[4] = 21} days -= dapim[mas] , mas ++}
+if (mas == 37) {days += 20} if (mas == 38) {days += 24} if (mas == 39) {days += 32} days += dapim[mas - 1] + 1
+var MAS = ["ברכות","שבת","עירובין","פסחים","שקלים","יומא","סוכה","ביצה","ראש השנה","תענית","מגילה","מועד קטן","חגיגה",
+"יבמות","כתובות","נדרים","נזיר","סוטה","גיטין","קידושין","בבא קמא","בבא מציעא","בבא בתרא","סנהדרין","מכות","שבועות",
+"עבודה זרה","הוריות","זבחים","מנחות","חולין","בכורות","ערכין","תמורה","כריתות","מעילה","קינים","תמיד","מידות","נדה"]
+if (days > 0) {DOC(MAS[mas - 1]+" "+gim(days))} else {DOC("עדיין לא התחילו")}}
 function laqaz(OD){ var z = Math.floor(OD - 1373076.264544) , t = 0
 if (z > 577737) {t = Math.floor((z - 145793.25 ) / 36524.25) , z += t - Math.floor(t / 4) + 1}
 var h = z + 428 , x = Math.floor((h - 122.1) / 365.25) , v = Math.floor(365.25 * x)
