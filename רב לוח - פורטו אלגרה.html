@@ -134,19 +134,12 @@ var yovel = xanim + " ביובל"; if (xanim == 1) {yovel = "שנת היובל �
 var xmita = "מעשר שני"; if ([3,6].includes(E % 7)) {xmita = "מעשר עני"} if ((E % 7) == 0) {xmita = "שמיטה"}
 if (MY >= 0) {DOC(xmita+", &nbsp"+yovel) , DOC(minyan)}}
 function QOM(OD){ var qomer = 0 - QIV(OD).RQ + DSC + 163
-var XQ = Math.floor(qomer / 7)
-var xavuq = " שהם " + zacar[XQ] +" שבועות"
-if (XQ == 0) {xavuq = ""} if (XQ == 1) {xavuq = " שהם שבוע אחד"}
-var YQ = qomer % 7
-var yamim = " ו" + zacar[YQ] + " ימים"
-if (YQ == 1) {yamim = " ויום אחד"} if (YQ == 0 || XQ == 0) {yamim = ""}
-var QQ = qomer % 10
-var sfira = zacar[qomer] + " ימים"
-if (qomer == 1) {sfira = "יום אחד"}
-if (qomer > 10) {zacar[2] = "שנים" , sfira = zacar[QQ] + " עשר יום"}
-if (qomer > 19) {sfira = zacar[QQ] + " ו" + qeser[Math.floor(qomer / 10)] + " יום"
-if (QQ == 0) {sfira = qeser[qomer / 10] + " יום"}}
-var SQ = sfira + xavuq + yamim + " לעומר"; if (OD == null) {SQ = "היום " + SQ}
+var XQ = Math.floor(qomer / 7) , xavuq = " שהם " + zacar[XQ] +" שבועות"; if (XQ == 0) {xavuq = ""} if (XQ == 1) {xavuq = " שהם שבוע אחד"}
+var YQ = qomer % 7 , yamim = " ו" + zacar[YQ] + " ימים"; if (YQ == 1) {yamim = " ויום אחד"} if (YQ == 0 || XQ == 0) {yamim = ""}
+var sfira = zacar[qomer] + " ימים"; if (qomer == 1) {sfira = "יום אחד"}
+var QQ = qomer % 10; if (qomer > 10) {zacar[2] = "שנים" , sfira = zacar[QQ] + " עשר יום"}
+if (qomer > 19) {sfira = zacar[QQ] + " ו" + qeser[Math.floor(qomer / 10)] + " יום"; if (QQ == 0) {sfira = qeser[qomer / 10] + " יום"}}
+var SQ = sfira + xavuq + yamim + " לעומר"; if (OD == null) {SQ = "היום " + SQ} zacar[2] = "שני"
 if (qomer > 0 && qomer < 50 && XZ > 2488) {DOC(SQ)}}
 function qivri(xana,codex,yom){ var r = taaric(xana)
 while (codex > 0) {yom += oc(r,taaric(xana + 1),xana)[codex - 1] , codex --} return r + yom - 2}
