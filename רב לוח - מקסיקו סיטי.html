@@ -48,7 +48,7 @@ if (YP == 5) {PR.push("האזינו","יום כפור","סכות")} if (YP == 0)
 if (YP == 2 || YP == 3) {PR.push("וילך","האזינו","וזאת הברכה")}
 return PR}
 function oc(RZ,RB,MX){ var yc = [30,29,30,29,30,30,29,30,29,30,29,30,29]; if (qibur(MX) != 0) {yc[5] = 0}
-var OX = RB - RZ; if (MX == 1) {OX = 0} if (OX == 385 || OX == 355) {yc[1] = 30} if (OX == 383 || OX == 353) {yc[2] = 29} return yc}
+var OX = RB - RZ; if (MX == 1) {OX = 0} if (OX % 10 == 5) {yc[1] = 30} if (OX % 10 == 3) {yc[2] = 29} return yc}
 function YOM(OD){ this.TL = OD; if (OD == null) {TL = JD - 348346.525}
 this.DSC = Math.floor(TL) + 1 , WD = DSC % 7 , CT = TL - 0.3728773 , TSC = TL + 0.3728773
 return this} function KY(OD) {if (YOM(OD).DSC > 0) {DOC("יום "+DSC+" לבריאת העולם")}}
@@ -93,10 +93,8 @@ function QIV(OD){ this.XZ = MQ(HOD(OD).AM) , RH = taaric(XZ) , RQ = taaric(XZ + 
 if (RH > DSC) {RQ = RH , RH = taaric(-- XZ)} if (RQ == DSC) {RH = RQ , XZ ++}
 var elef = Math.ceil(XZ / 1000) - 1 , prat = ((XZ - 1) % 1000) + 1
 this.xana = ger(elef) + ger(prat); if (ger(elef).length > 2) {xana = ger(elef) + " " + ger(prat)}
-var OC = oc(RH,RQ,XZ); this.YC = DSC - RH , MC = 0
-while (YC >= 0) {YC -= OC[MC] , MC ++} YC += OC[-- MC] + 1
-var XC = ["תשרי","מרחשון","כסלו","טבת","שבט","אדר א'","אדר ב'","ניסן","אייר","סיון","תמוז","אב","אלול"]
-if (qibur(XZ) != 0) {XC[6] = "אדר"}
+this.OC = oc(RH,RQ,XZ) , YC = DSC - RH , MC = 0; while (YC >= 0) {YC -= OC[MC] , MC ++} YC += OC[-- MC] + 1
+var XC=["תשרי","מרחשון","כסלו","טבת","שבט","אדר א'","אדר ב'","ניסן","אייר","סיון","תמוז","אב","אלול"];if (qibur(XZ)!=0) {XC[6]="אדר"}
 this.codex = XC[MC] , yom = ger(YC); if (XZ < 4120) {yom = yom + "?" , codex = codex + "?"}
 this.NH = "יום "; if ((TL % 1) < 0.5) {NH = "ליל "}
 return this} function KQ(OD) {if (YOM(OD).DSC > 0) {DOC(QIV(OD).NH+yom+" "+codex+" "+xana+"\u200F")}}
