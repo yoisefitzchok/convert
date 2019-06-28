@@ -22,7 +22,7 @@ var g = gim3[Math.floor((n % 400) / 100)] + gim2[Math.floor((n % 100) / 10)] + g
 while (n > 399) {g = "ת" + g , n -= 400} gim2[1] = "י"; return g}
 function ger(n){ var g = gim(n) , G = g
 if (g.length == 1) {G = g + "'"} if (g.length > 1) {G = g.substr(0,g.length - 1) + '"' + g.substr(g.length - 1)} return G}
-function xaqa(H,M,S){ H += 6 , M += 20 , S += 56.602
+function xaqa(H,M,S){ H += 6 , M += 20 , S += 56.601
 while (S >= 60) {S -= 60 , M ++} while (M >= 60) {M -= 60 , H ++} while (H >= 24) {H -= 24} return (H / 24) + (M / 1440) + (S / 86400)}
 function MQ(a) {return Math.floor((a + 50) * 19 / 235) - 2}
 function CQ(b) {return Math.floor((((b - 1) * 235) + 1) / 19) - 12}
