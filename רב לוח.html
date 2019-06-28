@@ -132,8 +132,7 @@ function mixmar(ba,mix,mac,ot){ var scum = (mac * 168) + (mix * 7) + ba
 if (ot=="א") {if (scum>3250) {return scum+1068759} return scum+1068752} if (ot=="ב") {return scum+1238383} return scum+1246251}
 function dorot (dor,gux,yom) {return (dor * 750) + (gux * 30) + yom - 731281}
 function kocavim(mac,kvu,codex,xabat,yom){
-while (kvu > 1) {codex += MNI[(kvu - 1) % 9] , kvu --}
-var zman = ((((mac - 1) * 1080) + codex + 82) * ML) + (79 / 12)
+while (kvu > 1) {codex += MNI[(kvu - 2) % 9] , kvu --} var zman = (((mac * 1080) + codex - 998) * ML) + (79 / 12)
 return zman - (zman % 7) + (xabat * 7) + yom - 8}
 function galgal(braca,kocav,xana,mazal,yom) {return (braca*10227)+(kocav*1461)+Math.round(((xana*12)+mazal-13)*ZSL)+yom-11868}
 function molad(codex){ cixuv(codex)
@@ -146,7 +145,7 @@ while (c0 != celek || x0 != xaqa || y0 != yom) {c0 += 793 , x0 += 12 , y0 += 1 ,
 if (c0 > 1079) {c0 -= 1080 , x0 ++} if (x0 > 23) {x0 -= 24 , y0 ++} if (y0 > 6) {y0 -= 7}} return codex}
 function sig(OD){ YOM(OD)
 var HSC = Math.floor(TSC * 24) + 1 , MSC = Math.floor(TSC * 1440) + 1 , APH = APN[(HSC - 157) % 7]
-if (MSC > 0) {DOC("דקה "+MSC+" לבריאת העולם")} if (HSC > 156) {DOC("שעת שליטת "+APH)} return "שעה " + HSC + " לבריאת העולם"}
+if (MSC > 0) {DOC("דקה "+MSC+" לבריאת העולם"); if (HSC > 156) {DOC("שעת שליטת "+APH)} return "שעה " + HSC + " לבריאת העולם"}}
 function DAF(OD){ var days = Math.floor(YOM(OD).TL) - 2075326 , mas = 0 , mac = 1
 var dapim = [63,156,104,120,12,87,55,39,34,30,31,28,26,121,111,90,65,48,89,81,118,118,175,112,23,48,75,13,119,109,141,60,33,33,27,20,4,8,4,72]
 while (days > 0) {if (mas == 40) {mas = 0 , mac ++} if (mac > 7) {dapim[4] = 21} days -= dapim[mas] , mas ++}
