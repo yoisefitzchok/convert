@@ -34,6 +34,8 @@ function qibur(xana){ var Q = (xana % 19); if ([3,6,8,11,14,17].includes(Q)) {Q 
 function taaric(xana){ var rox = cixuv(CQ(xana)).CMT , Q = qibur(xana)
 if (MH > 17) {rox ++} else {if (MD == 3 && DP > 9923 && Q != 0) {rox ++} if (MD == 2 && DP > 16788 && Q == 1) {rox ++}}
 if ([1,4,6].includes(rox % 7)) {rox ++} return rox}
+function oc(RZ,RB,MX){ var yc = [30,29,30,29,30,30,29,30,29,30,29,30,29]; if (qibur(MX) != 0) {yc[5] = 0}
+var OX = RB - RZ; if (MX == 1) {OX = 0} if (OX % 10 == 5) {yc[1] = 30} if (OX % 10 == 3) {yc[2] = 29} return yc}
 function sdarim(YR,YP,Q){
 var PR = ["בראשית","נח","לך לך","וירא","חיי שרה","תולדת","ויצא","וישלח","וישב","מקץ","ויגש","ויחי","שמות","וארא","בא",
 "בשלח","יתרו","משפטים","תרומה","תצוה","כי תשא","ויקהל","ויקרא","צו","שמיני","תזריע","אחרי מות","אמר","בהר","במדבר","נשא",
@@ -46,8 +48,6 @@ if (YR == 5 || YP == 2) {PR.splice(42,0,"מסעי")} if (YR == 5) {PR.splice(29,
 if (YP == 5) {PR.push("האזינו","יום כפור","סכות")} if (YP == 0) {PR.push("ראש השנה","האזינו","סכות","וזאת הברכה")}
 if (YP == 2 || YP == 3) {PR.push("וילך","האזינו","וזאת הברכה")}
 return PR}
-function oc(RZ,RB,MX){ var yc = [30,29,30,29,30,30,29,30,29,30,29,30,29]; if (qibur(MX) != 0) {yc[5] = 0}
-var OX = RB - RZ; if (MX == 1) {OX = 0} if (OX % 10 == 5) {yc[1] = 30} if (OX % 10 == 3) {yc[2] = 29} return yc}
 function YOM(OD){ this.TL = OD; if (OD == null) {TL = JD - 348345.83}
 this.DSC = Math.floor(TL) + 1 , WD = DSC % 7 , CT = TL + 0.3221227 , TSC = TL - 0.3221227
 return this} function KY(OD) {if (YOM(OD).DSC > 0) {DOC("יום "+DSC+" לבריאת העולם")}}
