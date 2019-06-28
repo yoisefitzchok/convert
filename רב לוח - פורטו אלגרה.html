@@ -5,8 +5,7 @@ var LT = new Date()
 var T = (LT.getUTCHours()/24)+(LT.getUTCMinutes()/1440)+(LT.getSeconds()/86400)+(LT.getMilliseconds()/86400000)
 var D = LT.getUTCDate() , M = LT.getUTCMonth() + 2 , Y = LT.getUTCFullYear(); if (M < 4) {M += 12 , Y --}
 var L = 0; if (Y > 1582 || Y == 1582 && (M > 11 || (M == 11 && D > 14))) {L = Math.floor(Y / 100) - Math.floor(Y / 400) - 2}
-var JD = Math.floor((Y + 4716) * 365.25) + Math.floor(M * 30.6) + D - L - 1524.5 + T
-console.log("יום יוליאני ",JD)
+var JD = Math.floor((Y + 4716) * 365.25) + Math.floor(M * 30.6) + D - L - 1524.5 + T; console.log("יום יוליאני ",JD)
 var zacar = ["","אחד","שני","שלשה","ארבעה","חמשה","ששה","שבעה","שמנה","תשעה","עשרה"]
 var nkeva = ["","אחת","שתים","שלש","ארבע","חמש","שש","שבע","שמנה","תשע","עשר"]
 var qeser = [""," ו","עשרים","שלשים","ארבעים","חמשים","ששים"]
