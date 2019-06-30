@@ -19,9 +19,8 @@ var FPD = ["ידעיה","חרם","פשחור","אמר"]
 var gim1 = ["","א","ב","ג","ד","ה","ו","ז","ח","ט"] , gim2 = ["","י","כ","ל","מ","נ","ס","ע","פ","צ"] , gim3 = ["","ק","ר","ש"]
 function gim(n,s){ if (s != 0 && (n % 100 == 15 || n % 100 == 16))  {gim2[1] = "ט" , n ++}
 var g = gim3[Math.floor((n % 400) / 100)] + gim2[Math.floor((n % 100) / 10)] + gim1[n % 10]
-while (n > 399) {g = "ת" + g , n -= 400} gim2[1] = "י"; return g}
-function ger(n){ var g = gim(n) , G = g
-if (g.length == 1) {G = g + "'"} if (g.length > 1) {G = g.substr(0,g.length - 1) + '"' + g.substr(g.length - 1)} return G}
+while (n > 399) {g = "ת" + g , n -= 400} gim2[1] = "י"; var G = g
+if (s == 1) {if (g.length == 1) {G = g + "'"} if (g.length > 1) {G = g.substr(0,g.length - 1) + '"' + g.substr(g.length - 1)}} return G}
 function xaqa(H,M,S){ H += 6 , M += 4 , S += 48
 while (S >= 60) {S -= 60 , M ++} while (M >= 60) {M -= 60 , H ++} while (H >= 24) {H -= 24} return (H / 24) + (M / 1440) + (S / 86400)}
 function MQ(a) {return Math.floor((a + 50) * 19 / 235) - 2}
@@ -84,11 +83,11 @@ this.CN = Math.floor(RM / 1080) + 1
 return this} function KH(OD) {if (HOD(OD).RM >= 0) {DOC("ה"+DN+" ב"+WN+" ל"+MN+" מ"+GN+" מחזור "+CN)}}
 function QIV(OD){ this.XZ = MQ(HOD(OD).AM) , RH = taaric(XZ) , RQ = taaric(XZ + 1)
 if (RH > DSC) {RQ = RH , RH = taaric(-- XZ)} if (RQ == DSC) {RH = RQ , XZ ++}
-var elef = Math.ceil(XZ / 1000) - 1 , prat = ((XZ - 1) % 1000) + 1
-this.xana = ger(elef) + ger(prat); if (ger(elef).length > 2) {xana = ger(elef) + " " + ger(prat)}
+var elef = gim(Math.ceil(XZ / 1000) - 1,1) , prat = gim(((XZ - 1) % 1000) + 1,1)
+this.xana = elef + prat; if (elef.length > 2) {xana = elef + " " + prat}
 this.OC = oc(RH,RQ,XZ) , YC = DSC - RH , MC = 0; while (YC >= 0) {YC -= OC[MC] , MC ++} YC += OC[-- MC] + 1
 var XC=["תשרי","מרחשון","כסלו","טבת","שבט","אדר א'","אדר ב'","ניסן","אייר","סיון","תמוז","אב","אלול"];if (qibur(XZ)!=0) {XC[6]="אדר"}
-this.codex = XC[MC] , yom = ger(YC); if (XZ < 4120) {yom = yom + "?" , codex = codex + "?"}
+this.codex = XC[MC] , yom = gim(YC,1); if (XZ < 4120) {yom = yom + "?" , codex = codex + "?"}
 this.NH = "יום "; if ((TL % 1) < 0.5) {NH = "ליל "}
 return this} function KQ(OD) {if (YOM(OD).DSC > 0) {DOC(QIV(OD).NH+yom+" "+codex+" "+xana+"\u200F")}}
 function PAR(OD){ var I = QIV(OD).XZ , rexit = RH - (RH % 7) + 22; if (rexit > DSC) {RQ = RH , RH = taaric(-- I)} rexit = RH - (RH % 7) + 22
