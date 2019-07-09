@@ -1,8 +1,7 @@
 <!DOCTYPE html><html lang="he"><head><meta charset="utf-8" http-equiv="refresh" content="60"><title>תאריכים</title></head>
 <body><script lang="javascript">
 function DOC(p){document.write("<body style=text-align:center bgcolor=#ffffff><font color=#000000>\u200F",p,"<br /></font></body>")}
-var LT = new Date()
-var T = (LT.getUTCHours()/24)+(LT.getUTCMinutes()/1440)+(LT.getSeconds()/86400)+(LT.getMilliseconds()/86400000)
+var LT = new Date() , T = (LT.getUTCHours()/24)+(LT.getUTCMinutes()/1440)+(LT.getSeconds()/86400)+(LT.getMilliseconds()/86400000)
 var D = LT.getUTCDate() , M = LT.getUTCMonth() + 2 , Y = LT.getUTCFullYear(); if (M < 4) {M += 12 , Y --}
 var L = 0; if (Y > 1582 || Y == 1582 && (M > 11 || (M == 11 && D > 14))) {L = Math.floor(Y / 100) - Math.floor(Y / 400) - 2}
 var JD = Math.floor((Y + 4716) * 365.25) + Math.floor(M * 30.6) + D - L - 1524.5 + T; console.log("יום יוליאני ",JD)
@@ -45,7 +44,7 @@ if (YR == 5 || YP == 2) {PR.splice(42,0,"מסעי")} if (YR == 5) {PR.splice(29,
 if (YP == 5) {PR.push("האזינו","יום כפור","סכות")} if (YP == 0) {PR.push("ראש השנה","האזינו","סכות","וזאת הברכה")}
 if (YP == 2 || YP == 3) {PR.push("וילך","האזינו","וזאת הברכה")} return PR}
 function YOM(OD){ this.TL = OD; if (OD == null) {TL = JD - 348346.1521277}
-this.DSC = Math.floor(TL) + 1 , WD = DSC % 7 , CT = TL , TSC = TL
+this.DSC = Math.floor(TL) + 1 , WD = DSC % 7 , TSC = TL , CT = TL
 return this} function KY(OD) {if (YOM(OD).DSC > 0) {DOC("יום "+DSC+" לבריאת העולם")}}
 function MIX(OD){ YOM(OD)
 var ST1 = TSC - 1068927.75; if (ST1 > 3080) {ST1 -= 7} var ST2 = ST1 - 177492 , BT = ST2 + 7868 , PD = "לא ידועה" , CPD = "לא ידוע"
@@ -77,7 +76,7 @@ this.AM = Math.floor((TL - (67 / 12)) / ML) , RM = AM - 83
 var WNC = (DSC - cixuv(AM).CMT) + MD; this.WN = xevaq[Math.ceil(WNC / 7)]
 if (WNC == 36) {WN = xevaq[1] , RM ++} if (DSC == CMT && (MD != 1 || (MD == 1 && DP > 13752)))  {WN = xevaq[5] , RM --}
 var MIC = RM % 1080 , GIC = 0; while (MIC >= 0) {MIC -= MNI[GIC % 9] , GIC ++} this.MN = seder[MIC + MNI[(GIC - 1) % 9] + 1]
-this.GN = nkeva[GIC]; if (GIC > 10) {GN = nkeva[GIC % 10] +" עשרה"} qeser[1] = " ו"
+this.GN = nkeva[GIC]; if (GIC > 10) {GN = nkeva[GIC % 10] + " עשרה"} qeser[1] = " ו"
 if ((GIC % 10) == 0) {qeser[1] = ""} if (GIC > 19) {GN = qeser[Math.floor(GIC / 10)] + qeser[1] + nkeva[GIC % 10]}
 this.CN = Math.floor(RM / 1080) + 1
 return this} function KH(OD) {if (HOD(OD).RM >= 0) {DOC("ה"+DN+" ב"+WN+" ל"+MN+" מ"+GN+" מחזור "+CN)}}
@@ -118,7 +117,7 @@ var K = sdarim(RX%7,taaric(xana+1)%7,qibur(xana)).indexOf(sidra); if (K < 0) {re
 function xviqit(d,w,s,y,r,j,c){return (c * 392392) + (j * 17836) + (r * 2548) + (y * 364) + (s * 91) + (w * 7) + d - 413239}
 function mixmar(ba,mix,mac,ot){ var scum = (mac * 168) + (mix * 7) + ba
 if (ot=="א") {if (scum>3250) {return scum+1068759} return scum+1068752} if (ot=="ב") {return scum+1238383} return scum+1246251}
-function dorot (dor,gux,yom) {return (dor * 750) + (gux * 30) + yom - 731281}
+function dorot(dor,gux,yom) {return (dor * 750) + (gux * 30) + yom - 731281}
 function kocavim(mac,kvu,codex,xabat,yom){
 while (kvu > 1) {codex += MNI[(kvu - 2) % 9] , kvu --} var zman = (((mac * 1080) + codex - 998) * ML) + (79 / 12)
 return zman - (zman % 7) + (xabat * 7) + yom - 8}
