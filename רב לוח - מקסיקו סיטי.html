@@ -1,10 +1,10 @@
 <!DOCTYPE html><html lang="he"><head><meta charset="utf-8" http-equiv="refresh" content="60"><title>תאריכים</title></head>
-<body><script lang="javascript">
+<body><script lang="javascript"> SE = 86400
 function DOC(p){document.write("<body style=text-align:center bgcolor=#ffffff><font color=#000000>\u200F",p,"<br /></font></body>")}
-var LT = new Date() , T = (LT.getUTCHours()/24)+(LT.getUTCMinutes()/1440)+(LT.getSeconds()/86400)+(LT.getMilliseconds()/86400000)
+var LT = new Date() , T = (LT.getUTCHours()/24)+(LT.getUTCMinutes()/1440)+(LT.getSeconds()/SE)+(LT.getMilliseconds()/SE/1000)
 var D = LT.getUTCDate() , M = LT.getUTCMonth() + 2 , Y = LT.getUTCFullYear(); if (M < 4) {M += 12 , Y --}
 var L = 0; if (Y > 1582 || Y == 1582 && (M > 11 || (M == 11 && D > 14))) {L = Math.floor(Y / 100) - Math.floor(Y / 400) - 2}
-var JD = Math.floor((Y + 4716) * 365.25) + Math.floor(M * 30.6) + D - L - 1524.5 + T; console.log("יום יוליאני ",JD)
+var YL = 365.25 , JD = Math.floor((Y + 4716) * YL) + Math.floor(M * 30.6) + D - L - 1524.5 + T; console.log("יום יוליאני ",JD)
 var zacar = ["","אחד","שני","שלשה","ארבעה","חמשה","ששה","שבעה","שמנה","תשעה","עשרה"]
 var nkeva = ["","אחת","שתים","שלש","ארבע","חמש","שש","שבע","שמנה","תשע","עשר"]
 var qeser = [""," ו","עשרים","שלשים","ארבעים","חמשים","ששים"]
@@ -21,10 +21,10 @@ var g = gim3[Math.floor((n % 400) / 100)] + gim2[Math.floor((n % 100) / 10)] + g
 while (n > 399) {g = "ת" + g , n -= 400} gim2[1] = "י"; var G = g
 if (s == 1) {if (g.length == 1) {G = g + "'"} if (g.length > 1) {G = g.substr(0,g.length - 1) + '"' + g.substr(g.length - 1)}} return G}
 function xaqa(H,M,S){ H += 5 , M += 24
-while (S >= 60) {S -= 60 , M ++} while (M >= 60) {M -= 60 , H ++} while (H >= 24) {H -= 24} return (H / 24) + (M / 1440) + (S / 86400)}
+while (S >= 60) {S -= 60 , M ++} while (M >= 60) {M -= 60 , H ++} while (H >= 24) {H -= 24} return (H / 24) + (M / 1440) + (S / SE)}
 function MQ(a) {return Math.floor((a + 50) * 19 / 235) - 2}
 function CQ(b) {return Math.floor((((b - 1) * 235) + 1) / 19) - 12}
-const ML = 765433 / 25920 , ZSL = 487 / 16 , MNI = [15,15,15,15,19,15,15,15,19]
+const ML = 765433 / 25920 , ZSL = YL / 12 , MNI = [15,15,15,15,19,15,15,15,19]
 function cixuv(codex){ this.MT = (codex * ML) + (79 / 12) , CMT = Math.floor(MT) , MD = CMT % 7
 this.DP = Math.round((MT % 1) * 25920) , MH = Math.floor(DP / 1080) , MP = DP % 1080 , MAP = APN[(Math.floor(MT * 24) - 180) % 7]
 return this}
@@ -66,7 +66,7 @@ var c = gim(Math.ceil(DSC / 392392),0)
 if (DSC > 0) {DOC(d+" "+w+" "+s+" "+y+" "+r+" "+j+" "+c)}}
 function HAM(OD){ var SC = YOM(OD).DSC + 178
 var SB = Math.floor(SC / 10227) + 1 , AP = APN[Math.floor(SC / 1461) % 7]
-var SYN = ["הרים","ישוב","ימים","מדבר"] , SY = SYN[Math.floor((SC + 0.4) / 365.25) % 4]
+var SYN = ["הרים","ישוב","ימים","מדבר"] , SY = SYN[Math.floor((SC + 0.4) / YL) % 4]
 var ZSN = ["טלה","שור","תאומים","סרטן","אריה","בתולה","מאזנים","עקרב","קשת","גדי","דלי","דגים"]
 var ZSC = Math.floor((SC + 0.49) / ZSL) , ZS = ZSN[ZSC % 12] , DM = SC - Math.round(ZSC * ZSL) + 1
 if (SC >= 0) {DOC(DM+" ב"+ZS+" "+SY+" "+AP+" "+SB)}
@@ -133,7 +133,7 @@ if (c0 > 1079) {c0 -= 1080 , x0 ++} if (x0 > 23) {x0 -= 24 , y0 ++} if (y0 > 6) 
 function sig(OD){ YOM(OD)
 var HSC = Math.floor(TSC * 24) + 1 , MSC = Math.floor(TSC * 1440) + 1 , HAP = Math.floor(TL * 24) - 156 , APH = APN[HAP % 7]
 if (MSC > 0) {DOC("דקה "+MSC+" לבריאת העולם"); if (HAP >= 0) {DOC("שעת שליטת "+APH)} return "שעה " + HSC + " לבריאת העולם"}}
-function DAF(OD){ var days = Math.floor(YOM(OD).TL) - 2075326 , mas = 0 , mac = 1
+function DAF(OD){ var days = YOM(OD).DSC - 2075327 , mas = 0 , mac = 1
 var dapim = [63,156,104,120,12,87,55,39,34,30,31,28,26,121,111,90,65,48,89,81,118,118,175,112,23,48,75,13,119,109,141,60,33,33,27,20,4,8,4,72]
 while (days > 0) {if (mas == 40) {mas = 0 , mac ++} if (mac > 7) {dapim[4] = 21} days -= dapim[mas] , mas ++}
 if (mas == 37) {days += 20} if (mas == 38) {days += 24} if (mas == 39) {days += 32} days += dapim[mas - 1] + 1
@@ -143,13 +143,13 @@ var MAS = ["ברכות","שבת","עירובין","פסחים","שקלים","י�
 if (days > 0) {DOC(MAS[mas - 1]+" "+gim(days))} else {DOC("עדיין לא התחילו")}}
 function laqaz(OD){ var z = Math.floor(OD - 1373076.225) , t = 0
 if (z > 577737) {t = Math.floor((z - 145793.25 ) / 36524.25) , z += t - Math.floor(t / 4) + 1}
-var h = z + 428 , x = Math.floor((h - 122.1) / 365.25) , v = Math.floor(365.25 * x)
-var c = Math.floor((h - v) / 30.6001) , y = h - v - Math.floor(30.6001 * c)
+var h = z + 428 , x = Math.floor((h - 122.1) / YL) , v = Math.floor(x * YL)
+var c = Math.floor((h - v) / 30.6001) , y = h - v - Math.floor(c * 30.6001)
 if (c > 13) {c -= 12} if (c > 3) {x --} if (x < 0) {x --} DOC("\u200E"+y+"/"+(c - 1)+"/"+(x + 1))}
-function umot(Y,M,D,H,m,s){ if (Y < 0) {Y ++} if (M < 3) {M += 12 , Y --} var T = (H / 24) + (m / 1440) + (s / 86400)
+function umot(Y,M,D,H,m,s){ if (Y < 0) {Y ++} if (M < 3) {M += 12 , Y --} var T = (H / 24) + (m / 1440) + (s / SE)
 L = 0; if (Y > 1582 || Y == 1582 && (M > 10 || (M == 10 && D > 14))) {L = Math.floor(Y / 100) - Math.floor(Y / 400) - 2}
-return Math.floor((Y + 3760) * 365.25) + Math.floor((M + 1) * 30.6) + D - L - 691.775 + T}
+return Math.floor((Y + 3760) * YL) + Math.floor((M + 1) * 30.6) + D - L - 691.775 + T}
 function xaqon(codex){ laqaz(YOM(cixuv(codex).MT - 1).CT)
-var H = 0 , M = 0 , Z = Math.round(((CT - 0.225) % 1) * 86400); if (Z < 0) {Z += 86400}
+var H = 0 , M = 0 , Z = Math.round(((CT - 0.225) % 1) * SE); if (Z < 0) {Z += SE}
 while (Z > 59) {Z -= 60 , M ++} while (M > 59) {M -= 60 , H ++} DOC(H+":"+M+":"+Z)}
 </script></body></html>
