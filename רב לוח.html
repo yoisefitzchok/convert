@@ -152,4 +152,8 @@ return Math.floor((Y + 3760) * YL) + Math.floor((M + 1) * 30.6) + D - L - 691.73
 function xaqon(codex){ laqaz(YOM(cixuv(codex).MT - 1).CT)
 var H = 0 , M = 0 , Z = Math.round(((CT - 0.264544) % 1) * SE); if (Z < 0) {Z += SE}
 while (Z > 59) {Z -= 60 , M ++} while (M > 59) {M -= 60 , H ++} DOC(H+":"+M+":"+Z)}
+function sim(x){var a = taaric(x) , b = taaric(x+1) , c = b - a , s = gim1[(a - 1) % 7 + 1]
+if (c % 10 == 5) {s += "ש"} if (c % 10 == 4) {s += "כ"} if (c % 10 == 3) {s += "ח"}
+if (qibur(x) == 0) {s += "מ"} else {s += "פ"} s += gim1[(b - 3) % 7 + 1]; if (x < 4120) {s += "?"}return s}
+function MK(m){var x = 1; while(x < 20) {DOC(sim(((m - 1) * 19) + x)) , x ++} DOC("")}
 </script></body></html>
