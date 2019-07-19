@@ -41,8 +41,8 @@ var PR = ["בראשית","נח","לך לך","וירא","חיי שרה","תולד
 if (Q == 0 || YP == 2) {PR.splice(29,0,"בחקתי")} if (Q != 0) {PR.splice(24,0,"פסח")}
 if (Q == 0 || (YR == 5 && YP == 3)) {PR.splice(22,0,"פקדי")} if (Q == 0) {PR.splice(28,0,"קדשים") , PR.splice(27,0,"מצרע")
 if (YR == 5 || YP == 2) {PR.splice(42,0,"מסעי")} if (YR == 5) {PR.splice(29,0,"פסח")} else {PR.splice(28,0,"פסח")}}
-if (YP == 5) {PR.push("האזינו","יום כפור","סכות")} if (YP == 0) {PR.push("ראש השנה","האזינו","סכות","וזאת הברכה")}
-if (YP == 2 || YP == 3) {PR.push("וילך","האזינו","וזאת הברכה")} return PR}
+if (YP == 5) {PR.push("האזינו","כפור","סכות")} else {if (YP == 0) {PR.push("ראש השנה","האזינו","סכות","וזאת הברכה")}
+else {PR.push("וילך","האזינו","וזאת הברכה")}} return PR}
 function YOM(OD){ this.TL = OD; if (OD == null) {TL = JD - 348345.83}
 this.DSC = Mf(TL) + 1 , WD = DSC % 7 , TSC = TL - 0.3221227 , CT = TL + 0.3221227
 return this} function KY(OD) {if (YOM(OD).DSC > 0) {DOC("יום "+DSC+" לבריאת העולם")}}
