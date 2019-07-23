@@ -123,13 +123,13 @@ function molad(c) {cixuv(c); if(c>=0){if(MD==0){MD=7}DOC(MD+","+MH+","+MP+" - "+
 function rxima(x){ var c = 0 , CX = 12; if ([-16,-13,-11,-8,-5,-2,0,3,6,8,11,14,17].includes(x % 19)) {CX = 13}
 while (c < CX) {molad(CQ(x) + c) , c ++} DOC(""); return ROX(x + 1) - ROX(x)}
 function cipus(y,x,h){if (y==7) {y=0} if (y<0||y>6||x<0||x>23||h<0||h>1079||y%1!=0||x%1!=0||h%1!=0) {return "שגיאה"}
-var y0 = 6 , x0 = 14 , c0 = 0 , c = 0; while (c0 != h || x0 != x || y0 != y) {c0 += 793 , x0 += 12 , y0 += 1 , c ++
-if (c0 > 1079) {c0 -= 1080 , x0 ++} if (x0 > 23) {x0 -= 24 , y0 ++} if (y0 > 6) {y0 -= 7}} return c}
+var y0 = 6 , x0 = 14 , h0 = 0 , c = 0; while (h0 != h || x0 != x || y0 != y) {h0 += 793 , x0 += 12 , y0 += 1 , c ++
+if (h0 > 1079) {h0 -= 1080 , x0 ++} if (x0 > 23) {x0 -= 24 , y0 ++} if (y0 > 6) {y0 -= 7}} return c}
 function sig(OD){ YOM(OD)
 var HSC = Mf(TSC * 24) + 1 , MSC = Mf(TSC * 1440) + 1 , HAP = Mf(TL * 24) - 156 , APH = APN[HAP % 7]
 if (MSC > 0) {DOC("דקה "+MSC+" לבריאת העולם"); if (HAP >= 0) {DOC("שעת שליטת "+APH)} return "שעה " + HSC + " לבריאת העולם"}}
 function DAF(OD){ var days = YOM(OD).DSC - 2075327 , mas = 0 , mac = 1
-var dapim = [63,156,104,120,12,87,55,39,34,30,31,28,26,121,111,90,65,48,89,81,118,118,175,112,23,48,75,13,119,109,141,60,33,33,27,20,4,8,4,72]
+var dapim=[63,156,104,120,12,87,55,39,34,30,31,28,26,121,111,90,65,48,89,81,118,118,175,112,23,48,75,13,119,109,141,60,33,33,27,20,4,8,4,72]
 while (days > 0) {if (mas == 40) {mas = 0 , mac ++} if (mac > 7) {dapim[4] = 21} days -= dapim[mas] , mas ++}
 if (mas == 37) {days += 20} if (mas == 38) {days += 24} if (mas == 39) {days += 32} days += dapim[mas - 1] + 1
 var MAS = ["ברכות","שבת","עירובין","פסחים","שקלים","יומא","סוכה","ביצה","ראש השנה","תענית","מגילה","מועד קטן","חגיגה",
@@ -147,6 +147,6 @@ var H = 0 , M = 0 , Z = Mr(((CT - 0.225) % 1) * SE); if (Z < 0) {Z += SE}
 while (Z > 59) {Z -= 60 , M ++} while (M > 59) {M -= 60 , H ++} DOC(H+":"+M+":"+Z)}
 function sim(x){var a = ROX(x) , b = ROX(x+1) , c = b - a , s = gim1[(a - 1) % 7 + 1]
 if (c % 10 == 5) {s += "ש"} if (c % 10 == 4) {s += "כ"} if (c % 10 == 3) {s += "ח"}
-if (qibur(x) == 0) {s += "מ"} else {s += "פ"} s += gim1[(b - 3) % 7 + 1]; if (x < 4120) {s += "?"}return s}
+if (qibur(x) == 0) {s += "מ"} else {s += "פ"} s += gim1[(b - 3) % 7 + 1]; if (x < 2) {s = ""} if (x < 4120) {s += "?"}return s}
 function MK(m){var x = 1; while(x < 20) {DOC(sim(((m - 1) * 19) + x)) , x ++} DOC("")}
 </script></body></html>
