@@ -1,10 +1,7 @@
 <!DOCTYPE html><html lang="he"><head><meta charset="utf-8" http-equiv="refresh" content="60"><title>תאריכים</title></head>
-<body><script lang="javascript"> SE = 86400 , Mf = Math.floor , Mc = Math.ceil , Mr = Math.round
+<body><script lang="javascript"> Mf = Math.floor , Mc = Math.ceil , Mr = Math.round
 function DOC(p){document.write("<body style=text-align:center bgcolor=#ffffff><font color=#000000>\u200F",p,"<br /></font></body>")}
-LT = new Date() , T = (LT.getUTCHours()/24)+(LT.getUTCMinutes()/1440)+(LT.getSeconds()/SE)+(LT.getMilliseconds()/SE/1000)
-D = LT.getUTCDate() , M = LT.getUTCMonth() + 2 , Y = LT.getUTCFullYear(); if (M < 4) {M += 12 , Y --}
-L = 0; if (Y > 1582 || Y == 1582 && (M > 11 || (M == 11 && D > 14))) {L = Mf(Y / 100) - Mf(Y / 400) - 2}
-YL = 365.25 , JD = Mf((Y + 4716) * YL) + Mf(M * 30.6) + D - L - 1524.5 + T; console.log("יום יוליאני ",JD)
+SE = 86400 , JD = Date.now() / 1000 / SE + 2440587.5; console.log("יום יוליאני ",JD)
 zacar = ["","אחד","שני","שלשה","ארבעה","חמשה","ששה","שבעה","שמנה","תשעה","עשרה"]
 nkeva = ["","אחת","שתים","שלש","ארבע","חמש","שש","שבע","שמנה","תשע","עשר"]
 qeser = [""," ו","עשרים","שלשים","ארבעים","חמשים","ששים"]
@@ -24,7 +21,7 @@ function xaqa(H,M,S){ H += 6 , M += 4 , S += 48
 while (S >= 60) {S -= 60 , M ++} while (M >= 60) {M -= 60 , H ++} while (H >= 24) {H -= 24} return (H / 24) + (M / 1440) + (S / SE)}
 function MQ(c) {return Mf((c + 50) * 19 / 235) - 2}
 function CQ(x) {return Mf((((x - 1) * 235) + 1) / 19) - 12}
-ML = 765433 / 25920 , ZSL = YL / 12 , MNI = [15,15,15,15,19,15,15,15,19]
+ML = 765433 / 25920 , YL = 365.25 , ZSL = YL / 12 , MNI = [15,15,15,15,19,15,15,15,19]
 function cixuv(c){ this.MT = (c * ML) + (79 / 12) , CMT = Mf(MT) , MD = CMT % 7
 this.DP = Mr((MT % 1) * 25920) , MH = Mf(DP / 1080) , MP = DP % 1080 , MAP = APN[(Mf(MT * 24) - 180) % 7]
 return this}
