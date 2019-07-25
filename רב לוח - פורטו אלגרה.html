@@ -137,8 +137,7 @@ function umot(Y,M,D,H,m,s){ if (Y < 0) {Y ++} if (M < 3) {M += 12 , Y --} var T 
 L = 0; if (Y > 1582 || Y == 1582 && (M > 10 || (M == 10 && D > 14))) {L = Mf(Y / 100) - Mf(Y / 400) - 2}
 return Mf((Y + 3760) * YL) + Mf((M + 1) * 30.6) + D - L - 691.7672 + T}
 function xaqon(codex){ laqaz(YOM(cixuv(codex).MT - 1).CT)
-var H = 0 , M = 0 , Z = Mr(((CT - 0.2328) % 1) * SE); if (Z < 0) {Z += SE}
-while (Z > 59) {Z -= 60 , M ++} while (M > 59) {M -= 60 , H ++} DOC(H+":"+M+":"+Z)}
+var Z = Mr(((CT - 0.2328) % 1) * SE); if (Z < 0) {Z += SE} var M = Mf(Z / 60) , H = Mf(M / 60); DOC(H+":"+(M % 60)+":"+(Z % 60))}
 function sim(x){ s = gim1[(ta(x).RH-1)%7+1]; if (OX%10==5) {s += "ש"} if (OX%10==4) {s += "כ"} if (OX%10==3) {s += "ח"}
 if (qibur(x) == 0) {s += "מ"} else {s += "פ"} s += gim1[(RQ - 3) % 7 + 1]; if (x < 2) {s = ""} if (x < 4120) {s += "?"}return s}
 function MK(m){var x = 1; while(x < 20) {DOC(sim(((m - 1) * 19) + x)) , x ++} DOC("")}
