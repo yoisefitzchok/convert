@@ -140,8 +140,8 @@ var Z = Mr(((CT - (76 / 300)) % 1) * SE); if (Z < 0) {Z += SE} var M = Mf(Z / 60
 function sim(x){ s = gim1[(ta(x).RH-1)%7+1]; if (OX%10==5) {s += "ש"} if (OX%10==4) {s += "כ"} if (OX%10==3) {s += "ח"}
 if (qibur(x) == 0) {s += "מ"} else {s += "פ"} s += gim1[(RQ - 3) % 7 + 1]; if (x < 2) {s = ""} if (x < 4120) {s += "?"}return s}
 function MK(m){var x = 1; while(x < 20) {DOC(sim(((m - 1) * 19) + x)) , x ++} DOC("")}
-function KX(x,q){while(x <= q){DOC(x+" - "+sim(x)) , x ++}}
+function KX(x,q){while(x <= q){DOC(x+" - "+sim(x)) , x ++} DOC("")}
 function HK(t,q,s,g,h){ var m = 0 , c = 0 , o = "" , x = 0 , k = 0
 while(t <= q) {o = sim(t); if (g > 0) {o = o[g - 1]} if(o.includes(s)) {m ++; if (m == 1) {c = t} x = t - c
-DOC(t+" , "+x); if (x == h) {console.log(t) , k ++} c = t} t ++} if (k > 0) {console.log(k)} return m}
+DOC(t+" , "+x); if (x == h) {console.log(t) , k ++} c = t} t ++} DOC(""); if (k > 0) {console.log(k)} return m}
 </script></body></html>
