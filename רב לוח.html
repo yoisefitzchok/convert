@@ -8,6 +8,7 @@ qeser = [""," ו","עשרים","שלשים","ארבעים","חמשים","ששי�
 xevaq = ["שביעית","ראשונה","שניה","שלישית","רביעית","חמישית","ששית","שביעית"]
 seder = ["שביעי","ראשון","שני","שלישי","רביעי","חמישי","ששי","שביעי","שמיני","תשיעי","עשירי",
 "אחד עשר","שנים עשר","שלשה עשר","ארבעה עשר","חמשה עשר","ששה עשר","שבעה עשר","שמנה עשר","תשעה עשר"]
+XC = ["תשרי","מרחשון","כסלו","טבת","שבט","אדר א'","אדר ב'","ניסן","אייר","סיון","תמוז","אב","אלול"]
 APN = ["שבתאי","צדק","מאדים","חמה","נוגה","כוכב","לבנה"]
 PDN = ["יהויריב","ידעיה","חרם","שערים","מלכיה","מימן","הקוץ","אביה","ישוע","שכניהו","אלישיב","יקים",
 "חפה","ישבאב","בלגה","אמר","חזיר","הפצץ","פתחיה","יחזקאל","יכין","גמול","דליהו","מעזיהו"]
@@ -78,8 +79,7 @@ return this} function KH(OD) {if (HOD(OD).RM >= 0) {DOC("ה"+DN+" ב"+WN+" ל"+M
 function QIV(OD){ this.XZ = XQ(HOD(OD).AM); ta(XZ); if (RH > DSC) {ta(-- XZ)} if (RQ == DSC) {ta(++ XZ)}
 var elef = gim(Mc(XZ/1000)-1,1) , prat = gim(((XZ-1)%1000)+1,1); this.xana = elef+prat; if (elef.length > 2) {xana = elef+" "+prat}
 this.YC = DSC - RH , MC = 0; while (YC >= 0) {YC -= OC[MC] , MC ++} YC += OC[-- MC] + 1
-var XC=["תשרי","מרחשון","כסלו","טבת","שבט","אדר א'","אדר ב'","ניסן","אייר","סיון","תמוז","אב","אלול"];if (qibur(XZ)!=0) {XC[6]="אדר"}
-this.codex = XC[MC] , yom = gim(YC,1); if (XZ < 4120) {yom = yom + "?" , codex = codex + "?"}
+if (qibur(XZ)!=0) {XC[6]="אדר"} this.codex = XC[MC] , yom = gim(YC,1); if (XZ < 4120) {yom = yom + "?" , codex = codex + "?"}
 this.NH = "יום "; if ((TL % 1) < 0.5) {NH = "ליל "}
 return this} function KQ(OD) {if (YOM(OD).DSC > 0) {DOC(QIV(OD).NH+yom+" "+codex+" "+xana+"\u200F")}}
 function PAR(OD){ var I = QIV(OD).XZ , t = RH - (RH % 7) + 22; if (t > DSC) {ta(-- I)} t = RH - (RH % 7) + 22
@@ -117,7 +117,9 @@ function rxima(x){ var c = 0 , CX = 12; if ([-16,-13,-11,-8,-5,-2,0,3,6,8,11,14,
 while (c < CX) {molad(CQ(x) + c) , c ++} DOC("")}
 function cipus(y,x,h){if (y==7) {y=0} if (y<0||y>6||x<0||x>23||h<0||h>1079||y%1!=0||x%1!=0||h%1!=0) {return "שגיאה"}
 var y0 = 6 , x0 = 14 , h0 = 0 , c = 0; while (h0 != h || x0 != x || y0 != y) {h0 += 793 , x0 += 12 , y0 += 1 , c ++
-if (h0 > 1079) {h0 -= 1080 , x0 ++} if (x0 > 23) {x0 -= 24 , y0 ++} if (y0 > 6) {y0 -= 7}} return c}
+if (h0 > 1079) {h0 -= 1080 , x0 ++} if (x0 > 23) {x0 -= 24 , y0 ++} if (y0 > 6) {y0 -= 7}}
+var X = XQ(c) , C = c - CQ(X); if (qibur(X) != 0 && C > 4) {XC[6] = "אדר" , C ++}
+X = gim(Mc(X / 1000) - 1,1) + gim(((X - 1) % 1000) + 1,1); DOC(XC[C]+" "+X); return c}
 function sig(OD){ YOM(OD)
 var HSC = Mf(TSC * 24) + 1 , MSC = Mf(TSC * 1440) + 1 , APH = APN[(HSC - 157) % 7]
 if (MSC > 0) {DOC("דקה "+MSC+" לבריאת העולם"); if (HSC > 156) {DOC("שעת שליטת "+APH)} return "שעה " + HSC + " לבריאת העולם"}}
@@ -142,6 +144,6 @@ if (qibur(x) == 0) {s += "מ"} else {s += "פ"} s += gim1[(RQ - 3) % 7 + 1]; if 
 function MK(m) {var x = 1; while(x < 20) {DOC(sim(((m - 1) * 19) + x)) , x ++} DOC("")}
 function KX(x,q) {while(x <= q){DOC(x+" - "+sim(x)+"\u200F") , x ++} DOC("")}
 function HK(t,q,s,g,h){ var m = 0 , k = 0; while(t <= q) {var o = sim(t); if (g > 0) {o = o[g - 1]}
-if (o.includes(s)) {m++; if (m==1) {var c=t} var x=t-c; if (h==null) {DOC(t+" , "+x)} ; if (x==h&&g>=0) {console.log(t),k++} c=t}
+if (o.includes(s)) {m++; if (m==1) {var c=t} var x=t-c; if (h==null) {DOC(t+" , "+x)} if (x==h&&g>=0) {console.log(t),k++} c=t}
 t ++} DOC(""); if (k > 0) {console.log(k)} return m}
 </script></body></html>
