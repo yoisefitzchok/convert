@@ -139,6 +139,8 @@ L = 0; if (Y > 1582 || Y == 1582 && (M > 10 || (M == 10 && D > 14))) {L = Mf(Y /
 return Mf((Y + 3760) * YL) + Mf((M + 1) * 30.6) + D - L - 691.775 + T}
 function xaqon(codex){ laqaz(YOM(cixuv(codex).MT - 1).CT)
 var Z = Mr(((CT - 0.225) % 1) * SE); if (Z < 0) {Z += SE} var M = Mf(Z / 60) , H = Mf(M / 60); DOC(H+":"+(M % 60)+":"+(Z % 60))}
+function ZT(OD){ var Y=YOM(OD).TSC+730500,D=Mf(Y/750),X=Mf(Y*12%12),L=Mf(Y*192%16),N=Mf(Y*2112%11),T=Mf(Y*40128%19),R=Mf(Y*682176%17)
+DOC(D+":"+Mf(Y % 750)+":"+X+":"+L+":"+N+":"+T+":"+R)}
 function sim(x){ var s = gim1[(ta(x).RH-1)%7+1]; if (OX%10==5) {s += "ש"} if (OX%10==4) {s += "כ"} if (OX%10==3) {s += "ח"}
 if (qibur(x) == 0) {s += "מ"} else {s += "פ"} s += gim1[(RQ - 3) % 7 + 1]; if (x < 2) {s = ""} if (x < 4120) {s += "?"}return s}
 function MK(m) {var x = 1; while(x < 20) {DOC(sim(((m - 1) * 19) + x)) , x ++} DOC("")}
