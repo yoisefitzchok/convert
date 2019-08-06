@@ -1,10 +1,8 @@
 <!DOCTYPE html><html lang="he"><head><meta charset="utf-8" http-equiv="refresh" content="60"><title>תאריכים</title></head>
 <body style="color:#000000" bgcolor=#ffffff align=center><input type="text" id="code">
-<button onclick="eval(document.getElementById('code').value)">רוץ</button>
-<table align=center id="cush" cellspacing="0" cellpadding="0"></table><script lang="javascript">
-function DOC(p){var w = document.createElement("tr"); w.appendChild(document.createTextNode("\u200F"+p))
-document.getElementById("cush").appendChild(w)} Mf = Math.floor , Mc = Math.ceil , Mr = Math.round
-SE = 86400 , JD = Date.now() / 1000 / SE + 2440587.5; console.log("יום יוליאני ",JD)
+<button onclick="eval(document.getElementById('code').value)">רוץ</button><p id="cush"></p><script lang="javascript">
+function DOC(p) {document.getElementById("cush").innerHTML += "\u200F"+p+"<br />"}
+Mf = Math.floor , Mc = Math.ceil , Mr = Math.round , SE = 86400 , JD = Date.now()/1000/SE+2440587.5; console.log("יום יוליאני ",JD)
 zacar = ["","אחד","שני","שלשה","ארבעה","חמשה","ששה","שבעה","שמנה","תשעה","עשרה"]
 nkeva = ["","אחת","שתים","שלש","ארבע","חמש","שש","שבע","שמנה","תשע","עשר"]
 qeser = [""," ו","עשרים","שלשים","ארבעים","חמשים","ששים"]
@@ -149,6 +147,6 @@ if (qibur(x) == 0) {s += "מ"} else {s += "פ"} s += gim1[(RQ - 3) % 7 + 1]; if 
 function MK(m) {var x = 1; while(x < 20) {DOC(sim(((m - 1) * 19) + x)) , x ++} DOC("")}
 function KX(x,q) {while(x <= q){DOC(x+" - "+sim(x)+"\u200F") , x ++} DOC("")}
 function HK(t,q,s,g,h){ var m = 0 , k = 0; while(t <= q) {var o = sim(t); if (g > 0) {o = o[g - 1]}
-if (o.includes(s)) {m++; if (m==1) {var c=t} var x=t-c; if (h==null) {DOC(t+" , "+x)} if (x==h&&g>=0) {console.log(t),k++} c=t}
-t ++} DOC(""); if (k > 0) {console.log(k)} return m}
+if (o.includes(s)) {m++; if (m==1) {var c=t} var x=t-c; if (h==null) {DOC(t+" , "+x)} if (x==h&&g>=0) {DOC(t),k++} c=t}
+t ++} DOC(""); if (k > 0) {DOC(k)} return m}
 </script></body></html>
