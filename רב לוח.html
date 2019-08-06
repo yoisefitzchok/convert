@@ -1,6 +1,9 @@
 <!DOCTYPE html><html lang="he"><head><meta charset="utf-8" http-equiv="refresh" content="60"><title>תאריכים</title></head>
-<body><script lang="javascript"> Mf = Math.floor , Mc = Math.ceil , Mr = Math.round
-function DOC(p){document.write("<body style=text-align:center bgcolor=#ffffff><font color=#000000>\u200F",p,"<br /></font></body>")}
+<body style="color:#000000" bgcolor=#ffffff align=center><input type="text" id="code">
+<button onclick="eval(document.getElementById('code').value)">רוץ</button>
+<table align=center id="cush" cellspacing="0" cellpadding="0"></table><script lang="javascript">
+function DOC(p){var w = document.createElement("tr"); w.appendChild(document.createTextNode("\u200F"+p))
+document.getElementById("cush").appendChild(w)} Mf = Math.floor , Mc = Math.ceil , Mr = Math.round
 SE = 86400 , JD = Date.now() / 1000 / SE + 2440587.5; console.log("יום יוליאני ",JD)
 zacar = ["","אחד","שני","שלשה","ארבעה","חמשה","ששה","שבעה","שמנה","תשעה","עשרה"]
 nkeva = ["","אחת","שתים","שלש","ארבע","חמש","שש","שבע","שמנה","תשע","עשר"]
