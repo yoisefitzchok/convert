@@ -9,7 +9,6 @@ qeser = [""," ו","עשרים","שלשים","ארבעים","חמשים","ששי�
 xevaq = ["שביעית","ראשונה","שניה","שלישית","רביעית","חמישית","ששית","שביעית"]
 seder = ["שביעי","ראשון","שני","שלישי","רביעי","חמישי","ששי","שביעי","שמיני","תשיעי","עשירי",
 "אחד עשר","שנים עשר","שלשה עשר","ארבעה עשר","חמשה עשר","ששה עשר","שבעה עשר","שמנה עשר","תשעה עשר"]
-XC = ["תשרי","מרחשון","כסלו","טבת","שבט","אדר א'","אדר ב'","ניסן","אייר","סיון","תמוז","אב","אלול"]
 APN = ["שבתאי","צדק","מאדים","חמה","נוגה","כוכב","לבנה"]
 PDN = ["יהויריב","ידעיה","חרם","שערים","מלכיה","מימן","הקוץ","אביה","ישוע","שכניהו","אלישיב","יקים",
 "חפה","ישבאב","בלגה","אמר","חזיר","הפצץ","פתחיה","יחזקאל","יכין","גמול","דליהו","מעזיהו"]
@@ -27,6 +26,8 @@ ML = 765433 / 25920 , YL = 365.25 , ZSL = YL / 12 , MNI = [15,15,15,15,19,15,15,
 function cixuv(c){ this.MT = (c * ML) + (79 / 12) , CMT = Mf(MT) , MD = CMT % 7 , WP = Mr((MT % 7) * 25920)
 this.DP = WP % 25920 , MH = Mf(DP / 1080) , MP = DP % 1080 , MAP = APN[(Mf(MT * 24) - 180) % 7]; return this}
 function qibur(x){ if ([-16,-13,-11,-8,-5,-2,0,3,6,8,11,14,17].includes(x % 19)) return 0}
+function XC(x){var xc = ["תשרי","מרחשון","כסלו","טבת","שבט","אדר א'","אדר ב'","ניסן","אייר","סיון","תמוז","אב","אלול"]
+if (qibur(x) != 0) {xc[6] = "אדר"} return xc}
 function ROX(x){ var r = cixuv(CQ(x)).CMT; if (MH > 17) {r ++}
 else {if (MD == 3 && DP > 9923 && qibur(x) != 0) {r ++} if (MD == 2 && DP > 16788 && qibur(x - 1) == 0) {r ++}}
 if ([1,4,6].includes(r % 7)) {r ++} return r}
@@ -79,9 +80,8 @@ this.CN = Mf(RM / 1080) + 1
 return this} function KH(OD) {if (HOD(OD).RM >= 0) {DOC("ה"+DN+" ב"+WN+" ל"+MN+" מ"+GN+" מחזור "+CN)}}
 function QIV(OD){ this.XZ = XQ(HOD(OD).AM); ta(XZ); if (RH > DSC) {ta(-- XZ)} if (RQ == DSC) {ta(++ XZ)}
 var elef = gim(Mc(XZ/1000)-1,1) , prat = gim(((XZ-1)%1000)+1,1); this.xana = elef+prat; if (elef.length > 2) {xana = elef+" "+prat}
-this.YC = DSC - RH , MC = 0; while (YC >= 0) {YC -= OC[MC] , MC ++} YC += OC[-- MC] + 1
-if (qibur(XZ)!=0) {XC[6]="אדר"} this.codex = XC[MC] , yom = gim(YC,1); if (XZ < 4120) {yom = yom + "?" , codex = codex + "?"}
-this.NH = "יום "; if ((TL % 1) < 0.5) {NH = "ליל "}
+this.YC = DSC - RH , MC = 0; while (YC >= 0) {YC -= OC[MC] , MC ++} YC += OC[-- MC] + 1 , codex = XC(XZ)[MC] , yom = gim(YC,1)
+if (XZ < 4120) {yom = yom + "?" , codex = codex + "?"} this.NH = "יום "; if ((TL % 1) < 0.5) {NH = "ליל "}
 return this} function KQ(OD) {if (YOM(OD).DSC > 0) {DOC(QIV(OD).NH+yom+" "+codex+" "+xana+"\u200F")}}
 function PAR(OD){ var I = QIV(OD).XZ , t = RH - (RH % 7) + 22; if (t > DSC) {ta(-- I)} t = RH - (RH % 7) + 22
 var par = pr(I)[Mf((DSC - t) / 7)] , mabul = I - 1657; if (mabul < 3300) {par = par + "?"}
@@ -118,8 +118,7 @@ function rxima(x){ var c = 0 , CX = 12; if (qibur(x) == 0) {CX = 13} while (c < 
 function cipus(y,x,h){if (y==7) {y=0} if (y<0||y>6||x<0||x>23||h<0||h>1079||y%1!=0||x%1!=0||h%1!=0) {return "שגיאה"}
 var y0 = 6 , x0 = 14 , h0 = 0 , c = 0; while (h0 != h || x0 != x || y0 != y) {h0 += 793 , x0 += 12 , y0 += 1 , c ++
 if (h0 > 1079) {h0 -= 1080 , x0 ++} if (x0 > 23) {x0 -= 24 , y0 ++} if (y0 > 6) {y0 -= 7}}
-var X = XQ(c) , C = c - CQ(X); if (qibur(X) != 0 && C > 4) {XC[6] = "אדר" , C ++}
-X = gim(Mc(X / 1000) - 1,1) + gim(((X - 1) % 1000) + 1,1); DOC(XC[C]+" "+X); return c}
+var X=XQ(c),GX=gim(Mc(X/1000)-1,1)+gim(((X-1)%1000)+1,1),C=c-CQ(X);if(qibur(X)!=0&&C>4){C++}DOC(XC(X)[C]+" "+GX+"\u200F");return c}
 function sig(OD){ var HSC = Mf(YOM(OD).TSC * 24) + 1 , MSC = Mf(TSC * 1440) + 1 , APH = APN[(HSC - 157) % 7]
 if (MSC > 0) {DOC("דקה "+MSC+" לבריאת העולם"); if (HSC > 156) {DOC("שעת שליטת "+APH)} return "שעה " + HSC + " לבריאת העולם"}}
 function DAF(OD){ var days = YOM(OD).DSC - 2075327 , mas = 0 , mac = 1
