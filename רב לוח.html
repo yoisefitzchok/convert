@@ -25,8 +25,8 @@ function CQ(x) {return Mf((((x - 1) * 235) + 1) / 19) - 12}
 ML = 765433 / 25920 , YL = 365.25 , ZSL = YL / 12 , MNI = [15,15,15,15,19,15,15,15,19]
 function cixuv(c){ this.MT = (c * ML) + (79 / 12) , CMT = Mf(MT) , MD = CMT % 7 , WP = Mr((MT % 7) * 25920)
 this.DP = WP % 25920 , MH = Mf(DP / 1080) , MP = DP % 1080 , MAP = APN[(Mf(MT * 24) - 180) % 7]; return this}
-function qibur(x){ if ([-16,-13,-11,-8,-5,-2,0,3,6,8,11,14,17].includes(x % 19)) return 0}
-function XC(x){var xc = ["תשרי","מרחשון","כסלו","טבת","שבט","אדר א'","אדר ב'","ניסן","אייר","סיון","תמוז","אב","אלול"]
+function qibur(x) {if ([-16,-13,-11,-8,-5,-2,0,3,6,8,11,14,17].includes(x % 19)) return 0}
+function XC(x){ var xc = ["תשרי","מרחשון","כסלו","טבת","שבט","אדר א'","אדר ב'","ניסן","אייר","סיון","תמוז","אב","אלול"]
 if (qibur(x) != 0) {xc[6] = "אדר" , xc[5] = ""} return xc}
 function ROX(x){ var r = cixuv(CQ(x)).CMT; if (MH > 17) {r ++}
 else {if (MD == 3 && DP > 9923 && qibur(x) != 0) {r ++} if (MD == 2 && DP > 16788 && qibur(x - 1) == 0) {r ++}}
@@ -104,18 +104,18 @@ var QQ = qomer % 10; if (qomer > 10) {zacar[2] = "שנים" , sfira = zacar[QQ] 
 if (qomer > 19) {sfira = zacar[QQ] + " ו" + qeser[Mf(qomer / 10)] + " יום"; if (QQ == 0) {sfira = qeser[qomer / 10] + " יום"}}
 var SQ = sfira + xavuq + yamim + " לעומר"; if (OD == null) {SQ = "היום " + SQ} zacar[2] = "שני"
 if (qomer > 0 && qomer < 50 && XZ > 2488) {DOC(SQ)}}
-function qivri(x,c,y){ if (c > 12 || c % 1 != 0) {c = 0} ta(x); while (c > 0) {y += OC[-- c]} return RH + y - 2}
-function kriot(m,s,y){ var x = m + 1657 , K = pr(x).indexOf(s); if (K < 0) {return "שגיאה"} return ta(x).RH-(RH%7)+(K*7)+y+20}
-function xviqit(d,w,s,y,r,j,c){return (c * 392392) + (j * 17836) + (r * 2548) + (y * 364) + (s * 91) + (w * 7) + d - 413239}
+function qivri(x,c,y) {if (c > 12 || c % 1 != 0) {c = 0} ta(x); while (c > 0) {y += OC[-- c]} return RH + y - 2}
+function kriot(m,s,y) {var x = m + 1657 , K = pr(x).indexOf(s); if (K < 0) {return "שגיאה"} return ta(x).RH-(RH%7)+(K*7)+y+20}
+function xviqit(d,w,s,y,r,j,c) {return (c * 392392) + (j * 17836) + (r * 2548) + (y * 364) + (s * 91) + (w * 7) + d - 413239}
 function mixmar(ba,mix,mac,ot){ var scum = (mac * 168) + (mix * 7) + ba
 if (ot=="א") {if (scum>3250) {return scum+1068759} return scum+1068752} if (ot=="ב") {return scum+1238383} return scum+1246251}
 function dorot(dor,gux,yom) {return (dor * 750) + (gux * 30) + yom - 731281}
-function kocavim(mac,kvu,cod,xab,yom) {while (kvu>1) {cod+=MNI[(kvu-2)%9] , kvu--} var zman=(((mac*1080)+cod-998)*ML)+(79/12)
+function kocavim(mac,kvu,cod,xab,yom){ while (kvu>1) {cod+=MNI[(kvu-2)%9] , kvu--} var zman=(((mac*1080)+cod-998)*ML)+(79/12)
 return zman - (zman % 7) + (xab * 7) + yom - 8}
 function galgal(braca,kocav,xana,mazal,yom) {return (braca*10227)+(kocav*1461)+Mr(((xana*12)+mazal-13)*ZSL)+yom-11868}
 function molad(c) {cixuv(c); if(c>=0){if(MD==0){MD=7}DOC(MD+","+MH+","+MP+" - "+MAP)} else{DOC((MD+7)+","+(MH+24)+","+(MP+1080)%1080)}}
-function rxima(x){ var c = 0 , CX = 12; if (qibur(x) == 0) {CX = 13} while (c < CX) {molad(CQ(x) + c) , c ++} DOC("")}
-function cipus(y,x,h,t){if (y==7) {y=0} if (y<0||y>6||x<0||x>23||h<0||h>1079||y%1!=0||x%1!=0||h%1!=0) {return "שגיאה"}
+function rxima(x) {var c = 0 , CX = 12; if (qibur(x) == 0) {CX = 13} while (c < CX) {molad(CQ(x) + c) , c ++} DOC("")}
+function cipus(y,x,h,t){ if (y==7) {y=0} if (y<0||y>6||x<0||x>23||h<0||h>1079||y%1!=0||x%1!=0||h%1!=0) {return "שגיאה"}
 var y0 = 6 , x0 = 14 , h0 = 0 , c = 0; while (h0 != h || x0 != x || y0 != y) {h0 += 793 , x0 += 12 , y0 += 1 , c ++
 if (h0 > 1079) {h0 -= 1080 , x0 ++} if (x0 > 23) {x0 -= 24 , y0 ++} if (y0 > 6) {y0 -= 7}} if (t != null) {c += t * 181440}
 var X=XQ(c),GX=gim(Mc(X/1000)-1,1)+gim(((X-1)%1000)+1,1),C=c-CQ(X);if(qibur(X)!=0&&C>4){C++}DOC(XC(X)[C]+" "+GX+"\u200F");return c}
@@ -146,4 +146,5 @@ function KX(x,q) {while(x <= q){DOC(x+" - "+sim(x)+"\u200F") , x ++} DOC("")}
 function HK(t,q,s,g,h){ var m = 0 , k = 0; while(t <= q) {var o = sim(t); if (g > 0) {o = o[g - 1]}
 if (o.includes(s)) {m++; if (m==1) {var c=t} var x=t-c; if (h==null) {DOC(t+" , "+x)} if (x==h&&g>=0) {DOC(t),k++} c=t}
 t ++} DOC(""); if (k > 0) {DOC(k)} return m}
+function TK(x,t,p) {var z = (x*YL)-179;if(t==0){z = (x*235/19*ML)-172} if(p==0){xaqon((z-(67/12))/ML)}if(p==1){ZT(z)} return z}
 </script></div></body></html>
