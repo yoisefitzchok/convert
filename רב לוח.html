@@ -76,8 +76,7 @@ if (WNC == 36) {WN = xevaq[1] , RM ++} if (DSC == CMT && (MD != 1 || (MD == 1 &&
 var MIC = RM % 1080 , GIC = 0; while (MIC >= 0) {MIC -= MNI[GIC % 9] , GIC ++} this.MN = seder[MIC + MNI[(GIC - 1) % 9] + 1]
 this.GN = nkeva[GIC]; if (GIC > 10) {GN = nkeva[GIC % 10] + " עשרה"} qeser[1] = " ו"
 if ((GIC % 10) == 0) {qeser[1] = ""} if (GIC > 19) {GN = qeser[Mf(GIC / 10)] + qeser[1] + nkeva[GIC % 10]}
-this.CN = Mf(RM / 1080) + 1
-return this} function KH(OD) {if (HOD(OD).RM >= 0) {DOC("ה"+DN+" ב"+WN+" ל"+MN+" מ"+GN+" מחזור "+CN)}}
+this.CN = Mf(RM / 1080) + 1; return this} function KH(OD) {if (HOD(OD).RM >= 0) {DOC("ה"+DN+" ב"+WN+" ל"+MN+" מ"+GN+" מחזור "+CN)}}
 function QIV(OD){ this.XZ = XQ(HOD(OD).AM); ta(XZ); if (RH > DSC) {ta(-- XZ)} if (RQ == DSC) {ta(++ XZ)}
 var elef = gim(Mc(XZ/1000)-1,1) , prat = gim(((XZ-1)%1000)+1,1); this.xana = elef+prat; if (elef.length > 2) {xana = elef+" "+prat}
 this.YC = DSC - RH , MC = 0; while (YC >= 0) {YC -= OC[MC] , MC ++} YC += OC[-- MC] + 1 , codex = XC(XZ)[MC] , yom = gim(YC,1)
@@ -131,6 +130,7 @@ var MAS = ["ברכות","שבת","עירובין","פסחים","שקלים","י�
 if (days > 0) {DOC(MAS[mas - 1]+" "+gim(days))} else {DOC("עדיין לא התחילו")}}
 function ZT(OD){ var Y=YOM(OD).TSC+730500,D=Mf(Y/750),X=Mf(Y*12%12),L=Mf(Y*192%16),N=Mf(Y*2112%11),T=Mf(Y*40128%19),R=Mf(Y*682176%17)
 DOC(D+":"+Mf(Y % 750)+":"+X+":"+L+":"+N+":"+T+":"+R)}
+function YE(OD) {var z=YOM(OD).TSC%365250/15218.75; if(z<0){z+=24} DOC(Mf(z)+":"+Mf(z*24%24)+":"+Mf(z*576%24)+":"+Mf(z*13824%24))}
 function laqaz(OD){ var z = Mf(OD - 1373076.264544) , t = 0; if (z > 577737) {t = Mf((z-145793.25)/36524.25) , z += t-Mf(t/4)+1}
 var h = z + 428 , x = Mf((h - 122.1) / YL) , v = Mf(x * YL) , c = Mf((h - v) / 30.6001) , y = h - v - Mf(c * 30.6001)
 if (c > 13) {c -= 12} if (c > 3) {x --} if (x < 0) {x --} DOC("\u200E"+y+"/"+(c - 1)+"/"+(x + 1))}
