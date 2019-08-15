@@ -79,7 +79,7 @@ if ((GIC % 10) == 0) {qeser[1] = ""} if (GIC > 19) {GN = qeser[Mf(GIC / 10)] + q
 this.CN = Mf(RM / 1080) + 1; return this} function KH(OD) {if (HOD(OD).RM >= 0) {DOC("ה"+DN+" ב"+WN+" ל"+MN+" מ"+GN+" מחזור "+CN)}}
 function QIV(OD){ this.XZ = XQ(HOD(OD).AM); ta(XZ); if (RH > DSC) {ta(-- XZ)} if (RQ == DSC) {ta(++ XZ)}
 var elef = gim(Mc(XZ/1000)-1,1) , prat = gim(((XZ-1)%1000)+1,1); this.xana = elef+prat; if (elef.length > 2) {xana = elef+" "+prat}
-this.YC = DSC - RH , MC = 0; while (YC >= 0) {YC -= OC[MC] , MC ++} YC += OC[-- MC] + 1 , codex = XC(XZ)[MC] , yom = gim(YC,1)
+this.YC = DSC - RH , MC = 0; while (YC >= 0) {YC -= OC[MC ++]} YC += OC[-- MC] + 1 , codex = XC(XZ)[MC] , yom = gim(YC,1)
 if (XZ < 4120) {yom = yom + "?" , codex = codex + "?"} this.NH = "יום "; if ((TL % 1) < 0.5) {NH = "ליל "}
 return this} function KQ(OD) {if (YOM(OD).DSC > 0) {DOC(QIV(OD).NH+yom+" "+codex+" "+xana+"\u200F")}}
 function PAR(OD){ var I = QIV(OD).XZ , t = RH - (RH % 7) + 22; if (t > DSC) {ta(-- I)} t = RH - (RH % 7) + 22
@@ -113,23 +113,23 @@ function kocavim(mac,kvu,cod,xab,yom){ while (kvu>1) {cod+=MNI[(kvu-2)%9] , kvu-
 return zman - (zman % 7) + (xab * 7) + yom - 8}
 function galgal(braca,kocav,xana,mazal,yom) {return (braca*10227)+(kocav*1461)+Mr(((xana*12)+mazal-13)*ZSL)+yom-11868}
 function molad(c) {cixuv(c); if(c>=0){if(MD==0){MD=7}DOC(MD+","+MH+","+MP+" - "+MAP)} else{DOC((MD+7)+","+(MH+24)+","+(MP+1080)%1080)}}
-function rxima(x) {var c = 0 , CX = 12; if (qibur(x) == 0) {CX = 13} while (c < CX) {molad(CQ(x) + c) , c ++} DOC("")}
+function rxima(x) {var c = 0 , CX = 12; if (qibur(x) == 0) {CX = 13} while (c < CX) {molad(CQ(x) + c ++)} DOC("")}
 function cipus(y,x,h,t){ if (y==7) {y=0} if (y<0||y>6||x<0||x>23||h<0||h>1079||y%1!=0||x%1!=0||h%1!=0) {return "שגיאה"}
 var y0 = 6 , x0 = 14 , h0 = 0 , c = 0; while (h0 != h || x0 != x || y0 != y) {h0 += 793 , x0 += 12 , y0 += 1 , c ++
 if (h0 > 1079) {h0 -= 1080 , x0 ++} if (x0 > 23) {x0 -= 24 , y0 ++} if (y0 > 6) {y0 -= 7}} if (t != null) {c += t * 181440}
 var X=XQ(c),GX=gim(Mc(X/1000)-1,1)+gim(((X-1)%1000)+1,1),C=c-CQ(X);if(qibur(X)!=0&&C>4){C++}DOC(XC(X)[C]+" "+GX+"\u200F");return c}
 function sig(OD){ var HSC = Mf(YOM(OD).TSC * 24) + 1 , MSC = Mf(TSC * 1440) + 1 , APH = APN[(HSC - 157) % 7]
 if (MSC > 0) {DOC("דקה "+MSC+" לבריאת העולם"); if (HSC > 156) {DOC("שעת שליטת "+APH)} return "שעה " + HSC + " לבריאת העולם"}}
-function DAF(OD){ var days = YOM(OD).DSC - 2075327 , mas = 0 , mac = 1
-var dapim=[63,156,104,120,12,87,55,39,34,30,31,28,26,121,111,90,65,48,89,81,118,118,175,112,23,48,75,13,119,109,141,60,33,33,27,20,4,8,4,72]
-while (days > 0) {if (mas == 40) {mas = 0 , mac ++} if (mac > 7) {dapim[4] = 21} days -= dapim[mas] , mas ++}
-if (mas == 37) {days += 20} if (mas == 38) {days += 24} if (mas == 39) {days += 32} days += dapim[mas - 1] + 1
 var MAS = ["ברכות","שבת","עירובין","פסחים","שקלים","יומא","סוכה","ביצה","ראש השנה","תענית","מגילה","מועד קטן","חגיגה",
 "יבמות","כתובות","נדרים","נזיר","סוטה","גיטין","קידושין","בבא קמא","בבא מציעא","בבא בתרא","סנהדרין","מכות","שבועות",
 "עבודה זרה","הוריות","זבחים","מנחות","חולין","בכורות","ערכין","תמורה","כריתות","מעילה","קינים","תמיד","מידות","נדה"]
-if (days > 0) {DOC(MAS[mas - 1]+" "+gim(days))} else {DOC("עדיין לא התחילו")}}
+var dapim=[63,156,104,120,12,87,55,39,34,30,31,28,26,121,111,90,65,48,89,81,118,118,175,112,23,48,75,13,119,109,141,60,33,33,27,20,4,8,4,72]
+function DAF(OD){ var d = YOM(OD).DSC - 2075327 , m = 0 , M = 1
+while (d > 0) {if (m == 40) {m = 0 , M ++} if (M > 7) {dapim[4] = 21} d -= dapim[m ++]}
+if (m == 37) {d += 20} if (m == 38) {d += 24} if (m == 39) {d += 32} d += dapim[m - 1] + 1
+if (d > 0) {DOC(MAS[m - 1]+" "+gim(d))} else {DOC("עדיין לא התחילו")} dapim[4] = 12}
 function ZT(OD){ var Y = YOM(OD).TSC+730500 , D = Y/750 , X = (Y*12)%12 , L = (X*16)%16 , N = (L*11)%11 , T = (N*19)%19 , R = (T*17)%17
-DOC(Mf(D)+":"+Mf(Y % 750)+":"+Mf(X)+":"+Mf(L)+":"+Mf(N)+":"+Mf(T)+":"+Mf(R))}
+if (Y > 0) {DOC(Mf(D)+":"+Mf(Y % 750)+":"+Mf(X)+":"+Mf(L)+":"+Mf(N)+":"+Mf(T)+":"+Mf(R))}}
 function YE(OD) {var z=YOM(OD).TSC%365250/15218.75; if(z<0){z+=24} DOC(Mf(z)+":"+Mf(z*24%24)+":"+Mf(z*576%24)+":"+Mf(z*13824%24))}
 function laqaz(OD){ var z = Mf(OD - 1373076.264544) , t = 0; if (z > 577737) {t = Mf((z-145793.25)/36524.25) , z += t-Mf(t/4)+1}
 var h = z + 428 , x = Mf((h - 122.1) / YL) , v = Mf(x * YL) , c = Mf((h - v) / 30.6001) , y = h - v - Mf(c * 30.6001)
@@ -147,4 +147,11 @@ function HK(t,q,s,g,h){ var m = 0 , k = 0; while(t <= q) {var o = sim(t); if (g 
 if (o.includes(s)) {m++; if (m==1) {var c=t} var x=t-c; if (h==null) {DOC(t+" , "+x)} if (x==h&&g>=0) {DOC(t),k++} c=t}
 t ++} DOC(""); if (k > 0) {DOC(k)} return m}
 function TK(x,t,p) {var z = (x*YL)-179; if (t==0) {z = (x*235/19*ML)-172} if (p==0) {xaqon((z-(67/12))/ML)} return z}
+function kbh(m,q,n,t,g) {return ((q / 24) + (n / 576) + (t / 13824) + (g / 331776) + Mf(YOM().TSC/365250) + m) * 365250}
+function daf(M,mas,d){ var m = MAS.indexOf(mas); if (m == 36) {d -= 20} if (m == 37) {d -= 24} if (m == 38) {d -= 32}
+while (M > 0) {dapim[4] = 21; if (M < 8) {dapim[4] = 12} if (m == 0) {m = 40 , M --} d += dapim[-- m]} return d + 2075253}
+function zt(D,Y,X,L,N,T,R) {return (D * 750) + Y - 730500 + (X / 12) + (L / 192) + (N / 2112) + (T / 40128) + (R / 682176)}
+function EK(OD){ var Z = YOM(OD).TSC / 60875 , H = (Z % 1) * 2073600; if (H < 0) {H += 2073600} var Y = Mf(Z); if (Y >= 0) {Y ++}
+var P = Mf(H / 20) , G = Mf(P / 60) , S = Mf(G / 72); DOC("\u200E"+Y+", "+(S % 24)+":"+(G % 72)+":"+((P % 60)+(Mf(H % 20) / 20)))}
+function kalir(Y,S,G,P){ if (Y > 0) {Y --} return ((P / 103680) + (G / 1728) + (S / 24) + Y) * 60875}
 </script></div></body></html>
