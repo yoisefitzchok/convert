@@ -155,8 +155,8 @@ function zt(D,Y,X,L,N,T,R) {return (D * 750) + Y - 730500 + (X / 12) + (L / 192)
 function EK(OD){ var Z = YOM(OD).TSC / 60875 , H = (Z % 1) * 2073600; if (H < 0) {H += 2073600} var Y = Mf(Z); if (Y >= 0) {Y ++}
 var P = Mf(H / 20) , G = Mf(P / 60) , S = Mf(G / 72); DOC("\u200E"+Y+", "+(S % 24)+":"+(G % 72)+":"+((P % 60)+(Mf(H % 20) / 20)))}
 function kalir(Y,S,G,P){ if (Y > 0) {Y --} return ((P / 103680) + (G / 1728) + (S / 24) + Y) * 60875}
-function HM(x,q,h,t,g,c){ var H = 0 , R = []; function p() {if (c == null || c.toString().includes(qibur(x - 1)))
-{if (h % 1 == 0) {R.push((x - 1).toString())} else {R.push(XC(x - 1)[H - 1] + " " + (x - 1))}}}
-while(x<q) {if (h % 1 == 0) {cixuv(CQ(x) + h); x ++} else {var C = 12; if (qibur(x) == 0) {C = 13}; cixuv(CQ(x) + H ++)}
+function HM(x,q,h,t,g,c){ function p() {if (c == null || c.toString().includes(qibur(x-1))) {if (h%1 == 0) {R.push((x-1).toString())}
+else {if (qibur(x) != 0 && H > 5) {R.push(XC(x)[H] + " " + (x))} else {R.push(XC(x)[H - 1] + " " + (x))}}}}
+var H=0 , R=[]; while(x < q) {if (h % 1 == 0) {cixuv(CQ(x)+h); x ++} else {var C=12; if (qibur(x) == 0) {C=13}; cixuv(CQ(x)+H ++)}
 if (t > g) {if (WP >= t || WP < g) {p()}} else {if (WP >= t && WP < g) {p()}} if (H == C) {H = 0 , x ++}} DOC(R.length); return R}
 </script></div></body></html>
