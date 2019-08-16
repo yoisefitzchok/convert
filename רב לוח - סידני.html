@@ -25,15 +25,16 @@ function CQ(x) {return Mf((((x - 1) * 235) + 1) / 19) - 12}
 ML = 765433 / 25920 , YL = 365.25 , ZSL = YL / 12 , MNI = [15,15,15,15,19,15,15,15,19]
 function cixuv(c){ this.MT = (c * ML) + (79 / 12) , CMT = Mf(MT) , MD = CMT % 7 , WP = Mr((MT % 7) * 25920)
 this.DP = WP % 25920 , MH = Mf(DP / 1080) , MP = DP % 1080 , MAP = APN[(Mf(MT * 24) - 180) % 7]; return this}
-function qibur(x) {if ([-16,-13,-11,-8,-5,-2,0,3,6,8,11,14,17].includes(x % 19)) return 0}
+function qibur(x){ x = x % 19; if (x < 0) {x += 19} if ([0,3,6,8,11,14,17].includes(x)) {return 0}
+if ([1,4,9,12,15].includes(x)) {return 1} if ([2,5,10,13,16].includes(x)) {return 2} if([7,18].includes(x)) {return 3}}
 function XC(x){ var xc = ["תשרי","מרחשון","כסלו","טבת","שבט","אדר א'","אדר ב'","ניסן","אייר","סיון","תמוז","אב","אלול"]
 if (qibur(x) != 0) {xc[6] = "אדר" , xc[5] = ""} return xc}
 function ROX(x){ var r = cixuv(CQ(x)).CMT; if (MH > 17) {r ++}
 else {if (MD == 3 && DP > 9923 && qibur(x) != 0) {r ++} if (MD == 2 && DP > 16788 && qibur(x - 1) == 0) {r ++}}
 if ([1,4,6].includes(r % 7)) {r ++} return r}
-function ta(x){ this.RH = ROX(x) , RQ = ROX(x + 1) , OC = [30,29,30,29,30,0,29,30,29,30,29,30,29]; if (qibur(x) == 0) {OC[5] = 30}
-this.OX = RQ - RH; if (x == 1) {OX = 0} if (OX % 10 == 5) {OC[1] = 30} if (OX % 10 == 3) {OC[2] = 29} return this}
-function pr(x){ var YR = ta(x).RH % 7 , YP = RQ % 7 , Q = qibur(x)
+function ta(x){ this.RH = ROX(x) , RB = ROX(x + 1) , OC = [30,29,30,29,30,0,29,30,29,30,29,30,29]; if (qibur(x) == 0) {OC[5] = 30}
+this.OX = RB - RH; if (x == 1) {OX = 0} if (OX % 10 == 5) {OC[1] = 30} if (OX % 10 == 3) {OC[2] = 29} return this}
+function pr(x){ var YR = ta(x).RH % 7 , YP = RB % 7 , Q = qibur(x)
 var PR = ["בראשית","נח","לך לך","וירא","חיי שרה","תולדת","ויצא","וישלח","וישב","מקץ","ויגש","ויחי","שמות","וארא","בא",
 "בשלח","יתרו","משפטים","תרומה","תצוה","כי תשא","ויקהל","ויקרא","צו","שמיני","תזריע","אחרי מות","אמר","בהר","במדבר","נשא",
 "בהעלתך","שלח","קרח","חקת","בלק","פינחס","מטות","דברים","ואתחנן","עקב","ראה","שפטים","כי תצא","כי תבא","נצבים"]
@@ -77,7 +78,7 @@ var MIC = RM % 1080 , GIC = 0; while (MIC >= 0) {MIC -= MNI[GIC % 9] , GIC ++} t
 this.GN = nkeva[GIC]; if (GIC > 10) {GN = nkeva[GIC % 10] + " עשרה"} qeser[1] = " ו"
 if ((GIC % 10) == 0) {qeser[1] = ""} if (GIC > 19) {GN = qeser[Mf(GIC / 10)] + qeser[1] + nkeva[GIC % 10]}
 this.CN = Mf(RM / 1080) + 1; return this} function KH(OD) {if (HOD(OD).RM >= 0) {DOC("ה"+DN+" ב"+WN+" ל"+MN+" מ"+GN+" מחזור "+CN)}}
-function QIV(OD){ this.XZ = XQ(HOD(OD).AM); ta(XZ); if (RH > DSC) {ta(-- XZ)} if (RQ == DSC) {ta(++ XZ)}
+function QIV(OD){ this.XZ = XQ(HOD(OD).AM); ta(XZ); if (RH > DSC) {ta(-- XZ)} if (RB == DSC) {ta(++ XZ)}
 var elef = gim(Mc(XZ/1000)-1,1) , prat = gim(((XZ-1)%1000)+1,1); this.xana = elef+prat; if (elef.length > 2) {xana = elef+" "+prat}
 this.YC = DSC - RH , MC = 0; while (YC >= 0) {YC -= OC[MC ++]} YC += OC[-- MC] + 1 , codex = XC(XZ)[MC] , yom = gim(YC,1)
 if (XZ < 4120) {yom = yom + "?" , codex = codex + "?"} this.NH = "יום "; if ((TL % 1) < 0.5) {NH = "ליל "}
@@ -95,7 +96,7 @@ var minyan = "שנה " + xevaq[xanim % 7] + " בשמיטה " + xevaq[Mc(xanim / 
 var yovel = xanim + " ביובל"; if (xanim == 1) {yovel = "שנת היובל ה" + (MY / 49)}
 var xmita = "מעשר שני"; if ([3,6].includes(XZ % 7)) {xmita = "מעשר עני"} if ((XZ % 7) == 0) {xmita = "שמיטה"}
 if (MY >= 0) {DOC(xmita+", &nbsp"+yovel) , DOC(minyan)}}
-function QOM(OD){ QIV(OD); var qomer = DSC - RQ + 163
+function QOM(OD){ QIV(OD); var qomer = DSC - RB + 163
 var XQ = Mf(qomer / 7) , xavuq = " שהם " + zacar[XQ] +" שבועות"; if (XQ == 0) {xavuq = ""} if (XQ == 1) {xavuq = " שהם שבוע אחד"}
 var YQ = qomer % 7 , yamim = " ו" + zacar[YQ] + " ימים"; if (YQ == 1) {yamim = " ויום אחד"} if (YQ == 0 || XQ == 0) {yamim = ""}
 var sfira = zacar[qomer] + " ימים"; if (qomer == 1) {sfira = "יום אחד"}
@@ -140,7 +141,7 @@ return Mf((Y + 3760) * YL) + Mf((M + 1) * 30.6) + D - L - 691 - (224 / 300) + T}
 function xaqon(codex){ laqaz(YOM(cixuv(codex).MT - 1).CT)
 var Z = Mr(((CT - (76 / 300)) % 1) * SE); if (Z < 0) {Z += SE} var M = Mf(Z / 60) , H = Mf(M / 60); DOC(H+":"+(M % 60)+":"+(Z % 60))}
 function sim(x){ var s = gim1[(ta(x).RH-1)%7+1]; if (OX%10==5) {s += "ש"} if (OX%10==4) {s += "כ"} if (OX%10==3) {s += "ח"}
-if (qibur(x) == 0) {s += "מ"} else {s += "פ"} s += gim1[(RQ - 3) % 7 + 1]; if (x < 2) {s = ""} if (x < 4120) {s += "?"}return s}
+if (qibur(x) == 0) {s += "מ"} else {s += "פ"} s += gim1[(RB - 3) % 7 + 1]; if (x < 2) {s = ""} if (x < 4120) {s += "?"} return s}
 function MK(m) {var x = 1; while(x < 20) {DOC(sim(((m - 1) * 19) + x)) , x ++} DOC("")}
 function KX(x,q) {while(x <= q){DOC(x+" - "+sim(x)+"\u200F") , x ++} DOC("")}
 function HK(t,q,s,g,h){ var m = 0 , k = 0; while(t <= q) {var o = sim(t); if (g > 0) {o = o[g - 1]}
@@ -154,4 +155,8 @@ function zt(D,Y,X,L,N,T,R) {return (D * 750) + Y - 730500 + (X / 12) + (L / 192)
 function EK(OD){ var Z = YOM(OD).TSC / 60875 , H = (Z % 1) * 2073600; if (H < 0) {H += 2073600} var Y = Mf(Z); if (Y >= 0) {Y ++}
 var P = Mf(H / 20) , G = Mf(P / 60) , S = Mf(G / 72); DOC("\u200E"+Y+", "+(S % 24)+":"+(G % 72)+":"+((P % 60)+(Mf(H % 20) / 20)))}
 function kalir(Y,S,G,P){ if (Y > 0) {Y --} return ((P / 103680) + (G / 1728) + (S / 24) + Y) * 60875}
+function HM(x,q,h,t,g,c){ function p() {if (h % 1 != 0 || c.toString().includes(qibur(x - 1))) {R.push((x - 1).toString())}}
+var H = 0 , R = []; while(x < q) {if (h % 1 == 0) {cixuv(CQ(x) + h); x ++}
+else {var C = 12; if (qibur(x) == 0) {C = 13}; cixuv(CQ(x) + H ++); if (H == C) {H = 0 , x ++}}
+if (t > g) {if (WP >= t || WP < g) {p()}} else {if (WP >= t && WP < g) {p()}}} DOC(R.length); return R}
 </script></div></body></html>
