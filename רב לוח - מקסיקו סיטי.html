@@ -14,10 +14,11 @@ PDN = ["יהויריב","ידעיה","חרם","שערים","מלכיה","מימ�
 "חפה","ישבאב","בלגה","אמר","חזיר","הפצץ","פתחיה","יחזקאל","יכין","גמול","דליהו","מעזיהו"]
 FPD = ["ידעיה","חרם","פשחור","אמר"]
 gim1 = ["","א","ב","ג","ד","ה","ו","ז","ח","ט"] , gim2 = ["","י","כ","ל","מ","נ","ס","ע","פ","צ"] , gim3 = ["","ק","ר","ש"]
-function gim(n,s){ if (s != 0 && (n % 100 == 15 || n % 100 == 16)) {gim2[1] = "ט" , n ++}
-var g = gim3[Mf((n % 400) / 100)] + gim2[Mf((n % 100) / 10)] + gim1[n % 10]
-while (n > 399) {g = "ת" + g , n -= 400} gim2[1] = "י"; var G = g
-if (s == 1) {if (g.length == 1) {G = g + "'"} if (g.length > 1) {G = g.substr(0,g.length - 1) + '"' + g.substr(g.length - 1)}} return G}
+function gim(n,s){ var e = Mc(n / 1000) - 1 , p = ((n - 1) % 1000) + 1 , k = ""
+if (s != 0 && (p % 100 == 15 || p % 100 == 16)) {gim2[1] = "ט" , p ++} gim4 = ["","ת","תת"]
+var g = gim4[Mf(p / 400)] + gim3[Mf((p % 400) / 100)] + gim2[Mf((p % 100) / 10)] + gim1[p % 10] , t = g; gim2[1] = "י"
+if (s == 1) {if (g.length == 1) {t = g + "'"} if (g.length > 1) {t = g.substr(0,g.length - 1) + '"' + g.substr(g.length - 1)}}
+if (e > 0) {k = gim(e,s)} if (k.substr(k.length - 2).includes('"')) {t = k + " " + t} else {t = k + t} return t}
 function xaqa(H,M,S){ H += 5 , M += 24
 while (S >= 60) {S -= 60 , M ++} while (M >= 60) {M -= 60 , H ++} while (H >= 24) {H -= 24} return (H / 24) + (M / 1440) + (S / SE)}
 function XQ(c) {return Mf((c + 50) * 19 / 235) - 2}
@@ -78,8 +79,7 @@ var MIC = RM % 1080 , GIC = 0; while (MIC >= 0) {MIC -= MNI[GIC % 9] , GIC ++} t
 this.GN = nkeva[GIC]; if (GIC > 10) {GN = nkeva[GIC % 10] + " עשרה"} qeser[1] = " ו"
 if ((GIC % 10) == 0) {qeser[1] = ""} if (GIC > 19) {GN = qeser[Mf(GIC / 10)] + qeser[1] + nkeva[GIC % 10]}
 this.CN = Mf(RM / 1080) + 1; return this} function KH(OD) {if (HOD(OD).RM >= 0) {DOC("ה"+DN+" ב"+WN+" ל"+MN+" מ"+GN+" מחזור "+CN)}}
-function QIV(OD){ this.XZ = XQ(HOD(OD).AM); ta(XZ); if (RH > DSC) {ta(-- XZ)} if (RB == DSC) {ta(++ XZ)}
-var elef = gim(Mc(XZ/1000)-1,1) , prat = gim(((XZ-1)%1000)+1,1); this.xana = elef+prat; if (elef.length > 2) {xana = elef+" "+prat}
+function QIV(OD){ this.XZ = XQ(HOD(OD).AM); ta(XZ); if (RH > DSC) {ta(-- XZ)} if (RB == DSC) {ta(++ XZ)} this.xana = gim(XZ,1)
 this.YC = DSC - RH , MC = 0; while (YC >= 0) {YC -= OC[MC ++]} YC += OC[-- MC] + 1 , codex = XC(XZ)[MC] , yom = gim(YC,1)
 if (XZ < 4120) {yom = yom + "?" , codex = codex + "?"} this.NH = "יום "; if ((TL % 1) < 0.5) {NH = "ליל "}
 return this} function KQ(OD) {if (YOM(OD).DSC > 0) {DOC(QIV(OD).NH+yom+" "+codex+" "+xana+"\u200F")}}
@@ -118,7 +118,7 @@ function rxima(x) {var c = 0 , CX = 12; if (qibur(x) == 0) {CX = 13} while (c < 
 function cipus(y,x,h,t){ if (y==7) {y=0} if (y<0||y>6||x<0||x>23||h<0||h>1079||y%1!=0||x%1!=0||h%1!=0) {return "שגיאה"}
 var y0 = 6 , x0 = 14 , h0 = 0 , c = 0; while (h0 != h || x0 != x || y0 != y) {h0 += 793 , x0 += 12 , y0 += 1 , c ++
 if (h0 > 1079) {h0 -= 1080 , x0 ++} if (x0 > 23) {x0 -= 24 , y0 ++} if (y0 > 6) {y0 -= 7}} if (t != null) {c += t * 181440}
-var X=XQ(c),GX=gim(Mc(X/1000)-1,1)+gim(((X-1)%1000)+1,1),C=c-CQ(X);if(qibur(X)!=0&&C>4){C++}DOC(XC(X)[C]+" "+GX+"\u200F");return c}
+var X = XQ(c) , GX = gim(X,1) , C = c - CQ(X); if (qibur(X) != 0 && C > 4) {C ++} DOC(XC(X)[C]+" "+GX+"\u200F"); return c}
 function sig(OD){ var HSC = Mf(YOM(OD).TSC * 24) + 1 , MSC = Mf(TSC * 1440) + 1 , HAP = Mf(TL * 24) - 156 , APH = APN[HAP % 7]
 if (MSC > 0) {DOC("דקה "+MSC+" לבריאת העולם"); if (HAP >= 0) {DOC("שעת שליטת "+APH)} return "שעה " + HSC + " לבריאת העולם"}}
 var MAS = ["ברכות","שבת","עירובין","פסחים","שקלים","יומא","סוכה","ביצה","ראש השנה","תענית","מגילה","מועד קטן","חגיגה",
@@ -156,7 +156,7 @@ function EK(OD){ var Z = YOM(OD).TSC / 60875 , H = (Z % 1) * 2073600; if (H < 0)
 var P = Mf(H / 20) , G = Mf(P / 60) , S = Mf(G / 72); DOC("\u200E"+Y+", "+(S % 24)+":"+(G % 72)+":"+((P % 60)+(Mf(H % 20) / 20)))}
 function kalir(Y,S,G,P){ if (Y > 0) {Y --} return ((P / 103680) + (G / 1728) + (S / 24) + Y) * 60875}
 function HM(x,q,h,t,g,c){ function p() {if (c == null || c.toString().includes(qibur(x-1))) {if (h%1 == 0) {R.push((x-1).toString())}
-else {if (qibur(x) != 0 && H > 5) {R.push(XC(x)[H] + " " + (x))} else {R.push(XC(x)[H - 1] + " " + (x))}}}}
+else {if (qibur(x) != 0 && H > 5) {R.push(XC(x)[H] + " " + gim(x))} else {R.push(XC(x)[H - 1] + " " + gim(x))}}}}
 var H=0 , R=[]; while(x < q) {if (h % 1 == 0) {cixuv(CQ(x)+h); x ++} else {var C=12; if (qibur(x) == 0) {C=13}; cixuv(CQ(x)+H ++)}
 if (t > g) {if (WP >= t || WP < g) {p()}} else {if (WP >= t && WP < g) {p()}} if (H == C) {H = 0 , x ++}} DOC(R.length); return R}
 </script></div></body></html>
