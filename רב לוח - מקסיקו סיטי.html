@@ -52,7 +52,7 @@ if (ST1 > 0) {PD = PDN[Mc((ST1 % 168) / 7) - 1] , CPD = Mc(ST1 / 168) + "א"}
 if (BT > 0) {PD = FPD[Mc((BT % 28) / 7) - 1] , CPD = Mc(BT / 28) + "ב"}
 if (ST2 > 0) {PD = PDN[Mc((ST2 % 168) / 7) - 1] , CPD = Mc(ST2 / 168)}
 var BAN = ["אליעזר","שבניהו","יושפט","נתנאל","עמשי","זכריהו","בניהו"] , BA = BAN[WD]
-if (DSC>894313){if (BA=="אליעזר"&&(DSC-TSC)<0.25){DOC(BA+" <font color=#00ff00>"+PD+"</font> "+CPD)}else {DOC(BA+" "+PD+" "+CPD)}}}
+if (DSC > 894313) {if (BA == "אליעזר" && (DSC - TSC) < 0.25) {PD = "<font color=#00ff00>"+PD+"</font>"} DOC (BA+" "+PD+" "+CPD)}}
 function DOR(OD){ var SG = YOM(OD).DSC + 730499
 var DOG = (SG % 30) + 1 , MOG = Mf((SG % 750) / 30) + 1 , GOG = Mf(SG / 750) + 1
 if (SG < 0) {DOC("לא הוה מדעם קדים לאורייתא")} else {DOC("יום "+DOG+" בגוש "+MOG+" דור "+GOG)}}
