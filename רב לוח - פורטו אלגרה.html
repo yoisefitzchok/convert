@@ -44,8 +44,8 @@ if (Q == 0 || (YR == 5 && YP == 3)) {PR.splice(22,0,"פקדי")} if (Q == 0) {PR
 if (YR == 5 || YP == 2) {PR.splice(42,0,"מסעי")} if (YR == 5) {PR.splice(29,0,"פסח")} else {PR.splice(28,0,"פסח")}}
 if (YP == 5) {PR.push("האזינו","כפור","סכות")} else {if (YP == 0) {PR.push("ראש השנה","האזינו","סכות","וזאת הברכה")}
 else {PR.push("וילך","האזינו","וזאת הברכה")}} return PR}
-function YOM(OD){ this.TL = OD; if (OD == null) {TL = JD - 348346.3922}
-this.DSC = Mf(TL) + 1 , WD = DSC % 7 , TSC = TL + 0.2400773 , CT = TL - 0.2400773
+function YOM(OD){ this.TL = OD; if (OD == null) {TL = JD - 348346.3922} this.TSC = TL + 0.2400773 , CT = TL - 0.2400773
+this.DSC = Mf(TL) + 1 , WD = DSC % 7; if (WD < 0) {WD += 7} this.DN = seder[WD] , NH = "יום "; if ((TL % 1) < 0.5) {NH = "ליל "}
 return this} function KY(OD) {if (YOM(OD).DSC > 0) {DOC("יום "+DSC+" לבריאת העולם")}}
 function MIX(OD){ YOM(OD)
 var ST1 = TSC - 1068927.75; if (ST1 > 3080) {ST1 -= 7} var ST2 = ST1 - 177492 , BT = ST2 + 7868 , PD = "לא ידועה" , CPD = "לא ידוע"
@@ -71,8 +71,7 @@ var ZSN = ["טלה","שור","תאומים","סרטן","אריה","בתולה","
 var ZSC = Mf((SC + 0.49) / ZSL) , ZS = ZSN[ZSC % 12] , DM = SC - Mr(ZSC * ZSL) + 1
 if (SC >= 0) {DOC(DM+" ב"+ZS+" "+SY+" "+AP+" "+SB)}
 var qonot = ["זרע","חרף","קר","קציר","קיץ","חם"]; return qonot[Mf((TL - 604872.84375) / ZSL / 2) % 6]}
-function HOD(OD){ YOM(OD); if (WD < 0) {WD += 7} this.DN = seder[WD]
-this.AM = Mf((TL - (67 / 12)) / ML) , RM = AM - 83
+function HOD(OD){ YOM(OD); this.AM = Mf((TL - (67 / 12)) / ML) , RM = AM - 83
 var WNC = (DSC - cixuv(AM).CMT) + MD; this.WN = xevaq[Mc(WNC / 7)]
 if (WNC == 36) {WN = xevaq[1] , RM ++} if (DSC == CMT && (MD != 1 || (MD == 1 && DP > 13752)))  {WN = xevaq[5] , RM --}
 var MIC = RM % 1080 , GIC = 0; while (MIC >= 0) {MIC -= MNI[GIC % 9] , GIC ++} this.MN = seder[MIC + MNI[(GIC - 1) % 9] + 1]
@@ -81,8 +80,7 @@ if ((GIC % 10) == 0) {qeser[1] = ""} if (GIC > 19) {GN = qeser[Mf(GIC / 10)] + q
 this.CN = Mf(RM / 1080) + 1; return this} function KH(OD) {if (HOD(OD).RM >= 0) {DOC("ה"+DN+" ב"+WN+" ל"+MN+" מ"+GN+" מחזור "+CN)}}
 function QIV(OD){ this.XZ = XQ(HOD(OD).AM); ta(XZ); if (RH > DSC) {ta(-- XZ)} if (RB == DSC) {ta(++ XZ)} this.xana = gim(XZ)
 this.YC = DSC - RH , MC = 0; while (YC >= 0) {YC -= OC[MC ++]} YC += OC[-- MC] + 1 , codex = XC(XZ)[MC] , yom = gim(YC)
-if (XZ < 4120) {yom = yom + "?" , codex = codex + "?"} this.NH = "יום "; if ((TL % 1) < 0.5) {NH = "ליל "}
-return this} function KQ(OD) {if (YOM(OD).DSC > 0) {DOC(QIV(OD).NH+yom+" "+codex+" "+xana)}}
+if (XZ<4120) {yom = yom+"?" , codex = codex+"?"} return this} function KQ(OD) {QIV(OD); if (DSC>0) {DOC(NH+yom+" "+codex+" "+xana)}}
 function PAR(OD){ var I = QIV(OD).XZ , t = RH - (RH % 7) + 22; if (t > DSC) {ta(-- I)} t = RH - (RH % 7) + 22
 var par = pr(I)[Mf((DSC - t) / 7)] , mabul = I - 1657; if (mabul < 3300) {par = par + "?"}
 var xemot = ["חיים","שלום","חכמה","עושר","זרע","חן","ממשלה"] , xem = xemot[WD]
@@ -159,4 +157,6 @@ function HM(x,q,h,t,g,c){ function p() {if (c == null || c.toString().includes(q
 else {if (qibur(x) != 0 && H > 5) {R.push(XC(x)[H]+" "+gim(x))} else {R.push(XC(x)[H - 1] + " " + gim(x))}}}}
 var H=0 , R=[]; while(x < q) {if (h % 1 == 0) {cixuv(CQ(x ++)+h)} else {var C=12; if (qibur(x) == 0) {C=13}; cixuv(CQ(x)+H ++)}
 if (t > g) {if (WP >= t || WP < g) {p()}} else {if (WP >= t && WP < g) {p()}} if (H == C) {H = 0 , x ++}} DOC(R.length); return R}
+function XAB(j,OD){ var d=YOM(OD).DN; if(WD==0){d="שבת"} if(j%3>1&&WD==1){d="אחד"} if(j%3>0){d+=" בשבת"; if(WD==0){d+="שבת קדש"}}
+if (j%9>2&&j%9<6) {d = "יום "+d; if (OD == null) {d = "היום "+d}} if (j%9>5) {d = NH+" "+d; if (OD == null) {d = "עכשיו "+d}} DOC(d)}
 </script></div></body></html>
