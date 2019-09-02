@@ -42,7 +42,7 @@ DOC("עכשיו "+NH+" "+xabat+" פרשת "+paraxa+" "+yom+" "+codex+" "+xana+"<
 function xaqon(X){ this.D = Math.floor(X) , H = 0 , M = 0 , Z = Math.round((X % 1) * 86400); if (Z < 0) {Z += 86400}
 while (Z > 59) {Z -= 60 , M ++} if (Z < 10) {Z = "0" + Z} while (M > 59) {M -= 60 , H ++} if (M < 10) {M = "0" + M} return this}
 function laqaz(codex){ var GM = ["ינואר","פברואר","מרץ","אפריל","מאי","יוני","יולי","אוגוסט","ספטמבר","אוקטובר","נובמבר","דצמבר"]
-var X = cixuv(codex).MT - TSC + TL - 1373077.264544 , z = Math.floor(X) , t = 0
+var X = cixuv(codex).MT - TSC + TL - 1373077.264548 , z = Math.floor(X) , t = 0
 if (z > 577737) {t = Math.floor((z - 145793.25 ) / 36524.25) , z += t - Math.floor(t / 4) + 1}
 var h = z + 428 , x = Math.floor((h - 122.1) / 365.25) , v = Math.floor(365.25 * x)
 var c = Math.floor((h - v) / 30.6001) , y = h - v - Math.floor(30.6001 * c)
