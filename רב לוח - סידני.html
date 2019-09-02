@@ -44,7 +44,7 @@ if (Q == 0 || (YR == 5 && YP == 3)) {PR.splice(22,0,"פקדי")} if (Q == 0) {PR
 if (YR == 5 || YP == 2) {PR.splice(42,0,"מסעי")} if (YR == 5) {PR.splice(29,0,"פסח")} else {PR.splice(28,0,"פסח")}}
 if (YP == 5) {PR.push("האזינו","כפור","סכות")} else {if (YP == 0) {PR.push("ראש השנה","האזינו","סכות","וזאת הברכה")}
 else {PR.push("וילך","האזינו","וזאת הברכה")}} return PR}
-function YOM(OD){ this.TL = OD; if (OD == null) {TL = JD - 348345.83} this.TSC = TL - 0.3221227 , CT = TL + 0.3221227
+function YOM(OD){ this.TL = OD; if (OD == null) {TL = JD - 348345.83} this.TSC = TL - 0.322119 , CT = TL + 0.322119
 this.DSC = Mf(TL) + 1 , WD = DSC % 7; if (WD < 0) {WD += 7} this.DN = seder[WD] , NH = "יום "; if ((TL % 1) < 0.5) {NH = "ליל "}
 return this} function KY(OD) {if (YOM(OD).DSC > 0) {DOC("יום "+DSC+" לבריאת העולם")}}
 function MIX(OD){ var ST1=YOM(OD).TSC-1068927.75;if(ST1>3080){ST1-=7} var ST2=ST1-177492,BT=ST2+7868,PD="לא ידועה",CPD="לא ידוע"
