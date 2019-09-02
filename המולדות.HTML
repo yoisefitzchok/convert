@@ -1,10 +1,7 @@
 <!DOCTYPE html><html lang="he"><head><meta charset="utf-8" http-equiv="refresh" content="0.1"><title>מולדות</title></head>
 <body><script lang="javascript">
 function DOC(p){document.write("<body style=text-align:center bgcolor=#ffffff><font color=#000000>\u200F",p,"<br /></font></body>")}
-var LT = new Date() , T = (LT.getUTCHours()/24)+(LT.getUTCMinutes()/1440)+(LT.getSeconds()/86400)+(LT.getMilliseconds()/86400000)
-var D = LT.getUTCDate() , M = LT.getUTCMonth() + 2 , Y = LT.getUTCFullYear(); if (M < 4) {M += 12 , Y --}
-var L = 0; if (Y > 1582 || Y == 1582 && (M > 11 || (M == 11 && D > 14))) {L = Math.floor(Y / 100) - Math.floor(Y / 400) - 2}
-var TSC = Math.floor((Y + 3760) * 365.25) + Math.floor(M * 30.6) + D - L - 691.6521227 + T
+var TSC = (Date.now() + 30056900) / 86400000 + 2092241
 var TL = TSC , DSC = Math.floor(TL) + 1 , NH = "יום "; if ((TL % 1) < 0.5) {NH = "ליל "}
 var ymot = ["שבת","ראשון","שני","שלישי","רביעי","חמישי","ששי"] , xabat = ymot[DSC % 7]
 var gim1 = ["","א","ב","ג","ד","ה","ו","ז","ח","ט"] , gim2 = ["","י","כ","ל","מ","נ","ס","ע","פ","צ"] , gim3 = ["","ק","ר","ש"]
@@ -13,15 +10,15 @@ var g = gim3[Math.floor((n % 400) / 100)] + gim2[Math.floor((n % 100) / 10)] + g
 while (n > 399) {g = "ת" + g , n -= 400} gim2[1] = "י"
 var G = g; if (g.length == 1) {G = g + "'"} if (g.length > 1) {G = g.substr(0,g.length - 1) + '"' + g.substr(g.length - 1)} return G}
 var ML = 765433 / 25920 , AM = Math.floor((TL - (67 / 12)) / ML)
-function MQ(a) {return Math.floor((a + 50) * 19 / 235) - 2}
-function CQ(b) {return Math.floor((((b - 1) * 235) + 1) / 19) - 12}
+function XQ(c) {return Math.floor((c + 50) * 19 / 235) - 2}
+function CQ(x) {return Math.floor((((x - 1) * 235) + 1) / 19) - 12}
 function cixuv(codex){ this.MT = (codex * ML) + (79 / 12) , CMT = Math.floor(MT) , MD = CMT % 7
 this.DP = Math.round((MT % 1) * 25920) , MH = Math.floor(DP / 1080) , MP = DP % 1080; return this}
 function qibur(xana){ if ([0,3,6,8,11,14,17].includes(xana % 19)) return 0}
 function taaric(xana){ var rox = cixuv(CQ(xana)).CMT; if (MH > 17) {rox ++}
 else {if (MD == 3 && DP > 9923 && qibur(xana) != 0) {rox ++} if (MD == 2 && DP > 16788 && qibur(xana - 1) == 0) {rox ++}}
 if ([1,4,6].includes(rox % 7)) {rox ++} return rox}
-var XZ = MQ(AM) , RH = taaric(XZ) , RQ = taaric(XZ + 1)
+var XZ = XQ(AM) , RH = taaric(XZ) , RQ = taaric(XZ + 1)
 if (RH > DSC) {RQ = RH , RH = taaric(-- XZ)} if (RQ == DSC) {RH = RQ , XZ ++}
 var elef = gim(Math.ceil(XZ / 1000) - 1) , prat = gim(((XZ - 1) % 1000) + 1)
 var xana = elef + prat; if (elef.length > 2) {xana = elef + " " + prat}
@@ -41,7 +38,7 @@ if (YR == 5 || YP == 2) {PR.splice(42,0,"מסעי")} if (YR == 5) {PR.splice(29,
 if (YP == 5) {PR.push("האזינו","יום כפור","סכות")} if (YP == 0) {PR.push("ראש השנה","האזינו","סכות","וזאת הברכה")}
 if (YP == 2 || YP == 3) {PR.push("וילך","האזינו","סכות")}
 var paraxa = PR[Math.floor((DSC - rexit) / 7)]; if (YC < 23 && (DSC - rexit) < 5) {paraxa = "וזאת הברכה"}
-DOC("עכשיו "+NH+" "+xabat+" פרשת "+paraxa+" "+yom+" "+codex+" "+xana+"<br />השעה "+LT.toLocaleTimeString())
+DOC("עכשיו "+NH+" "+xabat+" פרשת "+paraxa+" "+yom+" "+codex+" "+xana+"<br />השעה "+new Date().toLocaleTimeString())
 function xaqon(X){ this.D = Math.floor(X) , H = 0 , M = 0 , Z = Math.round((X % 1) * 86400); if (Z < 0) {Z += 86400}
 while (Z > 59) {Z -= 60 , M ++} if (Z < 10) {Z = "0" + Z} while (M > 59) {M -= 60 , H ++} if (M < 10) {M = "0" + M} return this}
 function laqaz(codex){ var GM = ["ינואר","פברואר","מרץ","אפריל","מאי","יוני","יולי","אוגוסט","ספטמבר","אוקטובר","נובמבר","דצמבר"]
