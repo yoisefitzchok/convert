@@ -1,7 +1,7 @@
 <!DOCTYPE html><html lang="he"><head><meta charset="utf-8" http-equiv="refresh" content="60"><title>תאריכים</title></head>
 <body style="color:#000000" bgcolor=#ffffff><div align=center><input type="text" id="code">
 <button onclick="eval(document.getElementById('code').value)">רוץ</button><p id="cush"></p><script lang="javascript">
-function DOC(p) {document.getElementById("cush").innerHTML += "\u200F"+p+"<br />"}
+function DOC(p) {document.getElementById("cush").innerHTML += "\u200F"+p+"\u200F<br />"}
 Mf = Math.floor , Mc = Math.ceil , Mr = Math.round , SE = 86400 , JD = Date.now()/1000/SE+2440587.5; console.log("יום יוליאני ",JD)
 zacar = ["","אחד","שני","שלשה","ארבעה","חמשה","ששה","שבעה","שמנה","תשעה","עשרה"]
 nkeva = ["","אחת","שתים","שלש","ארבע","חמש","שש","שבע","שמנה","תשע","עשר"]
@@ -18,7 +18,7 @@ function gim(n,s){ var e = Mc(n / 1000) - 1 , p = ((n - 1) % 1000) + 1 , k = ""
 if (s != 0 && (p % 100 == 15 || p % 100 == 16)) {gim2[1] = "ט" , p ++} gim4 = ["","ת","תת"]
 var g = gim4[Mf(p / 400)] + gim3[Mf((p % 400) / 100)] + gim2[Mf((p % 100) / 10)] + gim1[p % 10] , t = g; gim2[1] = "י"
 if (s == null) {if (g.length == 1) {t = g + "'"} if (g.length > 1) {t = g.substr(0,g.length - 1) + '"' + g.substr(g.length - 1)}}
-if (e > 0) {k = gim(e,s)} if (k.substr(k.length - 3).includes('"')) {t = k + " " + t} else {t = k + t} return t + "\u200F"}
+if (e > 0) {k = gim(e,s)} if (k.substr(k.length - 3).includes('"')) {t = k + " " + t} else {t = k + t} return t}
 function xaqa(H,M,S){ H += 6 , M += 20 , S += 56.9185
 while (S >= 60) {S -= 60 , M ++} while (M >= 60) {M -= 60 , H ++} while (H >= 24) {H -= 24} return (H / 24) + (M / 1440) + (S / SE)}
 function XQ(c) {return Mf((c + 50) * 19 / 235) - 2}
@@ -142,7 +142,7 @@ return Mf((Y + 3760) * YL) + Mf((M + 1) * 30.6) + D - L - 691 - (7 / 12) - JP + 
 function xaqon(codex){ laqaz(YOM(cixuv(codex).MT - 1).CT)
 var Z = Mr(((CT - (5 / 12) + JP) % 1) * SE); if (Z < 0) {Z += SE} var M = Mf(Z / 60) , H = Mf(M / 60); DOC(H+":"+(M % 60)+":"+(Z % 60))}
 function sim(x){ var s = gim1[(ta(x).RH-1)%7+1]; if (OX%10==5) {s += "ש"} if (OX%10==4) {s += "כ"} if (OX%10==3) {s += "ח"}
-if (qibur(x) == 0) {s += "מ"} else {s += "פ"} s += gim1[(RB-3)%7+1]; if (x < 2) {s = ""} if (x < 4120) {s += "?"} return s+"\u200F"}
+if (qibur(x) == 0) {s += "מ"} else {s += "פ"} s += gim1[(RB - 3) % 7 + 1]; if (x < 2) {s = ""} if (x < 4120) {s += "?"} return s}
 function MK(m) {var x = 1; while(x < 20) {DOC(sim(((m - 1) * 19) + x ++))} DOC("")}
 function KX(x,q) {while(x <= q){DOC(gim(x)+" - "+sim(x)) , x ++} DOC("")}
 function HK(t,q,s,g,h){ var m = [] , k = []; while(t <= q) {var o = sim(t); if (g > 0) {o = o.substr(0,g - 1) + o.substr(g)}
