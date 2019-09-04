@@ -114,6 +114,7 @@ if (h0 > 1079) {h0 -= 1080 , x0 ++} if (x0 > 23) {x0 -= 24 , y0 ++} if (y0 > 6) 
 var X = XQ(c) , C = c - CQ(X); if (qibur(X) > 6 && C > 4) {C ++} DOC(XC(X)[C]+" "+gim(X)); return c}
 function sig(OD){ var HSC = Mf(YOM(OD).TSC * 24) + 1 , MSC = Mf(TSC * 1440) + 1 , HAP = Mf(TL * 24) - 156 , APH = APN[HAP % 7]
 if (MSC > 0) {DOC("דקה "+MSC+" לבריאת העולם"); if (HAP >= 0) {DOC("שעת שליטת "+APH)} return "שעה " + HSC + " לבריאת העולם"}}
+function TK(x,t,p) {var z = (x*YL)-179; if (t==0) {z = (x*235/19*ML)-172} if (p==0) {xaqon((z-(67/12))/ML)} return z}
 function ZT(OD){ var Y = YOM(OD).TSC+730500 , D = Y/750 , X = (Y*12)%12 , L = (X*16)%16 , N = (L*11)%11 , T = (N*19)%19 , R = (T*17)%17
 if (Y > 0) {DOC(Mf(D)+":"+Mf(Y % 750)+":"+Mf(X)+":"+Mf(L)+":"+Mf(N)+":"+Mf(T)+":"+Mf(R))}}
 function zt(D,Y,X,L,N,T,R) {return (D * 750) + Y - 730500 + (X / 12) + (L / 192) + (N / 2112) + (T / 40128) + (R / 682176)}
@@ -140,6 +141,9 @@ if (Y > 1582 || Y == 1582 && (M > 10 || (M == 10 && D > 14))) {L = Mf(Y / 100) -
 return Mf((Y + 3760) * YL) + Mf((M + 1) * 30.6) + D - L - 691-(224/300) + (H / 24) + (m / 1440) + (s / SE)}
 function xaqon(codex){ laqaz(YOM(cixuv(codex).MT - 1).CT)
 var Z = Mr(((CT - (76/300)) % 1) * SE); if (Z < 0) {Z += SE} var M = Mf(Z / 60) , H = Mf(M / 60); DOC(H+":"+(M % 60)+":"+(Z % 60))}
+function maya(OD){ var k=YOM(OD).DSC-235937,w=Mf(k/20),t=Mf(w/18),K=Mf(t/20),B=Mf(K/20),P=Mf(B/20),ka=Mf(P/20),ki=Mf(ka/20),A=Mf(ki/20)
+if (k >= 0) {DOC(A+"."+(ki % 20)+"."+(ka % 20)+"."+(P % 20)+"."+(B % 20)+"."+(K % 20)+"."+(t % 20)+"."+(w % 18)+"."+(k % 20))}}
+function mayan(A,ki,ka,P,B,K,t,w,k) {return A*23040000000+ki*1152000000+ka*57600000+P*2880000+B*144000+K*7200+t*360+w*20+Mf(k)+235936.5}
 function sim(x){ var s = gim1[(ta(x).RH-1)%7+1]; if (OX%10==5) {s += "ש"} if (OX%10==4) {s += "כ"} if (OX%10==3) {s += "ח"}
 if (qibur(x) < 7) {s += "מ"} else {s += "פ"} s += gim1[(RB - 3) % 7 + 1]; if (x < 2) {s = ""} if (x < 4120) {s += "?"} return s}
 function MK(m) {var x = 1; while(x < 20) {DOC(sim(((m - 1) * 19) + x ++))} DOC("")}
@@ -151,7 +155,6 @@ function HM(x,q,h,b,t,g,c,e){ function p(){ if(c==null||(e>=c&&qibur(x-1)>=c&&qi
 {if (h%1==0) {R.push(gim(x-1)+" ")} else {if (qibur(x)>6&&H>5) {R.push(XC(x)[H]+" "+gim(x))} else {R.push(XC(x)[H-1]+" "+gim(x))}}}}
 var H=0 , R=[]; while(x < q) {if (h % 1 == 0) {cixuv(CQ(x ++)+h)} else {var C=12; if (qibur(x) < 7) {C=13}; cixuv(CQ(x)+H ++)}
 var B=WP; if(b==1){B=DP}if(b==2){B=MP} if(t>g){if(B>=t||B<g){p()}}else{if(B>=t&&B<g){p()}}if(H==C){H=0,x++}} DOC(R.length);return R}
-function TK(x,t,p) {var z = (x*YL)-179; if (t==0) {z = (x*235/19*ML)-172} if (p==0) {xaqon((z-(67/12))/ML)} return z}
 function XAB(j,OD){ var d=YOM(OD).DN; if(WD==0){d="שבת"} if(j%3>1&&WD==1){d="אחד"} if(j%3>0){d+=" בשבת"; if(WD==0){d="שבת קדש"}}
 if (j%9>2&&j%9<6) {d = "יום "+d; if (OD == null) {d = "היום "+d}} if (j%9>5) {d = NH+d; if (OD == null) {d = "עכשיו "+d}} DOC(d)}
 </script></div></body></html>
