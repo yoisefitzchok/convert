@@ -108,6 +108,7 @@ return zman - (zman % 7) + (xab * 7) + yom - 8}
 function galgal(braca,kocav,xana,mazal,yom) {return (braca*10227)+(kocav*1461)+Mr(((xana*12)+mazal-13)*ZSL)+yom-11868}
 function molad(c) {cixuv(c); if(c>=0){if(MD==0){MD=7}DOC(MD+","+MH+","+MP+" - "+MAP)} else{DOC((MD+7)+","+(MH+24)+","+(MP+1080)%1080)}}
 function rxima(x) {var c = 0 , CX = 12; if (qibur(x) < 7) {CX = 13} while (c < CX) {molad(CQ(x) + c ++)} DOC("")}
+function MX(x,q) {while(x <= q){molad(CQ(x)) , x ++} DOC("")}
 function cipus(y,x,h,t){ if (y==7) {y=0} if (y<0||y>6||x<0||x>23||h<0||h>1079||y%1!=0||x%1!=0||h%1!=0) {return "שגיאה"}
 var y0 = 6 , x0 = 14 , h0 = 0 , c = 0; while (h0 != h || x0 != x || y0 != y) {h0 += 793 , x0 += 12 , y0 += 1 , c ++
 if (h0 > 1079) {h0 -= 1080 , x0 ++} if (x0 > 23) {x0 -= 24 , y0 ++} if (y0 > 6) {y0 -= 7}} if (t != null) {c += t * 181440}
@@ -146,7 +147,6 @@ if (k >= 0) {DOC(A+"."+(ki % 20)+"."+(ka % 20)+"."+(P % 20)+"."+(B % 20)+"."+(K 
 function mayan(A,ki,ka,P,B,K,t,w,k) {return A*23040000000+ki*1152000000+ka*57600000+P*2880000+B*144000+K*7200+t*360+w*20+Mf(k)+235936.5}
 function sim(x){ var s = gim1[(ta(x).RH-1)%7+1]; if (OX%10==5) {s += "ש"} if (OX%10==4) {s += "כ"} if (OX%10==3) {s += "ח"}
 if (qibur(x) < 7) {s += "מ"} else {s += "פ"} s += gim1[(RB - 3) % 7 + 1]; if (x < 2) {s = ""} if (x < 4120) {s += "?"} return s}
-function MK(m) {var x = 1; while(x < 20) {DOC(sim(((m - 1) * 19) + x ++))} DOC("")}
 function KX(x,q) {while(x <= q){DOC(gim(x)+" - "+sim(x)) , x ++} DOC("")}
 function HK(t,q,s,g,h){ var m = [] , k = []; while(t <= q) {var o = sim(t); if (g > 0) {o = o.substr(0,g - 1) + o.substr(g)}
 if (o.includes(s)) {if (m.length == 0) {var c = t} var x = t - c; m.push(gim(t)+"-"+x+" "); if (x == h) {k.push(gim(t)+" ")} c = t}
