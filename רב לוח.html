@@ -128,18 +128,18 @@ MAS = ["ברכות","שבת","עירובין","פסחים","שקלים","יומ�
 dapim=[63,156,104,120,12,87,55,39,34,30,31,28,26,121,111,90,65,48,89,81,118,118,175,112,23,48,75,13,119,109,141,60,33,33,27,20,4,8,4,72]
 function DAF(OD){ var d = YOM(OD).DSC - 2075327 , m = 0 , M = 1
 while (d > 0) {if (m == 40) {m = 0 , M ++} if (M > 7) {dapim[4] = 21} d -= dapim[m ++]}
-if (m == 37) {d += 20} if (m == 38) {d += 24} if (m == 39) {d += 32} d += dapim[m - 1] + 1
-if (d > 0) {DOC(MAS[m - 1]+" "+gim(d,1))} else {DOC("עדיין לא התחילו")} dapim[4] = 12}
+if (m == 37) {d += 20} if (m == 38) {d += 24} if (m == 39) {d += 32} d += dapim[-- m] + 1
+if (d > 0) {DOC(MAS[m]+" "+gim(d,1))} else {DOC("עדיין לא התחילו")} dapim[4] = 12}
 function daf(M,mas,d){ var m = MAS.indexOf(mas); if (m == 36) {d -= 20} if (m == 37) {d -= 24} if (m == 38) {d -= 32}
 while (M > 0) {dapim[4] = 21; if (M < 8) {dapim[4] = 12} if (m == 0) {m = 40 , M --} d += dapim[-- m]} return d + 2075253}
-function laqaz(OD){ var y = Mf(OD - 1372648 - (5 / 12) + JP); if (y > 578165) {y += Mc(Mf((y - 146221.25) / 36524.25) * 3 / 4) + 1}
+function laqaz(OD){ var y = Mf(YOM(OD).TSC - 1372648-(5/12)+JP); if (y > 578165) {y += Mc(Mf((y - 146221.25) / 36524.25) * 3 / 4) + 1}
 var x = Mf((y - 122.1) / YL) , d = Mf(x * YL) , c = Mf((y - d) / 30.61) , y = y - d - Mf(c * 30.61)
 if (c > 13) {c -= 12} if (c > 3) {x --} if (x < 0) {x --} DOC("\u200E"+y+"/"+(c - 1)+"/"+(x + 1))}
 function umot(Y,M,D,H,m,s){ if (Y < 0) {Y ++} if (M < 3) {M += 12 , Y --} var L = 0
 if (Y > 1582 || Y == 1582 && (M > 10 || (M == 10 && D > 14))) {L = Mf(Y / 100) - Mf(Y / 400) - 2}
-return Mf((Y + 3760) * YL) + Mf((M + 1) * 30.6) + D - L - 691 - (7 / 12) - JP + (H / 24) + (m / 1440) + (s / SE)}
+return Mf((Y + 3760) * YL) + Mf((M + 1) * 30.6) + D - L - 691-(7/12)-JP + (H / 24) + (m / 1440) + (s / SE)}
 function xaqon(codex){ laqaz(YOM(cixuv(codex).MT - 1).CT)
-var Z = Mr(((CT - (5 / 12) + JP) % 1) * SE); if (Z < 0) {Z += SE} var M = Mf(Z / 60) , H = Mf(M / 60); DOC(H+":"+(M % 60)+":"+(Z % 60))}
+var Z = Mr(((CT - (5/12)+JP) % 1) * SE); if (Z < 0) {Z += SE} var M = Mf(Z / 60) , H = Mf(M / 60); DOC(H+":"+(M % 60)+":"+(Z % 60))}
 function sim(x){ var s = gim1[(ta(x).RH-1)%7+1]; if (OX%10==5) {s += "ש"} if (OX%10==4) {s += "כ"} if (OX%10==3) {s += "ח"}
 if (qibur(x) < 7) {s += "מ"} else {s += "פ"} s += gim1[(RB - 3) % 7 + 1]; if (x < 2) {s = ""} if (x < 4120) {s += "?"} return s}
 function MK(m) {var x = 1; while(x < 20) {DOC(sim(((m - 1) * 19) + x ++))} DOC("")}
