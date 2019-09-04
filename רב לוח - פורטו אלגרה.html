@@ -128,11 +128,11 @@ MAS = ["ברכות","שבת","עירובין","פסחים","שקלים","יומ�
 dapim=[63,156,104,120,12,87,55,39,34,30,31,28,26,121,111,90,65,48,89,81,118,118,175,112,23,48,75,13,119,109,141,60,33,33,27,20,4,8,4,72]
 function DAF(OD){ var d = YOM(OD).DSC - 2075327 , m = 0 , M = 1
 while (d > 0) {if (m == 40) {m = 0 , M ++} if (M > 7) {dapim[4] = 21} d -= dapim[m ++]}
-if (m == 37) {d += 20} if (m == 38) {d += 24} if (m == 39) {d += 32} d += dapim[m - 1] + 1
-if (d > 0) {DOC(MAS[m - 1]+" "+gim(d,1))} else {DOC("עדיין לא התחילו")} dapim[4] = 12}
+if (m == 37) {d += 20} if (m == 38) {d += 24} if (m == 39) {d += 32} d += dapim[-- m] + 1
+if (d > 0) {DOC(MAS[m]+" "+gim(d,1))} else {DOC("עדיין לא התחילו")} dapim[4] = 12}
 function daf(M,mas,d){ var m = MAS.indexOf(mas); if (m == 36) {d -= 20} if (m == 37) {d -= 24} if (m == 38) {d -= 32}
 while (M > 0) {dapim[4] = 21; if (M < 8) {dapim[4] = 12} if (m == 0) {m = 40 , M --} d += dapim[-- m]} return d + 2075253}
-function laqaz(OD){ var y = Mf(OD - 1372648.2328); if (y > 578165) {y += Mc(Mf((y - 146221.25) / 36524.25) * 3 / 4) + 1}
+function laqaz(OD){ var y = Mf(YOM(OD).TSC - 1372648.2328); if (y > 578165) {y += Mc(Mf((y - 146221.25) / 36524.25) * 3 / 4) + 1}
 var x = Mf((y - 122.1) / YL) , d = Mf(x * YL) , c = Mf((y - d) / 30.61) , y = y - d - Mf(c * 30.61)
 if (c > 13) {c -= 12} if (c > 3) {x --} if (x < 0) {x --} DOC("\u200E"+y+"/"+(c - 1)+"/"+(x + 1))}
 function umot(Y,M,D,H,m,s){ if (Y < 0) {Y ++} if (M < 3) {M += 12 , Y --} var L = 0
