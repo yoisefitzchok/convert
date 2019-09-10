@@ -149,7 +149,7 @@ function sim(x){ var s = gim1[(ta(x).RH-1)%7+1]; if (OX%10==5) {s += "ש"} if (O
 if (qibur(x) < 7) {s += "מ"} else {s += "פ"} s += gim1[(RB - 3) % 7 + 1]; if (x < 2) {s = ""} if (x < 4120) {s += "?"} return s}
 function KX(x,q) {while(x <= q){DOC(gim(x)+" - "+sim(x)) , x ++} DOC("")}
 function HK(t,q,s,g,h){ var m = [] , k = []; while(t <= q) {var o = sim(t); if (g > 0) {o = o.substr(0,g - 1) + o.substr(g)}
-if (g == 5) {o = gim1[(qivri(t,2,25)%7)+1]} if (g == 6) {o = gim1[(qivri(t,4,15)%7)+1]} if (g == 7) {o = o.substr(0,1)+o.substr(3)}
+if (g == 5) {o = o.substr(0,1)+o.substr(3)} if (g == 6) {o = gim1[(qivri(t,2,25)%7)+1]} if (g == 7) {o = gim1[(qivri(t,4,15)%7)+1]}
 if (o.includes(s)) {if (m.length == 0) {var c = t} var x = t - c; m.push(gim(t)+"-"+x+" ")
 if (x == h) {k.push(gim(t)+" "+(t % 19)+" ")} c = t} t ++} if (h > 0) {DOC(k.length); return k} DOC(m.length); return m}
 function HM(x,q,h,b,t,g,c,e){ function p(){ if(c==null||(e>=c&&qibur(x-1)>=c&&qibur(x-1)<=e)||(c>e&&(qibur(x-1)>=c||qibur(x-1)<=e)))
