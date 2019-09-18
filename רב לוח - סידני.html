@@ -105,7 +105,7 @@ function dorot(dor,gux,yom) {return (dor * 750) + (gux * 30) + yom - 731281}
 function kocavim(mac,kvu,cod,xab,yom){ while (kvu>1) {cod+=MNI[(kvu-2)%9] , kvu--} var zman=(((mac*1080)+cod-998)*ML)+(79/12)
 return zman - (zman % 7) + (xab * 7) + yom - 8}
 function galgal(braca,kocav,xana,mazal,yom) {return (braca*10227)+(kocav*1461)+Mr(((xana*12)+mazal-13)*ZSL)+yom-11868}
-function molad(c) {cixuv(c); if(c>=0){if(MD==0){MD=7}DOC(MD+","+MH+","+MP+" - "+MAP)} else{DOC((MD+7)+","+(MH+24)+","+(MP+1080)%1080)}}
+function molad(c) {cixuv(c); k = ""; if (c > 0) {k = " - " + MAP} DOC((((MD+6)%7)+1)+","+((MH+24)%24)+","+((MP+1080)%1080)+k)}
 function rxima(x) {var c = 0 , CX = 12; if (qibur(x) < 7) {CX = 13} while (c < CX) {molad(CQ(x) + c ++)} DOC("")}
 function MX(x,q) {while(x <= q){molad(CQ(x)) , x ++} DOC("")}
 function cipus(y,x,h,t){ if (y==7) {y=0} if (y<0||y>6||x<0||x>23||h<0||h>1079||y%1!=0||x%1!=0||h%1!=0) {return "שגיאה"}
