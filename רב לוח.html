@@ -133,13 +133,13 @@ if (m == 37) {d += 20} if (m == 38) {d += 24} if (m == 39) {d += 32} d += dapim[
 if (d > 0) {DOC(MAS[m]+" "+gim(d,1))} else {DOC("עדיין לא התחילו")} dapim[4] = 12}
 function daf(M,mas,d){ var m = MAS.indexOf(mas); if (m == 36) {d -= 20} if (m == 37) {d -= 24} if (m == 38) {d -= 32}
 while (M > 0) {dapim[4] = 21; if (M < 8) {dapim[4] = 12} if (m == 0) {m = 40 , M --} d += dapim[-- m]} return d + 2075253}
-function laqaz(OD){ var y = Mf(YOM(OD).TSC - 1372648-(5/12)+JP); if (y > 578165) {y += Mc(Mf((y - 146221.25) / 36524.25) * 3 / 4) + 1}
+function laqaz(OD,G){ var y = Mf(YOM(OD).TSC - 1372648-(5/12)+JP); if (y>578165&&G==null) {y += Mc(Mf((y-146221.25)/36524.25)*3/4)+1}
 var x = Mf((y - 122.1) / YL) , d = Mf(x * YL) , c = Mf((y - d) / 30.61) , y = y - d - Mf(c * 30.61)
 if (c > 13) {c -= 12} if (c > 3) {x --} if (x < 0) {x --} DOC("\u200E"+y+"/"+(c - 1)+"/"+(x + 1))}
-function umot(Y,M,D,H,m,s){ if (Y < 0) {Y ++} if (M < 3) {M += 12 , Y --} var L = 0
-if (Y > 1582 || Y == 1582 && (M > 10 || (M == 10 && D > 14))) {L = Mf(Y / 100) - Mf(Y / 400) - 2}
+function umot(Y,M,D,H,m,s,G){ if (Y < 0) {Y ++} if (M < 3) {M += 12 , Y --} var L = 0
+if (G == null && (Y > 1582 || Y == 1582 && (M > 10 || (M == 10 && D > 14)))) {L = Mf(Y / 100) - Mf(Y / 400) - 2}
 return Mf((Y + 3760) * YL) + Mf((M + 1) * 30.6) + D - L - 691-(7/12)-JP + (H / 24) + (m / 1440) + (s / SE)}
-function xaqon(codex){ laqaz(YOM(cixuv(codex).MT - 1).CT)
+function xaqon(codex,G){ laqaz(YOM(cixuv(codex).MT - 1).CT,G)
 var Z = Mr(((CT - (5/12)+JP) % 1) * SE); if (Z < 0) {Z += SE} var M = Mf(Z / 60) , H = Mf(M / 60); DOC(H+":"+(M % 60)+":"+(Z % 60))}
 function maya(OD){ var k=YOM(OD).DSC-235937,w=Mf(k/20),t=Mf(w/18),K=Mf(t/20),B=Mf(K/20),P=Mf(B/20),ka=Mf(P/20),ki=Mf(ka/20),A=Mf(ki/20)
 if (k >= 0) {DOC(A+"."+(ki % 20)+"."+(ka % 20)+"."+(P % 20)+"."+(B % 20)+"."+(K % 20)+"."+(t % 20)+"."+(w % 18)+"."+(k % 20))}}
