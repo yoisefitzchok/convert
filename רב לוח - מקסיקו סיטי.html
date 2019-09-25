@@ -64,7 +64,7 @@ var SYN = ["הרים","ישוב","ימים","מדבר"] , SY = SYN[Mf((SC + 0.4)
 var ZSN = ["טלה","שור","תאומים","סרטן","אריה","בתולה","מאזנים","עקרב","קשת","גדי","דלי","דגים"]
 var ZSC = Mf((SC + 0.49) / ZSL) , ZS = ZSN[ZSC % 12] , DM = SC - Mr(ZSC * ZSL) + 1
 if (SC >= 0) {DOC(DM+" ב"+ZS+" "+SY+" "+AP+" "+SB)}
-var qonot = ["זרע","חרף","קר","קציר","קיץ","חם"]; return qonot[Mf((TL - 604872.84375) / ZSL / 2) % 6]}
+var qonot = ["זרע","חרף","קר","קציר","קיץ","חם"]; return qonot[Mf((TL - 604872.84375) * 6 / YL) % 6]}
 function HOD(OD){ this.AM = Mf((YOM(OD).TL - (67 / 12)) / ML) , RM = AM - 83
 var WNC = (DSC - cixuv(AM).CMT) + MD; this.WN = xevaq[Mc(WNC / 7)]
 if (WNC == 36) {WN = xevaq[1] , RM ++} if (DSC == CMT && (MD != 1 || (MD == 1 && DP > 13752)))  {WN = xevaq[5] , RM --}
@@ -85,7 +85,7 @@ function MSH(OD){ if (qibur(QIV(OD).XZ) > 6) {xvatim[6] = "יוסף"} var xevet 
 if (yshia > 0) {DOC(YC+" "+xevet+" "+yshia)}}
 function SAF(OD){ var MY = QIV(OD).XZ - 3410 , xanim = (MY % 49) + 1
 var minyan = "שנה " + xevaq[xanim % 7] + " בשמיטה " + xevaq[Mc(xanim / 7)] + " ביובל " + (Mf(MY / 49) + 1)
-var yovel = xanim + " ביובל"; if (xanim == 1) {yovel = "שנת היובל ה" + (MY / 49)}
+var yovel = xanim + " ליובל"; if (xanim == 1) {yovel = "שנת היובל ה" + (MY / 49)}
 var xmita = "מעשר שני"; if ([3,6].includes(XZ % 7)) {xmita = "מעשר עני"} if ((XZ % 7) == 0) {xmita = "שמיטה"}
 if (MY >= 0) {DOC(xmita+", &nbsp"+yovel) , DOC(minyan)}}
 function QOM(OD){ var qomer = QIV(OD).DSC - RB + 163
@@ -140,7 +140,7 @@ function umot(Y,M,D,H,m,s,G){ if (Y < 0) {Y ++} if (M < 3) {M += 12 , Y --} var 
 if (G == null && (Y > 1582 || Y == 1582 && (M > 10 || (M == 10 && D > 14)))) {L = Mf(Y / 100) - Mf(Y / 400) - 2}
 return Mf((Y + 3760) * YL) + Mf((M + 1) * 30.6) + D - L - 691.775 + (H / 24) + (m / 1440) + (s / SE)}
 function xaqon(codex,G){ laqaz(YOM(cixuv(codex).MT - 1).CT,G)
-var Z = Mr(((CT - 0.225) % 1) * SE); if (Z < 0) {Z += SE} var M = Mf(Z / 60) , H = Mf(M / 60); DOC(H+":"+(M % 60)+":"+(Z % 60))}
+var Z = Mf(((CT - 0.225) % 1) * SE); if (Z < 0) {Z += SE} var M = Mf(Z / 60) , H = Mf(M / 60); DOC(H+":"+(M % 60)+":"+(Z % 60))}
 function maya(OD){ var k=YOM(OD).DSC-235937,w=Mf(k/20),t=Mf(w/18),K=Mf(t/20),B=Mf(K/20),P=Mf(B/20),ka=Mf(P/20),ki=Mf(ka/20),A=Mf(ki/20)
 if (k >= 0) {DOC(A+"."+(ki % 20)+"."+(ka % 20)+"."+(P % 20)+"."+(B % 20)+"."+(K % 20)+"."+(t % 20)+"."+(w % 18)+"."+(k % 20))}}
 function mayan(A,ki,ka,P,B,K,t,w,k) {return A*23040000000+ki*1152000000+ka*57600000+P*2880000+B*144000+K*7200+t*360+w*20+Mf(k)+235936.5}
