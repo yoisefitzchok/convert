@@ -105,7 +105,8 @@ function dorot(dor,gux,yom) {return (dor * 750) + (gux * 30) + yom - 731281}
 function kocavim(mac,kvu,cod,xab,yom){ while (kvu>1) {cod+=MNI[(kvu-2)%9] , kvu--} var zman=(((mac*1080)+cod-998)*ML)+(79/12)
 return zman - (zman % 7) + (xab * 7) + yom - 8}
 function galgal(braca,kocav,xana,mazal,yom) {return (braca*10227)+(kocav*1461)+Mr(((xana*12)+mazal-13)*ZSL)+yom-11868}
-function molad(c) {cixuv(c); k = ""; if (c > 0) {k = " - " + MAP} DOC((((MD+6)%7)+1)+","+((MH+24)%24)+","+((MP+1080)%1080)+k)}
+function molad(c,l) {cixuv(c); k = ""; if (c > 0) {k = " - " + MAP}
+DOC((((MD + 6) % 7) + 1)+","+((MH + 24) % 24)+","+((MP + 1080) % 1080) + k); if (l > 0) {laqaz(YOM(MT - 1).CT,l * 2 - 1) , DOC("")}}
 function rxima(x) {var c = 0 , CX = 12; if (qibur(x) < 7) {CX = 13} while (c < CX) {molad(CQ(x) + c ++)} DOC("")}
 function MX(x,q) {while(x <= q){document.getElementById("cush").innerHTML += gim(x)+" - " , molad(CQ(x)) , x ++} DOC("")}
 function cipus(y,x,h,t){ if (y==7) {y=0} if (y<0||y>6||x<0||x>23||h<0||h>1079||y%1!=0||x%1!=0||h%1!=0) {return "שגיאה"}
@@ -133,14 +134,13 @@ if (m == 37) {d += 20} if (m == 38) {d += 24} if (m == 39) {d += 32} d += dapim[
 if (d > 0) {DOC(MAS[m]+" "+gim(d,1))} else {DOC("עדיין לא התחילו")} dapim[4] = 12}
 function daf(M,mas,d){ var m = MAS.indexOf(mas); if (m == 36) {d -= 20} if (m == 37) {d -= 24} if (m == 38) {d -= 32}
 while (M > 0) {dapim[4] = 21; if (M < 8) {dapim[4] = 12} if (m == 0) {m = 40 , M --} d += dapim[-- m]} return d + 2075253}
-function laqaz(OD,G){ var y = Mf(YOM(OD).TSC - 1372648.225); if (y>578165&&G==null) {y += Mc(Mf((y-146221.25)/36524.25)*3/4)+1}
-var x = Mf((y - 122.1) / YL) , d = Mf(x * YL) , c = Mf((y - d) / 30.61) , y = y - d - Mf(c * 30.61)
-if (c > 13) {c -= 12} if (c > 3) {x --} if (x < 0) {x --} DOC("\u200E"+y+"/"+(c - 1)+"/"+(x + 1))}
+function laqaz(OD,G){ var z = YOM(OD).TSC-1372648.225 , S = Mf((z%1)*SE); if (S<0) {S+=SE} var M = Mf(S/60) , H = Mf(M/60)
+var y = Mf(z); if ((G == null && y > 578165) || G < 2) {y += Mc(Mf((y - 146221.25) / 36524.25) * 3 / 4) + 1}
+var x = Mf((y-122.1)/YL) , d = Mf(x*YL) , c = Mf((y-d)/30.61) , y = y-d-Mf(c*30.61); if (c>13) {c-=12} if (c>3) {x--} if (x<0) {x--}
+DOC("\u200E"+y+"/"+(c - 1)+"/"+(x + 1)); if(G % 2 == 1) {DOC(H+":"+(M % 60)+":"+(S % 60))}}
 function umot(Y,M,D,H,m,s,G){ if (Y < 0) {Y ++} if (M < 3) {M += 12 , Y --} var L = 0
 if (G == null && (Y > 1582 || Y == 1582 && (M > 10 || (M == 10 && D > 14)))) {L = Mf(Y / 100) - Mf(Y / 400) - 2}
 return Mf((Y + 3760) * YL) + Mf((M + 1) * 30.6) + D - L - 691.775 + (H / 24) + (m / 1440) + (s / SE)}
-function xaqon(codex,G){ laqaz(YOM(cixuv(codex).MT - 1).CT,G)
-var Z = Mf(((CT - 0.225) % 1) * SE); if (Z < 0) {Z += SE} var M = Mf(Z / 60) , H = Mf(M / 60); DOC(H+":"+(M % 60)+":"+(Z % 60))}
 function maya(OD){ var k=YOM(OD).DSC-235937,w=Mf(k/20),t=Mf(w/18),K=Mf(t/20),B=Mf(K/20),P=Mf(B/20),ka=Mf(P/20),ki=Mf(ka/20),A=Mf(ki/20)
 if (k >= 0) {DOC(A+"."+(ki % 20)+"."+(ka % 20)+"."+(P % 20)+"."+(B % 20)+"."+(K % 20)+"."+(t % 20)+"."+(w % 18)+"."+(k % 20))}}
 function mayan(A,ki,ka,P,B,K,t,w,k) {return A*23040000000+ki*1152000000+ka*57600000+P*2880000+B*144000+K*7200+t*360+w*20+Mf(k)+235936.5}
