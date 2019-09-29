@@ -1,6 +1,6 @@
 <!DOCTYPE html><html lang="he"><head><meta charset="utf-8" http-equiv="refresh" content="60"><title>תאריכים</title></head>
 <body style="color:#000000" bgcolor=#ffffff><div align=center><input id="code" onchange="eval(document.getElementById('code').value)">
-<p id="cush"></p><script lang="javascript">function DOC(p) {document.getElementById("cush").innerHTML += "\u200F"+p+"\u200F<br />"}
+<p id="cush"></p><script lang="javascript">dg=document.getElementById("cush");function DOC(p){dg.innerHTML+="\u200F"+p+"\u200F<br />"}
 Mf = Math.floor , Mc = Math.ceil , Mr = Math.round , SE = 86400 , JD = Date.now()/1000/SE+2440587.5; console.log("יום יוליאני ",JD)
 zacar = ["","אחד","שני","שלשה","ארבעה","חמשה","ששה","שבעה","שמנה","תשעה","עשרה"]
 nkeva = ["","אחת","שתים","שלש","ארבע","חמש","שש","שבע","שמנה","תשע","עשר"]
@@ -107,8 +107,9 @@ return zman - (zman % 7) + (xab * 7) + yom - 8}
 function galgal(braca,kocav,xana,mazal,yom) {return (braca*10227)+(kocav*1461)+Mr(((xana*12)+mazal-13)*ZSL)+yom-11868}
 function molad(c,l) {cixuv(c); k = ""; if (c > 0) {k = " - " + MAP}
 DOC((((MD + 6) % 7) + 1)+","+((MH + 24) % 24)+","+((MP + 1080) % 1080) + k); if (l > 0) {laqaz(YOM(MT - 1).CT,l * 2 - 1) , DOC("")}}
-function rxima(x) {var c = 0 , CX = 12; if (qibur(x) < 7) {CX = 13} while (c < CX) {molad(CQ(x) + c ++)} DOC("")}
-function MX(x,q) {while(x <= q){document.getElementById("cush").innerHTML += gim(x)+" - " , molad(CQ(x)) , x ++} DOC("")}
+function rxima(x,l) {var c = 0 , cx = 12; if (qibur(x) < 7) {cx = 13}
+while (c < cx) {var C = c; if (qibur(x) > 6 && C > 4) {C ++}; dg.innerHTML += XC(x)[C]+" - " , molad(CQ(x) + c ++,l)} DOC("")}
+function MX(x,q,l) {while(x <= q){dg.innerHTML += gim(x)+" - " , molad(CQ(x),l) , x ++} DOC("")}
 function cipus(y,x,h,t){ if (y==7) {y=0} if (y<0||y>6||x<0||x>23||h<0||h>1079||y%1!=0||x%1!=0||h%1!=0) {return "שגיאה"}
 var y0 = 6 , x0 = 14 , h0 = 0 , c = 0; while (h0 != h || x0 != x || y0 != y) {h0 += 793 , x0 += 12 , y0 += 1 , c ++
 if (h0 > 1079) {h0 -= 1080 , x0 ++} if (x0 > 23) {x0 -= 24 , y0 ++} if (y0 > 6) {y0 -= 7}} if (t != null) {c += t * 181440}
