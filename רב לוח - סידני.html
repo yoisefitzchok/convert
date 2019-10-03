@@ -21,7 +21,7 @@ if (e > 0) {k = gim(e,s)} if (k.substr(k.length - 3).includes('"')) {t = k + " "
 function xaqa(H,M,S){ H += 6 , M += 4 , S += 48
 while (S >= 60) {S -= 60 , M ++} while (M >= 60) {M -= 60 , H ++} while (H >= 24) {H -= 24} return (H / 24) + (M / 1440) + (S / SE)}
 function XQ(c) {return Mf((c + 50) * 19 / 235) - 2}
-function CQ(x) {return Mf((((x - 1) * 235) + 1) / 19) - 12}
+function CQ(x) {return Mf((x - 9) * 235 / 19) + 87}
 ML = 765433 / 25920 , YL = 365.25 , ZSL = YL / 12 , MNI = [15,15,15,15,19,15,15,15,19]
 function cixuv(c){ this.MT = (c * ML) + (79 / 12) , CMT = Mf(MT) , MD = CMT % 7 , WP = Mr((MT % 7) * 25920)
 this.DP = WP % 25920 , MH = Mf(DP / 1080) , MP = DP % 1080 , MAP = APN[(Mf(MT * 24) - 180) % 7]; return this}
@@ -107,8 +107,7 @@ return zman - (zman % 7) + (xab * 7) + yom - 8}
 function galgal(braca,kocav,xana,mazal,yom) {return (braca*10227)+(kocav*1461)+Mr(((xana*12)+mazal-13)*ZSL)+yom-11868}
 function molad(c,l) {cixuv(c); k = ""; if (c > 0) {k = " - " + MAP}
 DOC((((MD + 6) % 7) + 1)+","+((MH + 24) % 24)+","+((MP + 1080) % 1080) + k); if (l > 0) {laqaz(YOM(MT - 1).CT,l * 2 - 1) , DOC("")}}
-function rxima(x,l) {var c = 0 , cx = 12; if (qibur(x) < 7) {cx = 13}
-while (c < cx) {var C = c; if (qibur(x) > 6 && C > 4) {C ++}; dg.innerHTML += XC(x)[C]+" - " , molad(CQ(x) + c ++,l)} DOC("")}
+function RX(x,l) {var c=0;while(ta(x).OX/30>c){var C=c;if(qibur(x)>6&&C>4){C++};dg.innerHTML+=XC(x)[C]+" - ",molad(CQ(x)+c++,l)}DOC("")}
 function MX(x,q,l) {while(x <= q){dg.innerHTML += gim(x)+" - " , molad(CQ(x),l) , x ++} DOC("")}
 function cipus(y,x,h,t){ if (y==7) {y=0} if (y<0||y>6||x<0||x>23||h<0||h>1079||y%1!=0||x%1!=0||h%1!=0) {return "שגיאה"}
 var y0 = 6 , x0 = 14 , h0 = 0 , c = 0; while (h0 != h || x0 != x || y0 != y) {h0 += 793 , x0 += 12 , y0 += 1 , c ++
