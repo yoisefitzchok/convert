@@ -114,15 +114,15 @@ if (h0 > 1079) {h0 -= 1080 , x0 ++} if (x0 > 23) {x0 -= 24 , y0 ++} if (y0 > 6) 
 if (t != null) {c += t * 181440} var X = XQ(c); DOC(ta(X).XC[c - CQ(X)]+" "+gim(X)); return c}
 function sig(OD){ var HSC = Mf(YOM(OD).TSC * 24) + 1 , MSC = Mf(TSC * 1440) + 1 , HAP = Mf(TL * 24) - 156 , APH = APN[HAP % 7]
 if (MSC > 0) {DOC("דקה "+MSC+" לבריאת העולם"); if (HAP >= 0) {DOC("שעת שליטת "+APH)} return "שעה " + HSC + " לבריאת העולם"}}
-function TK(x,t) {var z = (x * YL) - 179; if (t != null) {z = (x * 235 / 19 * ML) - 172} return z}
+function TK(x,t) {var z = (x * YL) - 179; if (t != null) {z = (x * 235 / 19 * ML) - 172} return YOM(z).CT}
 function ZT(OD){ var Y = YOM(OD).TSC+730500 , D = Y/750 , X = (Y*12)%12 , L = (X*16)%16 , N = (L*11)%11 , T = (N*19)%19 , R = (T*17)%17
 if (Y > 0) {DOC(Mf(D)+":"+Mf(Y % 750)+":"+Mf(X)+":"+Mf(L)+":"+Mf(N)+":"+Mf(T)+":"+Mf(R))}}
-function zt(D,Y,X,L,N,T,R) {return (D * 750) + Y - 730500 + (X / 12) + (L / 192) + (N / 2112) + (T / 40128) + (R / 682176)}
+function zt(D,Y,X,L,N,T,R) {return YOM((D * 750) + Y - 730500 + (X / 12) + (L / 192) + (N / 2112) + (T / 40128) + (R / 682176)).CT}
 function YE(OD) {var z=YOM(OD).TSC%365250/15218.75; if(z<0){z+=24} DOC(Mf(z)+":"+Mf(z*24%24)+":"+Mf(z*576%24)+":"+Mf(z*13824%24))}
-function kbh(m,q,n,t,g) {return ((q / 24) + (n / 576) + (t / 13824) + (g / 331776) + Mf(YOM().TSC/365250) + m) * 365250}
+function kbh(m,q,n,t,g) {return YOM(((q / 24) + (n / 576) + (t / 13824) + (g / 331776) + Mf(YOM().TSC/365250) + m) * 365250).CT}
 function EK(OD){ var Z = YOM(OD).TSC / 60875 , H = (Z % 1) * 2073600; if (H < 0) {H += 2073600} var Y = Mf(Z); if (Y >= 0) {Y ++}
 var P = Mf(H / 20) , G = Mf(P / 60) , S = Mf(G / 72); DOC("\u200E"+Y+", "+(S % 24)+":"+(G % 72)+":"+((P % 60)+(Mf(H % 20) / 20)))}
-function kalir(Y,S,G,P){ if (Y > 0) {Y --} return ((P / 103680) + (G / 1728) + (S / 24) + Y) * 60875}
+function kalir(Y,S,G,P){ if (Y > 0) {Y --} return YOM(((P / 103680) + (G / 1728) + (S / 24) + Y) * 60875).CT}
 MAS = ["ברכות","שבת","עירובין","פסחים","שקלים","יומא","סוכה","ביצה","ראש השנה","תענית","מגילה","מועד קטן","חגיגה",
 "יבמות","כתובות","נדרים","נזיר","סוטה","גיטין","קידושין","בבא קמא","בבא מציעא","בבא בתרא","סנהדרין","מכות","שבועות",
 "עבודה זרה","הוריות","זבחים","מנחות","חולין","בכורות","ערכין","תמורה","כריתות","מעילה","קינים","תמיד","מידות","נדה"]
