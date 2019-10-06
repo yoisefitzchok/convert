@@ -133,7 +133,7 @@ if (m == 37) {d += 20} if (m == 38) {d += 24} if (m == 39) {d += 32} d += dapim[
 if (d > 0) {DOC(MAS[m]+" "+gim(d,1))} else {DOC("עדיין לא התחילו")} dapim[4] = 12}
 function daf(M,mas,d){ var m = MAS.indexOf(mas); if (m == 36) {d -= 20} if (m == 37) {d -= 24} if (m == 38) {d -= 32}
 while (M > 0) {dapim[4] = 21; if (M < 8) {dapim[4] = 12} if (m == 0) {m = 40 , M --} d += dapim[-- m]} return d + 2075253}
-function laqaz(OD,G){ var z = YOM(OD).TSC-1372648-(5/12)+JP , S = Mf((z%1)*SE); if (S<0) {S+=SE} var M = Mf(S/60) , H = Mf(M/60)
+function laqaz(OD,G){ var z = YOM(OD).TL-1372648-(5/12)+JP , S = Mf((z%1)*SE); if (S<0) {S+=SE} var M = Mf(S/60) , H = Mf(M/60)
 var y = Mf(z); if ((G == null && y > 578165) || G < 2) {y += Mc(Mf((y - 146221.25) / 36524.25) * 3 / 4) + 1}
 var x = Mf((y-122.1)/YL) , d = Mf(x*YL) , c = Mf((y-d)/30.61) , y = y-d-Mf(c*30.61); if (c>13) {c-=12} if (c>3) {x--} if (x<0) {x--}
 DOC("\u200E"+y+"/"+(c - 1)+"/"+(x + 1)); if(G % 2 == 1) {DOC(H+":"+(M % 60)+":"+(S % 60))}}
