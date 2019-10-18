@@ -68,7 +68,7 @@ qonot = ["זרע","חרף","קר","קציר","קיץ","חם"]; return qonot[Mf((
 function HOD(OD){ AM = Mf((YOM(OD).TL - (67 / 12)) / ML) , RM = AM - 83
 var WNC = (DSC - cixuv(AM).CM) + MD; WN = xevaq[Mc(WNC / 7)]
 if (WNC == 36) {WN = xevaq[1] , RM ++} if (DSC == CM && (MD != 1 || (MD == 1 && DP > 13752)))  {WN = xevaq[5] , RM --}
-var MIC = RM % 1080 , GIC = 0; while (MIC >= 0) {MIC -= MNI[GIC % 9] , GIC ++} MN = seder[MIC + MNI[(GIC - 1) % 9] + 1]
+var MIC = RM % 1080 , GIC = 0; while (MIC >= 0) {MIC -= MNI[GIC ++ % 9]} MN = seder[MIC + MNI[(GIC - 1) % 9] + 1]
 GN = nkeva[GIC]; if (GIC > 10) {GN = nkeva[GIC % 10] + " עשרה"} qeser[1] = " ו"
 if ((GIC % 10) == 0) {qeser[1] = ""} if (GIC > 19) {GN = qeser[Mf(GIC / 10)] + qeser[1] + nkeva[GIC % 10]}
 CN = Mf(RM / 1080) + 1; return this} function KH(OD) {if (HOD(OD).RM >= 0) {DOC("ה"+DN+" ב"+WN+" ל"+MN+" מ"+GN+" מחזור "+CN)}}
@@ -107,7 +107,7 @@ return zman - (zman % 7) + (xab * 7) + yom - 8}
 function galgal(braca,kocav,xana,mazal,yom) {return (braca*10227)+(kocav*1461)+Mr(((xana*12)+mazal-13)*ZSL)+yom-11868}
 function molad(c,l) {cixuv(c); k=""; if (c>0) {k=" - "+MAP} DOC((((MD+6)%7)+1)+","+MH+","+MP+k); if (l>0) {laqaz(LM,l*2-1) , DOC("")}}
 function RX(x,l) {var c = 0; ta(x); while (c < OC.length) {dg.innerHTML += XC[c]+" - " , molad(CQ(x) + c ++,l)} DOC("")}
-function MX(x,q,l) {while (x <= q) {dg.innerHTML += gim(x)+" - " , molad(CQ(x),l) , x ++} DOC("")}
+function MX(x,q,l) {while (x <= q) {dg.innerHTML += gim(x)+" - " , molad(CQ(x ++),l)} DOC("")}
 function cipus(y,x,h,t){ if (y==7) {y=0} if (y<0||y>6||x<0||x>23||h<0||h>1079||y%1!=0||x%1!=0||h%1!=0) {return "שגיאה"}
 var y0 = 6 , x0 = 14 , h0 = 0 , c = 0; while (h0 != h || x0 != x || y0 != y) {h0 += 793 , x0 += 12 , y0 += 1 , c ++
 if (h0 > 1079) {h0 -= 1080 , x0 ++} if (x0 > 23) {x0 -= 24 , y0 ++} if (y0 > 6) {y0 -= 7}}
@@ -145,7 +145,7 @@ if (k >= 0) {DOC(A+"."+(ki % 20)+"."+(ka % 20)+"."+(P % 20)+"."+(B % 20)+"."+(K 
 function mayan(A,ki,ka,P,B,K,t,w,k) {return A*23040000000+ki*1152000000+ka*57600000+P*2880000+B*144000+K*7200+t*360+w*20+Mf(k)+235936.5}
 function sim(x){ var s = gim1[(ta(x).RH-1)%7+1]; if (OX%10==5) {s += "ש"} if (OX%10==4) {s += "כ"} if (OX%10==3) {s += "ח"}
 if (qibur(x) < 7) {s += "מ"} else {s += "פ"} s += gim1[(RB - 3) % 7 + 1]; if (x < 2) {s = ""} if (x < 4120) {s += "?"} return s}
-function KX(x,q) {while (x <= q){DOC(gim(x)+" - "+sim(x)) , x ++} DOC("")}
+function KX(x,q) {while (x <= q){DOC(gim(x)+" - "+sim(x ++))} DOC("")}
 function HK(t,q,s,g,h){ var m = [] , k = []; while (t <= q) {var o = sim(t); if (g > 0) {o = o.substr(0,g - 1) + o.substr(g)}
 if (g==5) {o=o.substr(0,1)+o.substr(3)} if (g==6) {o=gim1[(qivri(t,"כסלו",25)%7)+1]} if (g==7) {o=gim1[(qivri(t,"שבט",15)%7)+1]}
 if (o.includes(s)) {if (m.length == 0) {var c = t} var x = t - c; m.push(gim(t) + "-" + x + " ")
