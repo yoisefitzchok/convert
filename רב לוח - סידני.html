@@ -102,7 +102,7 @@ function xviqit(d,w,s,y,r,j,c) {return (c * 392392) + (j * 17836) + (r * 2548) +
 function mixmar(ba,mix,mac,ot){ var scum = (mac * 168) + (mix * 7) + ba
 if (ot=="א") {if (scum>3250) {return scum+1068759} return scum+1068752} if (ot=="ב") {return scum+1238383} return scum+1246251}
 function dorot(dor,gux,yom) {return (dor * 750) + (gux * 30) + yom - 731281}
-function kocavim(mac,kvu,cod,xab,yom){ while (kvu>1) {cod+=MNI[(kvu-2)%9] , kvu--} var zman=(((mac*1080)+cod-998)*ML)+(79/12)
+function kocavim(mac,kvu,cod,xab,yom){ while (kvu -- > 1) {cod += MNI[(kvu-1)%9]} var zman = (((mac*1080)+cod-998)*ML)+(79/12)
 return zman - (zman % 7) + (xab * 7) + yom - 8}
 function galgal(braca,kocav,xana,mazal,yom) {return (braca*10227)+(kocav*1461)+Mr(((xana*12)+mazal-13)*ZSL)+yom-11868}
 function molad(c,l) {cixuv(c); k=""; if (c>0) {k=" - "+MAP} DOC((((MD+6)%7)+1)+","+MH+","+MP+k); if (l>0) {laqaz(LM,l*2-1) , DOC("")}}
@@ -131,7 +131,7 @@ function DAF(OD){ var d = YOM(OD).DSC - 2075327 , m = 0 , M = 1
 while (d > 0) {if (m == 40) {m = 0 , M ++} if (M > 7) {dapim[4] = 21} d -= dapim[m ++]}
 if (m == 37) {d += 20} if (m == 38) {d += 24} if (m == 39) {d += 32} d += dapim[-- m] + 1
 if (d > 0) {DOC(MAS[m]+" "+gim(d,1))} else {DOC("עדיין לא התחילו")} dapim[4] = 12}
-function daf(M,mas,d){ var m = MAS.indexOf(mas); if (m == 36) {d -= 20} if (m == 37) {d -= 24} if (m == 38) {d -= 32}
+function daf(M,mas,d){ var m = MAS.indexOf(mas); if (m<0||M<1) {return "שגיאה"} if (m==36){d-=20}if (m==37){d-=24}if (m==38){d-=32}
 while (M > 0) {dapim[4] = 21; if (M < 8) {dapim[4] = 12} if (m == 0) {m = 40 , M --} d += dapim[-- m]} return d + 2075253}
 function laqaz(OD,G){ var z = YOM(OD).TL-1372648-(76/300) , S = Mf((z%1)*SE); if (S<0) {S+=SE} var M = Mf(S/60) , H = Mf(M/60)
 var y = Mf(z); if ((G == null && y > 578165) || G < 2) {y += Mc(Mf((y - 146221.25) / 36524.25) * 3 / 4) + 1}
