@@ -1,7 +1,7 @@
-<!DOCTYPE html><html lang="he"><head><meta charset="utf-8" http-equiv="refresh" content="300"><title>תאריכים</title></head>
-<body style="color:#000000" bgcolor=#ffffff><div align=center><input id="code" onchange="eval(document.getElementById('code').value)">
-<p id="cush"></p><script lang="javascript">dg=document.getElementById("cush");function DOC(p){dg.innerHTML+="\u200F"+p+"\u200F<br />"}
-Mf = Math.floor , Mc = Math.ceil , Mr = Math.round , SE = 86400 , JD = Date.now()/1000/SE+2440587.5; console.log("יום יוליאני ",JD)
+<!DOCTYPE html><html lang="he"><head><meta charset="utf-8"><title>תאריכים</title></head><body style="color:#000000" bgcolor=#ffffff>
+<div align=center><input id="code" onchange="eval(document.getElementById('code').value)"><p id="cush"></p><script lang="javascript">
+dg=document.getElementById("cush");function DOC(p){dg.innerHTML+="\u200F"+p+"\u200F<br />"}Mf=Math.floor,Mc=Math.ceil,Mr=Math.round
+SE = 86400 , JD = Date.now()/1000/SE+2440587.5; setInterval("JD += 1/SE; if ((YOM().TL % 0.5) < (1 / SE)) {location.reload(true)}",1000)
 zacar = ["","אחד","שני","שלשה","ארבעה","חמשה","ששה","שבעה","שמנה","תשעה","עשרה"]
 nkeva = ["","אחת","שתים","שלש","ארבע","חמש","שש","שבע","שמנה","תשע","עשר"]
 qeser = [""," ו","עשרים","שלשים","ארבעים","חמשים","ששים"]
