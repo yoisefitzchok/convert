@@ -1,8 +1,8 @@
 <!DOCTYPE html><html lang="he"><head><meta charset="utf-8"><title>תאריכים</title></head><body style="color:#000000" bgcolor=#ffffff>
 <div align=center><input style="background-color:#00ff00" id="code" onchange="eval(document.getElementById('code').value)">
 <p id="cush"></p><script lang="javascript">dg=document.getElementById("cush");function DOC(p){dg.innerHTML+="\u200F"+p+"\u200F<br />"}
-Mf = Math.floor , Mc = Math.ceil , Mr = Math.round , SE = 86400 , JD = Date.now() / 1000 / SE + 2440587.5
-setInterval("JD += 1 / SE; if ((YOM().TL % 0.5) < (1 / SE)) {location.reload(true)}" , 1000)
+Mf = Math.floor , Mc = Math.ceil , Mr = Math.round , SE = 86400; function jd() {return Date.now() / 1000 / SE + 2440587.5}
+setInterval("LT = TSC; if (Mf(TL/0.5) != Mf(YOM().TL/0.5) || Mf((LT+0.25)/7) != Mf((TSC+0.25)/7)) {location.reload(true)}" , 1000)
 zacar = ["","אחד","שני","שלשה","ארבעה","חמשה","ששה","שבעה","שמנה","תשעה","עשרה"]
 nkeva = ["","אחת","שתים","שלש","ארבע","חמש","שש","שבע","שמנה","תשע","עשר"]
 qeser = [""," ו","עשרים","שלשים","ארבעים","חמשים","ששים"]
@@ -24,7 +24,7 @@ function xaqa(H,M,S){ H += 6 , M += 4 , S += 48
 while (S >= 60) {S -= 60 , M ++} while (M >= 60) {M -= 60 , H ++} while (H >= 24) {H -= 24} return (H / 24) + (M / 1440) + (S / SE)}
 function XQ(c) {return Mf((c + 50) * 19 / 235) - 2}
 function CQ(x) {return Mf((x - 9) * 235 / 19) + 87}
-ML = 765433 / 25920 , YL = 365.25 , ZSL = YL / 12 , MNI = [15,15,15,15,19,15,15,15,19]
+ML = 765433 / 25920 , YL = 365.25 , ZSL = YL / 12 , MNI = [15,15,15,15,19,15,15,15,19] , JP = 0.152119
 function cixuv(c){ MT = (c*ML)+(79/12) , LM = MT-1+CT-TL , CM = Mf(MT) , WP = Mr((MT%7)*25920); if (WP < 0) {WP += 181440}
 DP = WP % 25920 , MD = (CM % 7 + 7) % 7 , MH = Mf(DP / 1080) , MP = DP % 1080 , MAP = APN[(Mf(MT * 24) - 180) % 7]; return this}
 function qibur(x) {x = ((x * 12) + 5) % 19; if (x < 0) {x += 19} return x}
@@ -44,7 +44,7 @@ if (Q < 7 || (YR == 5 && YP == 3)) {PR.splice(22,0,"פקדי")} if (Q < 7) {PR.s
 if (YR == 5 || YP == 2) {PR.splice(42,0,"מסעי")} if (YR == 5) {PR.splice(29,0,"פסח")} else {PR.splice(28,0,"פסח")}}
 if (YP == 5) {PR.push("האזינו","כפור","סכות")} else {if (YP == 0) {PR.push("ראש השנה","האזינו","סכות","וזאת הברכה")}
 else {PR.push("וילך","האזינו","וזאת הברכה")}} return PR}
-function YOM(OD){ TL = OD; if (OD == null) {TL = JD - 348345.83} TSC = TL - 0.322119 , CT = TL + 0.322119
+function YOM(OD){ TL = OD; if (OD == null) {TL = jd() - 348345.83} TSC = TL - 0.322119 , CT = TL + 0.322119 , JD = TSC + 348346 + JP
 DSC = Mf(TL) + 1 , WD = DSC % 7; if (WD < 0) {WD += 7} DN = seder[WD] , NH = "יום "; if ((TL % 1) < 0.5) {NH = "ליל "}
 return this} function KY(OD) {if (YOM(OD).DSC > 0) {DOC("יום "+DSC+" לבריאת העולם")}}
 function MIX(OD){ var ST1=YOM(OD).TSC-1068927.75;if(ST1>3080){ST1-=7} var ST2=ST1-177492,BT=ST2+7868,PD="לא ידועה",CPD="לא ידוע"
