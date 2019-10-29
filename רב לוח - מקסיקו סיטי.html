@@ -2,7 +2,7 @@
 <div align=center><input style="background-color:#00ff00" id="code" onchange="eval(document.getElementById('code').value)">
 <p id="cush"></p><script lang="javascript">dg=document.getElementById("cush");function DOC(p){dg.innerHTML+="\u200F"+p+"\u200F<br />"}
 Mf = Math.floor , Mc = Math.ceil , Mr = Math.round , SE = 86400; function jd() {return Date.now() / 1000 / SE + 2440587.5}
-setInterval("LT = TSC; if (Mf(TL/0.5) != Mf(YOM().TL/0.5) || Mf((LT+0.25)/7) != Mf((TSC+0.25)/7)) {location.reload(true)}" , 1000)
+setInterval("LT = YOM(TM).TSC; if (NH != YOM().NH || Mf((LT+0.25)/7) != Mf((TSC+0.25)/7)) {location.reload(true)}" , 1000)
 zacar = ["","אחד","שני","שלשה","ארבעה","חמשה","ששה","שבעה","שמנה","תשעה","עשרה"]
 nkeva = ["","אחת","שתים","שלש","ארבע","חמש","שש","שבע","שמנה","תשע","עשר"]
 qeser = [""," ו","עשרים","שלשים","ארבעים","חמשים","ששים"]
@@ -44,8 +44,8 @@ if (Q < 7 || (YR == 5 && YP == 3)) {PR.splice(22,0,"פקדי")} if (Q < 7) {PR.s
 if (YR == 5 || YP == 2) {PR.splice(42,0,"מסעי")} if (YR == 5) {PR.splice(29,0,"פסח")} else {PR.splice(28,0,"פסח")}}
 if (YP == 5) {PR.push("האזינו","כפור","סכות")} else {if (YP == 0) {PR.push("ראש השנה","האזינו","סכות","וזאת הברכה")}
 else {PR.push("וילך","האזינו","וזאת הברכה")}} return PR}
-function YOM(OD){ TL = OD; if (OD == null) {TL = jd() - 348346.525} TSC = TL + 0.372881 , CT = TL - 0.372881 , JD = TSC + 348346 + JP
-DSC = Mf(TL) + 1 , WD = DSC % 7; if (WD < 0) {WD += 7} DN = seder[WD] , NH = "יום "; if ((TL % 1) < 0.5) {NH = "ליל "}
+function YOM(OD){ TL = OD; if (OD == null) {TL = jd() - 348346.525 , TM = TL} TSC = TL + 0.372881 , CT = TL - 0.372881
+DSC = Mf(TL)+1 , WD = DSC%7; if (WD<0) {WD += 7} DN = seder[WD] , JD = TSC+348346+JP , NH = "יום "; if ((TL%1)<0.5) {NH = "ליל "}
 return this} function KY(OD) {if (YOM(OD).DSC > 0) {DOC("יום "+DSC+" לבריאת העולם")}}
 function MIX(OD){ var ST1=YOM(OD).TSC-1068927.75;if(ST1>3080){ST1-=7} var ST2=ST1-177492,BT=ST2+7868,PD="לא ידועה",CPD="לא ידוע"
 if (ST1 > 0) {PD = PDN[Mc((ST1 % 168) / 7) - 1] , CPD = Mc(ST1 / 168) + "א"}
