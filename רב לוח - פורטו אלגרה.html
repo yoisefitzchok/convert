@@ -23,9 +23,9 @@ function xaqa(H,M,S){ H += 5 , M += 35 , S += 13.9201
 while (S >= 60) {S -= 60 , M ++} while (M >= 60) {M -= 60 , H ++} while (H >= 24) {H -= 24} return (H / 24) + (M / 1440) + (S / SE)}
 function XQ(c) {return Mf((c + 50) * 19 / 235) - 2}
 function CQ(x) {return Mf((x - 9) * 235 / 19) + 87}
-ML = 765433 / 25920 , YL = 365.25 , ZSL = YL / 12 , MNI = [15,15,15,15,19,15,15,15,19] , JP = 0.152119
-function cixuv(c){ MT = (c*ML)+(79/12) , LM = MT-1+CT-TL , CM = Mf(MT) , WP = Mr((MT%7)*25920); if (WP < 0) {WP += 181440}
-DP = WP % 25920 , MD = (CM % 7 + 7) % 7 , MH = Mf(DP / 1080) , MP = DP % 1080 , MAP = APN[(Mf(MT * 24) - 180) % 7]; return this}
+PA = 25920 , ML = 765433 / PA , YL = 365.25 , ZSL = YL / 12 , MNI = [15,15,15,15,19,15,15,15,19] , JP = 0.152119
+function cixuv(c){ MT = Mr(((c*ML)+(79/12))*PA) , WP = MT%181440; if (WP < 0) {WP += 181440} MT /= PA , LM = MT-1+CT-TL , CM = Mf(MT)
+DP = WP % PA , MD = (CM % 7 + 7) % 7 , MH = Mf(DP / 1080) , MP = DP % 1080 , MAP = APN[(Mf(MT * 24) - 180) % 7]; return this}
 function qibur(x) {x = ((x * 12) + 5) % 19; if (x < 0) {x += 19} return x}
 function ROX(x){ var r = cixuv(CQ(x)).CM; if (MH > 17) {r ++}
 else {if (MD == 3 && DP > 9923 && qibur(x) > 6) {r ++} if (MD == 2 && DP > 16788 && qibur(x) > 11) {r ++}}
@@ -167,4 +167,9 @@ if (D == 1) {d = "יום אחד "} if (H == 1) {h = "שעה אחת "} if (M == 1
 function GIM(g){ gim(0); var n = 0 , l = '"אבגדהוזחטיכלמנסעפצקרשתךםןףץ' , d = g.length
 while (d -- > 0) {var p = l.indexOf(g[d]) , a = p; if (p < 0) {n += GIM(g.slice(0,d)) * 1000; break}
 if (p > 9) {a = (p - 9) * 10} if (p > 18) {a = (p - 18) * 100} n += a} return n}
+function YERM(OD){ var A = [1144,1144,1095] , B = 0 , C = [17,17,15] , D = 0 , E = HOD(OD).AM+11721; if (DSC == CM) {E--} var F = E%PA
+while (F>=0) {F -= A[B++%3]} B-- , F += A[B%3]; if (B==22) {A[1] = 1095} while (F>=0) {F -= C[D++%3]; if (D>A[B%3]/17) {C[2] = 17}}
+F += C[(D - 1) % 3] + 1 , B ++; DOC((Mf(E/PA)+1)+"_"+B+"_"+D+"_"+F+"_"+(DSC-cixuv(E-11721).CM))}
+function yerm(a,b,c,d,e){ var f = [502,502,443] , g = [33783,33783,32336]; if (b > 22) {g[1] = 32336} b -= 1 , c -= 1
+while (c-->0) {if (c>g[b%3]/500) {f[2]=17} e+=f[c%3]} g[1]=33783; while (b-->0) {e+=g[b%3]} return e+Mr((d-1)*ML)+(a*765433)-1111556}
 </script></div></body></html>
