@@ -1,6 +1,6 @@
 <!DOCTYPE html><html lang="he"><head><meta charset="utf-8"><title>תאריכים</title></head><body style="color:#000000" bgcolor=#ffffff>
-<div align=center><input style="background-color:#00ff00" id="code" onchange="eval(document.getElementById('code').value)">
-<p id="cush"></p><script lang="javascript">dg=document.getElementById("cush");function DOC(p){dg.innerHTML+="\u200F"+p+"\u200F<br />"}
+<div align="center"><input style="background-color:#00ff00" id="code" onchange="eval(document.getElementById('code').value)">
+<p id="cush" dir="rtl"></p><script lang="javascript">dg=document.getElementById("cush");function DOC(p){dg.innerHTML+=p+"<br />"}
 Mf = Math.floor , Mc = Math.ceil , Mr = Math.round , SE = 86400; function jd() {return Date.now() / 1000 / SE + 2440587.5}
 setInterval("LT = YOM(TM).TSC; if (NH != YOM().NH || Mf((LT+0.25)/7) != Mf((TSC+0.25)/7)) {location.reload(true)}" , 1000)
 zacar = ["","אחד","שני","שלשה","ארבעה","חמשה","ששה","שבעה","שמנה","תשעה","עשרה"]
@@ -16,7 +16,7 @@ PDN = ["יהויריב","ידעיה","חרם","שערים","מלכיה","מימ�
 FPD = ["ידעיה","חרם","פשחור","אמר"]
 function gim(n,s){ gim1=["","א","ב","ג","ד","ה","ו","ז","ח","ט"],gim2=["","י","כ","ל","מ","נ","ס","ע","פ","צ"],gim3=["","ק","ר","ש"]
 gim4=["","ת","תת"]; var e = Mc(n/1000)-1 , p = ((n-1)%1000)+1; if (s != 0 && (p%100 == 15 || p%100 == 16)) {gim2[1] = "ט" , p ++}
-var g = gim4[Mf(p / 400)] + gim3[Mf((p % 400) / 100)] + gim2[Mf((p % 100) / 10)] + gim1[p % 10] , t = g; if (n < 1) {return n}
+var g = gim4[Mf(p/400)] + gim3[Mf((p%400)/100)] + gim2[Mf((p%100)/10)] + gim1[p%10] , t = g; if (n < 1) {return "\u200F"+n}
 if (s == null) {if (g.length == 1) {t = g + "'"} if (g.length > 1) {t = g.slice(0,-1) + '"' + g.slice(-1)}}
 if (e > 0) {var k=gim(e,s); if (s != null) {t=k+"_"+t} else {if (k[k.length-2] == '"') {t=k+" "+t} else {t=k+t}}} return t}
 function xaqa(H,M,S){ H += 6 , M += 20 , S += 56.9185
