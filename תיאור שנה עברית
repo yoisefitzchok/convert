@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="he">
+<body>
+<div align="right">
+<input id="kelet" onchange="ALPHA(document.getElementById('kelet').value)">
+<p id="pelet" dir="rtl"></p>
+<script>
+const orechodesh = 765433 / 25920
+
+function ibur(shana) // איזו שנה מעוברת? 0-6 הנוכחית, 12-18 שעברה, 7-13 הבאה
+{
+return (shana * 12 + 5) % 19
+}
+
+function hishuvmolad(shana) // מפיקה משתנים גלובליים
+{
+hodesh = Math.floor((shana - 9) * 235 / 19) + 87 // מספר החודשים מבריאת העולם עד תחילת השנה
+zmanmolad = hodesh * orechodesh + (67 / 12) // הזמן שעבר מבריאת העולם עד מולד החודש הנתון
+yemeymolad = Math.floor(zmanmolad)
+yommolad = yemeymolad % 7 + 1
+halakimbayom = Math.round(zmanmolad * 25920) % 25920
+sheotmolad = Math.floor(halakimbayom / 1080)
+helkeymolad = halakimbayom % 1080
+return this
+}
+
+function roshana(shana)
+{
+var rosh = hishuvmolad(shana).yemeymolad
+if (sheotmolad > 17 ||
+(yommolad == 3 && halakimbayom > 9923 && ibur(shana) > 6) ||
+(yommolad == 2 && halakimbayom > 16788 && ibur(shana) > 11))
+{
+rosh ++
+}
+if ([1,4,6].includes(rosh % 7 + 1))
+{
+rosh ++
+}
+return rosh
+}
+
+function simanhakviut(shana) // מפיקה משתנים גלובליים
+{
+roshzot = roshana(shana)
+yomrosh = roshzot % 7 + 1
+roshaba = roshana(shana + 1)
+yompesah = (roshaba - 163) % 7 + 1
+orechashana = roshaba - roshzot
+hasiman = ""
+
+if (yomrosh == 2) hasiman = "ב"
+if (yomrosh == 3) hasiman = "ג"
+if (yomrosh == 5) hasiman = "ה"
+if (yomrosh == 7) hasiman = "ז"
+
+if (orechashana % 10 == 5) hasiman += "ש"
+if (orechashana % 10 == 4) hasiman += "כ"
+if (orechashana % 10 == 3) hasiman += "ח"
+
+if (yompesah == 1) hasiman += "א"
+if (yompesah == 3) hasiman += "ג"
+if (yompesah == 5) hasiman += "ה"
+if (yompesah == 7) hasiman += "ז"
+
+return this
+}
+
+function laqaz(shana , tikun)
+{
+year = shana - 3761
+days = Math.floor(year * 365.25) + 1372954
+gregorian = Math.floor(year / 100) - Math.floor(year / 400) - 2
+if (year > 1582)
+{
+days -= gregorian
+}
+newyear = roshana(shana) - days
+if (tikun == 1)
+{
+newyear --
+}
+month = " בספטמבר"
+if (newyear > 30)
+{
+month = " באוקטובר"
+newyear -= 30
+}
+if (newyear < 1)
+{
+month = " באוגוסט"
+newyear += 31
+}
+return this
+}
+
+function gimatria(mispar , sug)
+{
+ahadot = ["","א","ב","ג","ד","ה","ו","ז","ח","ט","י"]
+asarot = ["","י","כ","ל","מ","נ","ס","ע","פ","צ"]
+sofiyot = ["","י","ך","ל","ם","ן","ס","ע","ף","ץ"]
+meot = ["","ק","ר","ש"]
+rabot = ["","ת","תת"]
+mila = rabot[Math.floor(mispar % 1000 / 400)] + meot[Math.floor(mispar % 1000 % 400 / 100)] + asarot[Math.floor(mispar % 100 / 10)] + ahadot[Math.floor(mispar % 10)]
+if (mispar % 10 == 0 && mispar % 100 != 0 && sug == 2)
+{
+mila = mila.slice(0,-1) + sofiyot[Math.floor(mispar % 100 / 10)]
+}
+if (mila.length > 1)
+{
+mila = mila.slice(0,-1) + '"' + mila.slice(-1)
+}
+if (mila.length == 1)
+{
+mila += "'"
+}
+if (mispar > 999)
+{
+mila = ahadot[Math.floor(mispar / 1000)] + "'" + mila
+if (mispar % 1000 == 0)
+{
+mila += " אלפים"
+}
+}
+mila = "'''" + mila + "'''"
+return mila
+}
+
+function nusah(shana)
+{
+shana *= 1
+if (shana % 1 != 0) return "הזן מספר שלם"
+if (shana < 4119) return "עדיין לא תוקן החשבון"
+if (shana > 10999) return "הפונקציה לא מותאמת לשנים שאחרי י'תתקצ\"ט"
+
+shemshana = gimatria(shana , 2)
+if (shemshana != gimatria(shana , 1))
+{
+shemshana += " או " + gimatria(shana , 1)
+}
+shemshana += " (" + shana + ")"
+if (shana > 5400 && shana < 6000)
+{
+shemshana += " ובקיצור " + gimatria(shana % 1000 , 2)
+if (gimatria(shana , 2) != gimatria(shana , 1))
+{
+shemshana += " או " + gimatria(shana % 1000 , 1)
+}
+}
+hakdama = shemshana + " - היא [[הלוח העברי|שנה עברית]] אשר "
+zmannochi = Date.now() / 86400000 + 2092241.347881
+start = "החלה"
+if (roshana(shana) > zmannochi)
+{
+start = "תחל"
+}
+finish = "והסתיימה"
+if (roshana(shana + 1) > zmannochi)
+{
+finish = "ותסתיים"
+}
+juli = ""
+if (shana < 5344)
+{
+juli = " (לפי [[הלוח היוליאני]], שהיה נהוג אז)"
+}
+greg = ""
+if (shana == 5343)
+{
+greg = " (לפי [[הלוח הגרגוריאני]], שנכנס לתוקף במהלך שנה זו)"
+}
+hathala = start + " ביום [[א' בתשרי]], אור ל-[[" + laqaz(shana).newyear + month + "]] [[" + year + "]]" + juli
+siyum = ", " + finish + " ביום [[כ\"ט באלול]], [[" + laqaz(shana + 1,1).newyear + month + "]] [[" + year + "]]" + greg
+yemeyhashavua = ["","ראשון","שני","שלישי","רביעי","חמישי","שישי","השבת"]
+yombashavua = "[[יום " + yemeyhashavua[hishuvmolad(shana).yommolad] + "]], "
+hashaot = sheotmolad + " [[שעה|שעות]] ו"
+if (sheotmolad == 1)
+{
+hashaot = " [[שעה]] אחת ו"
+}
+hahalakim = helkeymolad + " [[חלק (יחידת זמן)|חלקים]]."
+if (helkeymolad == 1)
+{
+hahalakim = "[[חלק (יחידת זמן)|חלק]] אחד."
+}
+hamolad = ".<br>[[מולד_הלבנה#מולד_הלוח|המולד]] של תשרי חל ב" + yombashavua + hashaot + hahalakim
+hakviut = " [[הלוח_העברי#הדחיות|לפיכך]] זו שנה מסוג [[שנת " + simanhakviut(shana).hasiman + "|" + simanhakviut(shana).hasiman + "]], "
+haorech = "ואורכה " + orechashana + " ימים.<br>"
+meuberet = "איננה"
+if (ibur(shana) < 7)
+{
+meuberet = "היא"
+}
+meuberet += " [[מעוברת]], "
+shneyshavua = ["","ראשונה","שנייה","שלישית","רביעית","חמישית","שישית"]
+shmita = "זו שנה " + shneyshavua[shana % 7] + " ל[[שמיטה]], "
+if (shana % 7 == 0) shmita = "זו שנת [[שמיטה]], "
+hamahzor = "ושנת " + ((shana - 1) % 19 + 1) + " ב[[עיבור השנה#העיבור בלוח הקבוע|מחזור העיבור]] ה-" + Math.floor(shana / 19 + 1) + ". "
+hahama = "[[ארבע התקופות#תקופת שמואל|תקופת ניסן]] שבשנה זו היא תחילת שנת " + ((shana - 1) % 28 + 1) + "  ב[[ברכת החמה|מחזור השמש]] ה-" + Math.floor(shana / 28 + 1)
+if (shana % 28 == 1)
+{
+hahama += ", ולכן מברכים בה את [[ברכת החמה]]"
+}
+minyanim = ".<br>שנה זו היא שנת " + (shana - 3829) + " [[מניין לחורבן הבית|לחורבן הבית]], ושנת " + (shana - 3449) + " [[מניין השטרות|לשטרות]]."
+yovel = ""
+if (shana % 49 == 29)
+{
+yovel = "<br>לפי דברי רוב ה[[ראשונים]]{{הערה|ראה למשל [[זרחיה הלוי|בעל המאור]] [http://www.hebrewbooks.org/pdfpager.aspx?req=40787&st=&pgnum=174&hilite= עבודה זרה ט:]}} שנה זו היא [[שנת היובל]]."
+}
+
+text = hakdama + hathala + siyum + hamolad + hakviut + meuberet + haorech + shmita + hamahzor + hahama + minyanim + yovel
+return text
+}
+function ALPHA(kelet)
+{
+document.getElementById('pelet').innerHTML = nusah(kelet)
+}
+</script>
+</div>
+</body>
+</html>
