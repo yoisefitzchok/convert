@@ -207,8 +207,27 @@ if (shana % 49 == 29)
 {
 yovel = "<br>לפי דברי רוב ה[[ראשונים]]{{הערה|ראה למשל [[זרחיה הלוי|בעל המאור]] [http://www.hebrewbooks.org/pdfpager.aspx?req=40787&st=&pgnum=174&hilite= עבודה זרה ט:]}} שנה זו היא [[שנת היובל]]."
 }
+atsmaut = ""
+if (shana > 5708)
+{
+hagiga = "חגגה"
+if (roshana(shana + 1) > zmannochi)
+{
+hagiga = "תחגוג"
+if (roshana(shana) < zmannochi)
+{
+hagiga = "חוגגת"
+}
+}
+shanim = "שנה ראשונה של עצמאות"
+if (shana > 5709)
+{
+shanim = (shana - 5708) + " שנות עצמאות"
+}
+atsmaut = "<p>[[ישראל|מדינת ישראל]] " + hagiga + " ב[[יום העצמאות]] " + gimatria(shana , 2) + " " + shanim + ".</p>"
+}
 
-text = hakdama + hathala + siyum + hamolad + hakviut + meuberet + haorech + shmita + hamahzor + hahama + minyanim + yovel
+text = hakdama + hathala + siyum + hamolad + hakviut + meuberet + haorech + shmita + hamahzor + hahama + minyanim + yovel + atsmaut
 return text
 }
 function ALPHA(kelet)
