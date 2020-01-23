@@ -1,7 +1,7 @@
 <!DOCTYPE html><html lang="he"><head><meta charset="utf-8"><title>תאריכים</title></head><body style="color:#000000" bgcolor=#ffffff>
 <div align="center"><input style="background-color:#00ff00" id="code" onchange="eval(document.getElementById('code').value)">
 <p id="cush" dir="rtl"></p><script> Mf=Math.floor , Mc=Math.ceil , Mr=Math.round , SE=86400 , dg=document.getElementById("cush")
-function jd() {return Date.now() / 1000 / SE + 2440587.5} function DOC(p) {dg.innerHTML += p + "<br />"}
+function jd(b) {return (Date.now() / 1000 / SE + 2440587.5).toString(b)} function DOC(p) {dg.innerHTML += p + "<br />"}
 setInterval("LT = YOM(TM).TSC; if (NH != YOM().NH || Mf((LT + 0.25) / 7) != Mf((TSC + 0.25) / 7)) {location.reload()}" , 1000)
 zacar = ["","אחד","שני","שלשה","ארבעה","חמשה","ששה","שבעה","שמנה","תשעה","עשרה"]
 nkeva = ["","אחת","שתים","שלש","ארבע","חמש","שש","שבע","שמנה","תשע","עשר"]
@@ -61,20 +61,18 @@ function HAM(OD){ SC = YOM(OD).DSC + 178 , SB = Mf(SC / 10227) + 1 , AP = APN[Mf
 SY = SYN[Mf((SC + 0.4) / YL) % 4] , ZSC = Mf((SC + 0.49) / ZSL) , ZS = ZSN[ZSC % 12] , DM = SC - Mr(ZSC * ZSL) + 1
 qonot = ["זרע","חרף","קר","קציר","קיץ","חם"] , qona = qonot[Mf((TL - 604872.84375) * 6 / YL) % 6]
 return this} function KC(OD) {if (HAM(OD).SC >= 0) {DOC(DM+" ב"+ZS+" "+SY+" "+AP+" "+SB)}}
-function HOD(OD){ AM = Mf((YOM(OD).TL - (67 / 12)) / ML) , RM = AM - 83
-var WNC = (DSC - cixuv(AM).CM) + MD; WN = xevaq[Mc(WNC / 7)]
+function HOD(OD){ AM = Mf((YOM(OD).TL - (67 / 12)) / ML); var WNC = (DSC - cixuv(AM).CM) + MD; WN = xevaq[Mc(WNC / 7)] , RM = AM - 83
 if (WNC == 36) {WN = xevaq[1] , RM ++} if (DSC == CM && (MD != 1 || (MD == 1 && DP > 13752)))  {WN = xevaq[5] , RM --}
-var MIC = RM % 1080 , GIC = 0; while (MIC >= 0) {MIC -= MNI[GIC ++ % 9]} MN = seder[MIC + MNI[(GIC - 1) % 9] + 1]
-GN = nkeva[GIC]; if (GIC > 10) {GN = nkeva[GIC % 10] + " עשרה"} qeser[1] = " ו"
+var MIC = (RM % 1080 + 1080) % 1080 , GIC = 0; while (MIC >= 0) {MIC -= MNI[GIC ++ % 9]}
+MN = seder[MIC + MNI[(GIC - 1) % 9] + 1] , GN = nkeva[GIC]; if (GIC > 10) {GN = nkeva[GIC % 10] + " עשרה"} qeser[1] = " ו"
 if ((GIC % 10) == 0) {qeser[1] = ""} if (GIC > 19) {GN = qeser[Mf(GIC / 10)] + qeser[1] + nkeva[GIC % 10]}
-CN = Mf(RM / 1080) + 1; return this} function KH(OD) {if (HOD(OD).RM >= 0) {DOC("ה"+DN+" ב"+WN+" ל"+MN+" מ"+GN+" מחזור "+CN)}}
+CN = Mf(RM / 1080) + 1; return this} function KH(OD) {HOD(OD),DOC("ה"+DN+" ב"+WN+" ל"+MN+" מ"+GN+" מחזור \u200E"+CN)}
 function QIV(OD){ XZ = XQ(HOD(OD).AM); if (ta(XZ).RH > DSC) {ta(-- XZ)} if (RB == DSC) {ta(++ XZ)} YC = DSC - RH , MC = 0
 while (YC >= 0) {YC -= OC[MC ++]} YC += OC[-- MC] + 1 , yom = gim(YC) , codex = XC[MC] , xana = gim(XZ)
 if (XZ<4120) {yom = yom+"?" , codex = codex+"?"} return this} function KQ(OD) {QIV(OD); if (DSC>0) {DOC(NH+yom+" "+codex+" "+xana)}}
 function PAR(OD){ var I = QIV(OD).XZ , t = RH - (RH % 7) + 22; if (t > DSC) {ta(-- I)} t = RH - (RH % 7) + 22
 var par = pr(I)[Mf((DSC - t) / 7)] , mabul = I - 1657; if (mabul < 3300) {par = par + "?"}
-var xemot = ["חיים","שלום","חכמה","עושר","זרע","חן","ממשלה"] , xem = xemot[WD]
-if (mabul >= 0) {DOC(xem+" "+par+" "+mabul)}}
+var xemot = ["חיים","שלום","חכמה","עושר","זרע","חן","ממשלה"] , xem = xemot[WD]; if (mabul >= 0) {DOC(xem+" "+par+" "+mabul)}}
 function luac(OD) {KY(OD),MIX(OD),DOR(OD),XEV(OD),KC(OD),KH(OD),KQ(OD),PAR(OD),DOC("")} luac()
 function MSH(OD){ var xvatim = ["בנימין","דן","נפתלי","גד","אשר","יוסף","ראובן","שמעון","לוי","יהודה","יששכר","זבולן"]
 if (qibur(QIV(OD).XZ) < 7) {xvatim.splice(5,1,"מנשה","אפרים")} var xevet = xvatim[MC] , yshia = XZ - 2449
@@ -114,8 +112,9 @@ function TK(x,t) {var z = (x * YL) - 179; if (t != null) {z = (x * 235 / 19 * ML
 function ZT(OD){ var Y = YOM(OD).TSC+730500 , D = Y/750 , X = (Y*12)%12 , L = (X*16)%16 , N = (L*11)%11 , T = (N*19)%19 , R = (T*17)%17
 if (Y > 0) {DOC(Mf(D)+":"+Mf(Y % 750)+":"+Mf(X)+":"+Mf(L)+":"+Mf(N)+":"+Mf(T)+":"+Mf(R))}}
 function zt(D,Y,X,L,N,T,R) {return YOM((D * 750) + Y - 730500 + (X / 12) + (L / 192) + (N / 2112) + (T / 40128) + (R / 682176)).CT}
-function YE(OD) {var z=YOM(OD).TSC%365250/15218.75; if(z<0){z+=24} DOC(Mf(z)+":"+Mf(z*24%24)+":"+Mf(z*576%24)+":"+Mf(z*13824%24))}
-function kbh(m,q,n,t,g) {return YOM(((q / 24) + (n / 576) + (t / 13824) + (g / 331776) + Mf(YOM().TSC/365250) + m) * 365250).CT}
+function YE(OD) {var z = YOM(OD).TSC % 365250 / 15218.75 , y = Mf(TSC / 365250) - Mf(YOM().TSC / 365250); if(z < 0){z += 24}
+DOC("\u200E"+y+", "+Mf(z)+":"+Mf(z * 24 % 24)+":"+Mf(z * 576 % 24)+":"+Mf(z * 13824 % 24))}
+function kbh(m,q,n,t,g) {return YOM(((q / 24) + (n / 576) + (t / 13824) + (g / 331776) + Mf(YOM().TSC / 365250) + m) * 365250).CT}
 function EK(OD){ var Z = YOM(OD).TSC / 60875 , H = (Z % 1) * 2073600; if (H < 0) {H += 2073600} var Y = Mf(Z); if (Y >= 0) {Y ++}
 var P = Mf(H / 20) , G = Mf(P / 60) , S = Mf(G / 72); DOC("\u200E"+Y+", "+(S % 24)+":"+(G % 72)+":"+((P % 60)+(Mf(H % 20) / 20)))}
 function kalir(Y,S,G,P){ if (Y > 0) {Y --} return YOM(((P / 103680) + (G / 1728) + (S / 24) + Y) * 60875).CT}
@@ -123,8 +122,7 @@ MAS = ["ברכות","שבת","עירובין","פסחים","שקלים","יומ�
 "יבמות","כתובות","נדרים","נזיר","סוטה","גיטין","קידושין","בבא קמא","בבא מציעא","בבא בתרא","סנהדרין","מכות","שבועות",
 "עבודה זרה","הוריות","זבחים","מנחות","חולין","בכורות","ערכין","תמורה","כריתות","מעילה","קינים","תמיד","מידות","נדה"]
 dapim=[63,156,104,120,12,87,55,39,34,30,31,28,26,121,111,90,65,48,89,81,118,118,175,112,23,48,75,13,119,109,141,60,33,33,27,20,4,8,4,72]
-function DAF(OD){ var d = YOM(OD).DSC - 2075327 , m = 0 , M = 1
-while (d > 0) {if (m == 40) {m = 0 , M ++} if (M > 7) {dapim[4] = 21} d -= dapim[m ++]}
+function DAF(OD){ var d=YOM(OD).DSC-2075327 , m=0 , M=1; while (d>0) {if (m==40) {m=0 , M++} if (M>7) {dapim[4]=21} d-=dapim[m++]}
 if (m == 37) {d += 20} if (m == 38) {d += 24} if (m == 39) {d += 32} d += dapim[-- m] + 1
 if (d > 0) {DOC(MAS[m]+" "+gim(d,1))} else {DOC("עדיין לא התחילו")} dapim[4] = 12}
 function daf(M,mas,d){ var m = MAS.indexOf(mas); if (m<0||M<1) {return "שגיאה"} if (m==36){d-=20}if (m==37){d-=24}if (m==38){d-=32}
