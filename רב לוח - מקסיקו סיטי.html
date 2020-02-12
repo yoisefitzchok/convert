@@ -27,7 +27,7 @@ function cixuv(c){ MT = Mr(((c*ML)+(79/12))*PA) , WP = MT%181440; if (WP < 0) {W
 DP = WP % PA , MD = ((CM % 7) + 7) % 7 , MH = Mf(DP / 1080) , MP = DP % 1080 , MAP = APN[(Mf(MT * 24) - 180) % 7]; return this}
 function qibur(x) {x = ((x * 12) + 5) % 19; if (x < 0) {x += 19} return x}
 function ROX(x){ var r = cixuv(CQ(x)).CM; if (MH>17 || (MD==3 && DP>9923 && qibur(x)>6) || (MD==2 && DP>16788 && qibur(x)>11)) {r ++}
-if ([1,4,6].includes(r % 7)) {r ++} return r}
+if ((r * 3 + 1) % 7 > 3) {r ++} return r}
 function ta(x){ RH = ROX(x) , RB = ROX(x + 1) , OX = RB - RH , OC = [30,29,30,29,30,29,30,29,30,29,30,29]
 XC = ["תשרי","מרחשון","כסלו","טבת","שבט","אדר","ניסן","אייר","סיון","תמוז","אב","אלול"]
 if (qibur(x) < 7) {OC.splice(5,0,30) , XC.splice(5,1,"אדר א'","אדר ב'")}
