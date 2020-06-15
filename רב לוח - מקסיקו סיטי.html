@@ -1,5 +1,5 @@
 <!DOCTYPE html><html lang="he"><head><meta charset="utf-8"><title>תאריכים</title></head><body style="color:#000000" bgcolor=#ffffff>
-<div align="center"><input style="background-color:#00ff00" id="code" onchange="ALPHA()"><p id="cush" dir="rtl"></p>
+<div align="center"><input style="background-color:#00ff00;border:none" id="code" onchange="ALPHA()"><p id="cush" dir="rtl"></p>
 <script> Mf=Math.floor , Mc=Math.ceil , Mr=Math.round , SE=86400 , dg=document.getElementById("cush")
 function jd(b) {return (Date.now() / 1000 / SE + 2440587.5).toString(b)} function DOC(p) {dg.innerHTML += p + "<br>"}
 setInterval("LT = YOM(TM).TSC; if (NH != YOM().NH || Mf((LT + 0.25) / 7) != Mf((TSC + 0.25) / 7)) {dg.innerHTML = '' , luac()}" , 1000)
