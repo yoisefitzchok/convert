@@ -17,7 +17,7 @@ PDN = ["יהויריב","ידעיה","חרם","שערים","מלכיה","מימ�
 function gim(n,s){ gim1 = " אבגדהוזחט יכלמנסעפצ קרש" , gim4 = ["","ת","תת"]; if (n < 1) {return "\u200E" + n + "\u200F"}
 var e = Mc(n/1000)-1 , p = ((n-1)%1000)+1; if (s != 0 && (p%100 == 15 || p%100 == 16)) {gim1 = gim1.replace("י","ט") , p ++}
 var g = gim4[Mf(p / 400)] + gim1[Mf((p % 400) / 100) + 20] + gim1[Mf((p % 100) / 10) + 10] + gim1[p % 10]; g = g.replace(/ /g,"")
-var t = g; if (s == null) {if (g.length == 1) {t = g + "'"} if (g.length > 1) {t = g.slice(0,-1) + '"' + g.slice(-1)}}
+var t = g; if (s == null) {if (g.length < 2) {t = g + "'"} else {t = g.slice(0,-1) + '"' + g.slice(-1)}}
 if (e > 0) {var k=gim(e,s); if (s != null) {t=k+"_"+t} else {if (k[k.length-2] == '"') {t=k+" "+t} else {t=k+t}}} return t}
 function xaqa(H,M,S){ H += 5 , M += 35 , S += 13.9201
 while (S >= 60) {S -= 60 , M ++} while (M >= 60) {M -= 60 , H ++} while (H >= 24) {H -= 24} return (H / 24) + (M / 1440) + (S / SE)}
