@@ -100,7 +100,7 @@ function kocavim(mac,kvu,cod,xab,yom){ while (kvu -- > 1) {cod += MNI[(kvu - 1) 
 var zman = ((((mac - 51) * 1080) + cod + 82) * ML) + (79 / 12); return zman - ((zman % 7 + 7) % 7) + (xab * 7) + yom - 8}
 function galgal(braca,kocav,xana,mazal,yom) {return (braca*10227)+(kocav*1461)+Mr(((xana*12)+mazal-13)*ZSL)+yom-11868}
 function molad(c,l) {cixuv(c); k=""; if (c>0) {k=" - "+MAP} DOC((((MD+6)%7)+1)+","+MH+","+MP+k); if (l>0) {laqaz(LM,l*2-1) , DOC("")}}
-function RX(x,l) {var c = 0; ta(x); while (c < OC.length) {dg.innerHTML += XC[c] + " - " , molad(CQ(x) + c ++,l)} DOC("")}
+function RX(x,l) {var c = 0 , o = ta(x).OC.length; while (c < o+1) {dg.innerHTML += XC[c%o] + " - " , molad(CQ(x)+c ++,l)} DOC("")}
 function MX(x,q,l) {while (x <= q) {dg.innerHTML += gim(x) + " - " , molad(CQ(x ++),l)} DOC("")}
 function cipus(y,x,h,t){ if (y==7) {y=0} if (y<0||y>6||x<0||x>23||h<0||h>1079||y%1!=0||x%1!=0||h%1!=0) {return "שגיאה"}
 var y0 = 6 , x0 = 14 , h0 = 0 , c = 0; while (h0 != h || x0 != x || y0 != y) {h0 += 793 , x0 += 12 , y0 += 1 , c ++
