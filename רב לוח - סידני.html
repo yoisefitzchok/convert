@@ -43,7 +43,7 @@ if (YP == 5) {PR.push("האזינו","כפור","סכות")} else {if (YP == 0) 
 else {PR.push("וילך","האזינו","וזאת הברכה")}} return PR}
 function YOM(OD){ TL = OD; if (OD == null) {TL = jd() - 348345.83 , TM = TL} TSC = TL - 0.322119 , CT = TL + 0.322119
 DSC = Mf(TL)+1 , WD = DSC%7; if (WD<0) {WD += 7} DN = seder[WD] , JD = TSC+348346+JP , NH = "יום "; if ((TL%1)<0.5) {NH = "ליל "}
-return this} function KY(OD) {if (YOM(OD).DSC > 0) {DOC("יום "+DSC+" לבריאת העולם")}}
+return this} function KY(OD,S) {YOM(OD); if (S>0) {DOC(DSC + 1403465),DOC(DSC + 730500)} if (DSC>0) {DOC("יום "+DSC+" לבריאת העולם")}}
 function MIX(OD){ var ST1=YOM(OD).TSC-1068927.75;if(ST1>3080){ST1-=7} var ST2=ST1-177492,BT=ST2+7868,PD="לא ידועה",CPD="לא ידוע"
 if (ST1 > 0) {PD = PDN[Mc((ST1 % 168) / 7) - 1] , CPD = Mc(ST1 / 168) + "א"}
 if (BT > 0) {PD = FPD[Mc((BT % 28) / 7) - 1] , CPD = Mc(BT / 28) + "ב"}
