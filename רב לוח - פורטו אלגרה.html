@@ -81,7 +81,7 @@ function SAF(OD){ var MY = QIV(OD).XZ - 3410 , xanim = (MY % 49) + 1
 var minyan = "שנה " + xevaq[xanim % 7] + " בשמיטה " + xevaq[Mc(xanim / 7)] + " ביובל " + (Mf(MY / 49) + 1)
 var yovel = xanim + " ליובל"; if (xanim == 1 && MY > 0) {yovel = "שנת היובל ה-" + (MY / 49)}
 var xmita = "מעשר שני"; if ([3,6].includes(XZ % 7)) {xmita = "מעשר עני"} if ((XZ % 7) == 0) {xmita = "שמיטה"}
-if (MY >= 0) {DOC(xmita+", &nbsp"+yovel) , DOC(minyan)}}
+if (MY >= 0) {DOC(xmita+", &nbsp "+yovel) , DOC(minyan)}}
 function QOM(OD){ var qomer = QIV(OD).DSC - RB + 163
 var XQ = Mf(qomer / 7) , xavuq = " שהם " + zacar[XQ] +" שבועות"; if (XQ == 0) {xavuq = ""} if (XQ == 1) {xavuq = " שהם שבוע אחד"}
 var YQ = qomer % 7 , yamim = " ו" + zacar[YQ] + " ימים"; if (YQ == 1) {yamim = " ויום אחד"} if (YQ == 0 || XQ == 0) {yamim = ""}
