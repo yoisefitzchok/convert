@@ -89,7 +89,7 @@ var sfira = zacar[qomer] + " ימים"; if (qomer == 1) {sfira = "יום אחד"
 var QQ = qomer % 10; if (qomer > 10) {zacar[2] = "שנים" , sfira = zacar[QQ] + " עשר יום"}
 if (qomer > 19) {sfira = zacar[QQ] + " ו" + qeser[Mf(qomer / 10)] + " יום"; if (QQ == 0) {sfira = qeser[qomer / 10] + " יום"}}
 var SQ = sfira + xavuq + yamim + " לעומר"; if (OD == null) {SQ = "היום " + SQ} zacar[2] = "שני"
-if (qomer > 0 && qomer < 50 && XZ > 2488) {DOC(SQ)}}
+if (qomer > 0 && qomer < 50 && XZ > 2488) {DOC(SQ)} else {DOC("אין")}}
 function qivri(x,c,y) {var C = ta(x).XC.indexOf(c); if (C < 0) {return "שגיאה"} while (C > 0) {y += OC[-- C]} return RH + y - 2}
 function kriot(m,s,y) {var x = m + 1657 , K = pr(x).indexOf(s); if (K < 0) {return "שגיאה"} return RH - (RH % 7) + (K * 7) + y + 20}
 function xviqit(d,w,s,y,r,j,c) {return (c * 392392) + (j * 17836) + (r * 2548) + (y * 364) + (s * 91) + (w * 7) + d - 1816704}
@@ -152,6 +152,10 @@ var Z = CM , D = MD , T = 0 , X = x - 1 , C = h; if (H > 0) {C = H - 1 , X ++} i
 if (b < 1) {T = qivri(X,XC[C],b + 2)} if (b > 25) {if (C == 0) {C = ta(-- X).OC.length} T = qivri(X,XC[C - 1],b + 1)}
 if (T!=0 && X<2) {return "לא ניתן לחשב"} if ((m==null || s!=null || (s==null && m.toString().includes(D))) && (T==0 || T==Z)) {
 if (t > g) {if (P>=t||P<g) {p()}} else {if (P>=t&&P<g) {p()}}} if (H == ta(x).OC.length) {H = 0 , x ++}} DOC(R.length); return R}
+function HR(t,s,m){ var r = [] , b = [] , n = []; while (t <= s) {r.push(ROX(t + m) - ROX(t)) , t ++}
+var a = 0; while (a < r.length) {if (!(b.includes(r[a]))) {b.push(r[a])} a++} b = b.sort()
+while (n.length < b.length) {var q = 0 , h = 0; while (q < r.length) {if (r[q] == b[n.length]) {h ++} q ++} n.push(h)}
+a = 0; while(a < n.length) {DOC(n[a]+" - "+b[a ++])} DOC(a+" "+(b[a - 1] - b[0]))}
 function XAB(j,OD){ var d=YOM(OD).DN; if(WD==0){d="שבת"} if(j%3>1&&WD==1){d="אחד"} if(j%3>0){d+=" בשבת"; if(WD==0){d="שבת קדש"}}
 if (j%9>2&&j%9<6) {d = "יום "+d; if (OD == null) {d = "היום "+d}} if (j%9>5) {d = NH+d; if (OD == null) {d = "עכשיו "+d}} DOC(d)}
 function xaqon(T,Q){ if (Q == null) {Q = YOM().TL} var S = T - Q , Z = "לפני "; if (S > 0) {Z = "בעוד "} S = Mr(Math.abs(S * SE))
