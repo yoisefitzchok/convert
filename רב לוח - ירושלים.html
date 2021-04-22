@@ -26,18 +26,18 @@ PA = 25920 , ML = 765433 / PA , YL = 365.25 , ZSL = YL / 12 , JP = 0.152119 , MN
 function cixuv(c){ MT = c*765433+170640 , WP = MT%181440; if (WP < 0) {WP += 181440} MT /= PA , LM = (MT*5-1*5+CT*5-TL*5)/5
 CM = Mf(MT) , DP = WP%PA , MD = ((CM%7)+7)%7 , MH = Mf(DP/1080) , MP = DP%1080 , MAP = APN[(Mf(MT*24)-180)%7]; return this}
 function qibur(x) {x = ((x * 12) + 5) % 19; if (x < 0) {x += 19} return x}
-function ROX(x){ var r = cixuv(CQ(x)).CM; if (MH>17 || (MD==3 && DP>9923 && qibur(x)>6) || (MD==2 && DP>16788 && qibur(x)>11)) {r ++}
+function ROX(x){ var r = cixuv(CQ(x)).CM , Q = qibur(x); if (MH>17 || (MD==3 && DP>9923 && Q>6) || (MD==2 && DP>16788 && Q>11)) {r ++}
 if ((r * 3 + 1) % 7 > 3) {r ++} return r}
-function ta(x){ RH = ROX(x) , RB = ROX(x + 1) , OX = RB - RH , OC = [30,29,30,29,30,29,30,29,30,29,30,30]
+function ta(x){ RH = ROX(x) , RB = ROX(x + 1) , MQ = qibur(x) , OX = RB - RH , OC = [30,29,30,29,30,29,30,29,30,29,30,30]
 XC = ["תשרי","מרחשון","כסלו","טבת","שבט","אדר","ניסן","אייר","סיון","תמוז","אב","אלול"]
-if (qibur(x) < 7) {OC.splice(5,0,30) , XC.splice(5,1,"אדר א'","אדר ב'")}
+if (MQ < 7) {OC.splice(5,0,30) , XC.splice(5,1,"אדר א'","אדר ב'")}
 if (x == 1) {OX --} if (OX % 10 == 5) {OC[1] = 30} if (OX % 10 == 3) {OC[2] = 29} return this}
-function pr(x){ var YR = ta(x).RH % 7 , YP = RB % 7 , Q = qibur(x)
+function pr(x){ var YR = ta(x).RH % 7 , YP = RB % 7
 var PR = ["בראשית","נח","לך לך","וירא","חיי שרה","תולדת","ויצא","וישלח","וישב","מקץ","ויגש","ויחי","שמות","וארא","בא",
 "בשלח","יתרו","משפטים","תרומה","תצוה","כי תשא","ויקהל","ויקרא","צו","שמיני","תזריע","אחרי מות","אמר","בהר","במדבר","נשא",
 "בהעלתך","שלח","קרח","חקת","בלק","פינחס","מטות","דברים","ואתחנן","עקב","ראה","שפטים","כי תצא","כי תבא","נצבים"]
-if (Q < 7 || YP == 2) {PR.splice(29,0,"בחקתי")} if (Q > 6) {PR.splice(24,0,"פסח")}
-if (Q < 7 || (YR == 5 && YP == 3)) {PR.splice(22,0,"פקדי")} if (Q < 7) {PR.splice(28,0,"קדשים") , PR.splice(27,0,"מצרע")
+if (MQ < 7 || YP == 2) {PR.splice(29,0,"בחקתי")} if (MQ > 6) {PR.splice(24,0,"פסח")}
+if (MQ < 7 || (YR == 5 && YP == 3)) {PR.splice(22,0,"פקדי")} if (MQ < 7) {PR.splice(28,0,"קדשים") , PR.splice(27,0,"מצרע")
 if (YR == 5 || YP == 2) {PR.splice(42,0,"מסעי")} if (YR == 5) {PR.splice(29,0,"פסח")} else {PR.splice(28,0,"פסח")}}
 if (YP == 5) {PR.push("האזינו","כפור","סכות")} else {if (YP == 0) {PR.push("ראש השנה","האזינו","סכות","וזאת הברכה")}
 else {PR.push("וילך","האזינו","וזאת הברכה")}} return PR}
@@ -75,7 +75,7 @@ var par = pr(I)[Mf((DSC - t) / 7)] , mabul = I - 1657; if (mabul < 3300) {par = 
 var xemot = ["חיים","שלום","חכמה","עושר","זרע","חן","ממשלה"] , xem = xemot[WD]; if (mabul >= 0) {DOC(xem+" "+par+" "+mabul)}}
 function luac(OD) {KY(OD),MIX(OD),DOR(OD),XEV(OD),KC(OD),KH(OD),KQ(OD),PAR(OD),DOC("")} luac()
 function MSH(OD){ var xvatim = ["בנימין","דן","נפתלי","גד","אשר","יוסף","ראובן","שמעון","לוי","יהודה","יששכר","זבולן"]
-if (qibur(QIV(OD).XZ) < 7) {xvatim.splice(5,1,"מנשה","אפרים")} var xevet = xvatim[MC] , yshia = XZ - 2449
+if (QIV(OD).MQ < 7) {xvatim.splice(5,1,"מנשה","אפרים")} var xevet = xvatim[MC] , yshia = XZ - 2449
 if (MC > (OC.length - 7)) {yshia ++} if (yshia > 0) {DOC(YC+" "+xevet+" "+yshia)}}
 function SAF(OD){ var MY = QIV(OD).XZ - 3410 , xanim = (MY % 49) + 1 , XM = ((XZ - 1) % 19 + 19) % 19 + 1
 var minyan = "שנה " + xevaq[xanim % 7] + " בשמיטה " + xevaq[Mc(xanim / 7)] + " ביובל " + (Mf(MY / 49) + 1)
@@ -138,14 +138,14 @@ function maya(OD){ var k=YOM(OD).DSC-235937,w=Mf(k/20),t=Mf(w/18),K=Mf(t/20),B=M
 if (k >= 0) {DOC(A+"."+(ki % 20)+"."+(ka % 20)+"."+(P % 20)+"."+(B % 20)+"."+(K % 20)+"."+(t % 20)+"."+(w % 18)+"."+(k % 20))}}
 function mayan(A,ki,ka,P,B,K,t,w,k) {return A*23040000000+ki*1152000000+ka*57600000+P*2880000+B*144000+K*7200+t*360+w*20+Mf(k)+235936.5}
 function sim(x){ var s = gim1[(ta(x).RH-1)%7+1]; if (OX%10==5) {s += "ש"} if (OX%10==4) {s += "כ"} if (OX%10==3) {s += "ח"}
-if (qibur(x) < 7) {s += "מ"} else {s += "פ"} s += gim1[(RB - 3) % 7 + 1]; if (x < 2) {s = ""} if (x < 4120) {s += "?"} return s}
+if (MQ < 7) {s += "מ"} else {s += "פ"} s += gim1[(RB - 3) % 7 + 1]; if (x < 2) {s = ""} if (x < 4120) {s += "?"} return s}
 function KX(x,q) {while (x <= q){DOC(gim(x)+" - "+sim(x ++))} DOC("")}
 function HK(t,q,s,g,h){ if (t<2) {return "לא ניתן לחשב"} var r=[] , m=[] , k=[] , x=t , d=t; while (t<=q) {var o=sim(t).slice(0,4)
 if (s.search(/פ|מ/)<0) {o=o.replace(/פ|מ/,"")} if (s.search(/ש|כ|ח/)<0) {o=o.replace(/ש|כ|ח/,"")} if (g==5) {o=o.slice(1,-1)}
 if(g==1){o=o.slice(0,-1)}if(g==2){o=o.slice(1)}if(g==3){o=gim1[(qivri(t,"כסלו",25)%7)+1]}if(g==4){o=gim1[(qivri(t,"שבט",15)%7)+1]}
 r.push(o),t++} while (x<=q) {var e="",l=0; while (l<(s.length/o.length)) {e+=r[x-d+l++]} if (e==s) {if (m.length==0) {var c=x} t=x-c,c=x
 m.push(gim(x)+"-"+t+" ");if(t==h){k.push(gim(x)+" "+((x-1)%19+1)+" ")}}x++}if(h>0){DOC(k.length);return k}DOC(m.length);return m}
-function HM(x,q,h,b,t,g,m,s){ function p(){ if(s==null||(s>=m&&qibur(x-1)>=m&&qibur(x-1)<=s)||(m>s&&(qibur(x-1)>=m||qibur(x-1)<=s)))
+function HM(x,q,h,b,t,g,m,s){ function p(){var Q = qibur(x-1); if(s==null||(s>=m&&Q>=m&&Q<=s)||(m>s&&(Q>=m||Q<=s)))
 {if (h % 1 == 0) {R.push(gim(x - 1) + " ")} else {R.push(ta(x).XC[H - 1] + " " + gim(x) + " ")}}} var H = 0 , R = []; ta(x)
 while (x < q) {if (h % 1 == 0) {cixuv(CQ(x ++) + h)} else {cixuv(CQ(x) + H ++)} var P = DP; if (b == 1) {P = WP} if (b == 3) {P = MP}
 var Z = CM , D = MD , T = 0 , X = x - 1 , C = h; if (H > 0) {C = H - 1 , X ++} if (C < 0) {C += ta(-- X).OC.length}
