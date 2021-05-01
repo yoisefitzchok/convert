@@ -45,10 +45,8 @@ function YOM(OD){ TL = OD; if (OD == null) {TL = jd() - 348346 - JP , TM = TL} T
 DSC = Mf(TL)+1 , WD = DSC%7; if (WD<0) {WD += 7} DN = seder[WD] , JD = TSC+348346+JP , NH = "יום "; if ((TL%1)<0.5) {NH = "ליל "}
 return this} function KY(OD,S) {YOM(OD); if (S>0) {DOC(DSC + 1403465),DOC(DSC + 730500)} if (DSC>0) {DOC("יום "+DSC+" לבריאת העולם")}}
 function MIX(OD){ var ST1=YOM(OD).TSC-1068927.75;if(ST1>3080){ST1-=7} var ST2=ST1-177492,BT=ST2+7868,PD="לא ידועה",CPD="לא ידוע"
-if (ST1 > 0) {PD = PDN[Mc((ST1 % 168) / 7) - 1] , CPD = Mc(ST1 / 168) + "א"}
-if (BT > 0) {PD = FPD[Mc((BT % 28) / 7) - 1] , CPD = Mc(BT / 28) + "ב"}
-if (ST2 > 0) {PD = PDN[Mc((ST2 % 168) / 7) - 1] , CPD = Mc(ST2 / 168)}
-var BAN = ["אליעזר","שבניהו","יושפט","נתנאל","עמשי","זכריהו","בניהו"] , BA = BAN[WD]
+if (ST1>0) {PD = PDN[Mc((ST1%168)/7)-1] , CPD = Mc(ST1/168)+"א"} if (BT>0) {PD = FPD[Mc((BT%28)/7)-1] , CPD = Mc(BT/28)+"ב"}
+if (ST2>0) {PD=PDN[Mc((ST2%168)/7)-1],CPD=Mc(ST2/168)} var BAN=["אליעזר","שבניהו","יושפט","נתנאל","עמשי","זכריהו","בניהו"] , BA=BAN[WD]
 if (DSC > 894313) {if (BA == "אליעזר" && (DSC - TSC) < 0.25) {PD = "<font color=#00ff00>"+PD+"</font>"} DOC (BA+" "+PD+" "+CPD)}}
 function DOR(OD){ var SG = YOM(OD).DSC + 730499 , DOG = (SG % 30) + 1 , MOG = Mf((SG % 750) / 30) + 1 , GOG = Mf(SG / 750) + 1
 if (SG >= 0) {DOC("יום "+DOG+" בגוש "+MOG+" דור "+GOG)}}
