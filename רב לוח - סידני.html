@@ -143,9 +143,9 @@ if (s.search(/פ|מ/)<0) {o=o.replace(/פ|מ/,"")} if (s.search(/ש|כ|ח/)<0) {
 if(g==1){o=o.slice(0,-1)}if(g==2){o=o.slice(1)}if(g==3){o=gim1[(qivri(t,"כסלו",25)%7)+1]}if(g==4){o=gim1[(qivri(t,"שבט",15)%7)+1]}
 r.push(o),t++} while (x<=q) {var e="",l=0; while (l<(s.length/o.length)) {e+=r[x-d+l++]} if (e==s) {if (m.length==0) {var c=x} t=x-c,c=x
 m.push(gim(x)+"-"+t+" ");if(t==h){k.push(gim(x)+" "+((x-1)%19+1)+" ")}}x++}if(h>0){DOC(k.length);return k}DOC(m.length);return m}
-function HM(x,q,h,b,t,g,m,s){ function p(){var Q = qibur(x-1); if(s==null||(s>=m&&Q>=m&&Q<=s)||(m>s&&(Q>=m||Q<=s)))
-{if (h % 1 == 0) {R.push(gim(x - 1) + " ")} else {R.push(ta(x).XC[H - 1] + " " + gim(x) + " ")}}} var H = 0 , R = []; ta(x)
-while (x < q) {if (h % 1 == 0) {cixuv(CQ(x ++) + h)} else {cixuv(CQ(x) + H ++)} var P = DP; if (b == 1) {P = WP} if (b == 3) {P = MP}
+function HM(x,q,h,b,t,g,m,s){ function p(){var Q = qibur(x-k); if(s==null||(s>=m&&Q>=m&&Q<=s)||(m>s&&(Q>=m||Q<=s)))
+{if (k > 0) {R.push(gim(x - 1) + " ")} else {R.push(ta(x).XC[H - 1] + " " + gim(x) + " ")}}} var H = 0 , R = [] , k = (h % 1 == 0) * 1
+ta(x); while (x < q) {if (k > 0) {cixuv(CQ(x ++) + h)} else {cixuv(CQ(x) + H ++)} var P = DP; if (b == 1) {P = WP} if (b == 3) {P = MP}
 var Z = CM , D = MD , T = 0 , X = x - 1 , C = h; if (H > 0) {C = H - 1 , X ++} if (C < 0) {C += ta(-- X).OC.length}
 if (b < 1) {T = qivri(X,XC[C],b + 2)} if (b > 25) {if (C == 0) {C = ta(-- X).OC.length} T = qivri(X,XC[C - 1],b + 1)}
 if (T!=0 && X<2) {return "לא ניתן לחשב"} if ((m==null || s!=null || (s==null && m.toString().includes(D))) && (T==0 || T==Z)) {
