@@ -21,7 +21,7 @@ if (e > 0) {var k=gim(e,s); if (s != null) {t=k+"_"+t} else {if (k[k.length-2] =
 function xaqa(H,M,S){ H += 5 , M += 35 , S += 13.9201
 while (S >= 60) {S -= 60 , M ++} while (M >= 60) {M -= 60 , H ++} while (H >= 24) {H -= 24} return (H / 24) + (M / 1440) + (S / SE)}
 function XQ(c) {return Mf((c + 50) * 19 / 235) - 2} function CQ(x) {return Mf((x - 9) * 235 / 19) + 87}
-PA = 25920 , ML = 765433 / PA , YL = 365.25 , ZSL = YL / 12 , JP = 0.152119 , MNI = [15,15,15,15,19,15,15,15,19]
+PA = 25920 , ML = 765433 / PA , YL = 365.25 , JP = 0.152119 , MNI = [15,15,15,15,19,15,15,15,19]
 function cixuv(c){ MT = c*765433+170640 , WP = (MT%181440+181440)%181440 , MT /= PA , LM = (MT*5-1*5+CT*5-TL*5)/5
 CM = Mf(MT) , DP = WP%PA , MD = ((CM%7)+7)%7 , MH = Mf(DP/1080) , MP = DP%1080 , MAP = APN[(Mf(MT*24)-180)%7]; return this}
 function qibur(x) {return ((x * 12 + 5) % 19 + 19) % 19}
@@ -51,8 +51,9 @@ var wn = ["גד","דן","אשר","נפתלי","מנשה","אפרים","ראוב�
 var sn = ["ארקא","ארץ","תבל","אדמה"] , s = sn[Mc(cd/91)%4] , y = Mf(((cd-1)%2548)/364)+1 , r = Mf(((cd-1)%17836)/2548)+1
 var jl = "תאבגדהוזחטיכלמנסעפצקרש" , j = jl[Mc(cd / 17836) % 22] , c = gim(Mc(cd / 392392),0)
 if (cd > 0) {DOC(d+" "+w+" "+s+" "+y+" "+r+" "+j+" "+c)}}
-function HAM(OD){ SC = YOM(OD).DSC + 178 , SB = Mf(SC / 10227) + 1 , AP = APN[Mf(SC / 1461) % 7]
-SY = SYN[Mf((SC + 0.4) / YL) % 4] , ZSC = Mf((SC + 0.7) / ZSL) , ZS = ZSN[ZSC % 12] , DM = SC - Mr(ZSC * ZSL) + 1
+function HAM(OD){ SC = YOM(OD).DSC + 178 , SB = Mf(SC / 10227) + 1 , AP = APN[Mf(SC / 1461) % 7] , CD = SC % 1461
+TO = [91,91,92,91,91,92,91,91,92,91,91,92,91,91,91,92] , TN = 0; while (CD >= 0) {CD -= TO[TN ++]} CD += TO[-- TN]
+SY = SYN[Mf(TN / 4)] , ZST = Mf(CD / 30); if (ZST > 2) {ZST --} ZS = ZSN[TN % 4 * 3 + ZST] , DM = CD - (ZST * 30) + 1
 qonot = ["זרע","חרף","קר","קציר","קיץ","חם"] , qona = qonot[Mf((TL - 604872.84375) * 6 / YL) % 6]
 return this} function KC(OD) {if (HAM(OD).SC >= 0) {DOC(DM+" ב"+ZS+" "+SY+" "+AP+" "+SB)}}
 function HOD(OD){ AM = Mf((YOM(OD).TL - (67 / 12)) / ML) , WNC = (DSC - cixuv(AM).CM) + MD , WN = xevaq[Mc(WNC / 7)] , RM = AM - 83
@@ -91,7 +92,8 @@ function mixmar(ba,mix,mac) {return (mac * 168) + (mix * 7) + ba + 1398319}
 function dorot(dor,gux,yom) {return (dor * 750) + (gux * 30) + yom - 731281}
 function kocavim(mac,kvu,cod,xab,yom){ while (kvu -- > 1) {cod += MNI[(kvu - 1) % 9]}
 var zman = ((((mac - 51) * 1080) + cod + 82) * ML) + (79 / 12); return zman - ((zman % 7 + 7) % 7) + (xab * 7) + yom - 8}
-function galgal(braca,kocav,xana,mazal,yom) {return (braca*10227)+(kocav*1461)+Mr(((xana*12)+mazal-13)*ZSL)+yom-11868}
+function galgal(braca,kocav,xana,mazal,yom) {var tn = (xana * 4) + Mc(mazal / 3) - 5; while (tn > 0) yom += TO[(-- tn) % 16]
+return (braca * 10227) + (kocav * 1461) + ((mazal - 1) % 3 * 30) + yom - 11868}
 function molad(c,l) {cixuv(c); k=""; if (c>0) {k=" - "+MAP} DOC((((MD+6)%7)+1)+","+MH+","+MP+k); if (l>0) {laqaz(LM,l*2-1) , DOC("")}}
 function RX(x,l) {var c = 0 , o = ta(x).OC.length; while (c < o+1) {DOC(XC[c%o] + " - ",0) , molad(CQ(x)+c ++,l)} DOC("")}
 function MX(x,q,c,l) {while (x <= q) {DOC(gim(x) + " - ",0) , molad(CQ(x ++) + c,l)} DOC("")}
