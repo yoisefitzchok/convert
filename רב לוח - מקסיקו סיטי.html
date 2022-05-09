@@ -51,7 +51,7 @@ var wn = ["גד","דן","אשר","נפתלי","מנשה","אפרים","ראוב�
 var sn = ["ארקא","ארץ","תבל","אדמה"] , s = sn[Mc(cd/91)%4] , y = Mf(((cd-1)%2548)/364)+1 , r = Mf(((cd-1)%17836)/2548)+1
 var jl = "תאבגדהוזחטיכלמנסעפצקרש" , j = jl[Mc(cd / 17836) % 22] , c = gim(Mc(cd / 392392),0)
 if (cd > 0) {DOC(d+" "+w+" "+s+" "+y+" "+r+" "+j+" "+c)}}
-function HAM(OD){ SC = YOM(OD).DSC + 178 , SB = Mf(SC / 10227) + 1 , AP = APN[Mf(SC / 1461) % 7] , CD = SC % 1461
+function HAM(OD){ SC = YOM(OD).DSC + 178 , SB = Mf(SC / 10227) + 1 , AP = APN[(Mf(SC / 1461) % 7 + 7) % 7] , CD = (SC % 1461 + 1461) % 1461
 TO = [91,91,92,91,91,92,91,91,92,91,91,92,91,91,91,92] , TN = 0; while (CD >= 0) {CD -= TO[TN ++]} CD += TO[-- TN]
 SY = SYN[Mf(TN / 4)] , ZST = Mf(CD / 30); if (ZST > 2) {ZST --} ZS = ZSN[TN % 4 * 3 + ZST] , DM = CD - (ZST * 30) + 1
 qonot = ["זרע","חרף","קר","קציר","קיץ","חם"] , qona = qonot[Mf((TL - 604872.84375) * 6 / YL) % 6]
