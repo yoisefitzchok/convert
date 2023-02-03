@@ -54,10 +54,9 @@ var wn = ["גד","דן","אשר","נפתלי","מנשה","אפרים","ראוב�
 var sn = ["ארקא","ארץ","תבל","אדמה"] , s = sn[Mc(cd/91)%4] , y = Mf(((cd-1)%2548)/364)+1 , r = Mf(((cd-1)%17836)/2548)+1
 var jl = "תאבגדהוזחטיכלמנסעפצקרש" , j = jl[Mc(cd / 17836) % 22] , c = gim(Mc(cd / 392392),0)
 if (cd > 0) {DOC(d+" "+w+" "+s+" "+y+" "+r+" "+j+" "+c)}}
-function HAM(OD){ SC = YOM(OD).DSC+178 , SB = Mf(SC/10227)+1 , AP = APN[(Mf(SC/1461)%7+7)%7] , CD = (SC%1461+1461)%1461
-TO = [91,91,92,91,91,92,91,91,92,91,91,92,91,91,91,92] , TN = 0; while (CD >= 0) {CD -= TO[TN ++]} CD += TO[-- TN]
-SY = SYN[Mf(TN / 4)] , ZST = Mf(CD / 30); if (ZST > 2) {ZST --} ZS = ZSN[TN % 4 * 3 + ZST] , DM = CD - (ZST * 30) + 1
-qonot = ["זרע","חרף","קר","קציר","קיץ","חם"] , qona = qonot[Mf((TL - 604872.84375) * 6 / YL) % 6]
+function HAM(OD){ SC=YOM(OD).DSC+178 , SB=Math.floor(SC/10227)+1 , AP=APN[(Math.floor(SC/1461)%7+7)%7] , CD=(SC%1461+1553)%1461
+TN=Math.floor(CD*16/1461) , CD-=Math.ceil(TN*1461/16) , TN=(TN+15)%16 , SY=SYN[Math.floor(TN/4)] , ZST=Math.floor(CD/30)
+if(ZST>2){ZST--}ZS=ZSN[TN%4*3+ZST],DM=CD-(ZST*30)+1,qonot=["זרע","חרף","קר","קציר","קיץ","חם"],qona=qonot[Mf((TL-604872.84375)*6/YL)%6]
 return this} function KC(OD) {if (HAM(OD).SC >= 0) {DOC(DM+" ב"+ZS+" "+SY+" "+AP+" "+SB)}}
 function HOD(OD){ AM = Mf((YOM(OD).TL - (67 / 12)) / ML) , WNC = (DSC - cixuv(AM).CM) + MD , WN = xevaq[Mc(WNC / 7)] , RM = AM - 83
 if (WNC == 36) {WN = xevaq[1] , RM ++} if (DSC == CM && (MD != 1 || DP > 13752)) {WN = xevaq[5] , RM --} GIC = 0
@@ -96,8 +95,7 @@ function mixmar(ba,mix,mac) {return (mac * 168) + (mix * 7) + ba + 1398319}
 function dorot(dor,gux,yom) {return (dor * 750) + (gux * 30) + yom - 731281}
 function kocavim(mac,kvu,cod,xab,yom){ while (kvu -- > 1) {cod += MNI[(kvu - 1) % 9]}
 var zman = ((((mac - 51) * 1080) + cod + 82) * ML) + (79 / 12); return zman - ((zman % 7 + 7) % 7) + (xab * 7) + yom - 8}
-function galgal(braca,kocav,xana,mazal,yom) {var tn = (xana * 4) + Mc(mazal / 3) - 5; while (tn > 0) yom += TO[(-- tn) % 16]
-return (braca * 10227) + (kocav * 1461) + ((mazal - 1) % 3 * 30) + yom - 11868}
+function galgal(b,k,x,m,y) {return (b*10227)+(k*1461)+Math.ceil(((x*4)+Mc(m/3)-4)*1461/16)+((m-1)%3*30)+y-11960}
 function molad(c,l) {cixuv(c); k=""; if (c>0) {k=" - "+MAP} DOC((((MD+6)%7)+1)+","+MH+","+MP+k); if (l>0) {laqaz(LM,l*2-1) , DOC("")}}
 function RX(x,l) {var c = 0 , o = ta(x).OC.length; while (c < o+1) {DOC(XC[c%o] + " - ",0) , molad(CQ(x)+c ++,l)} DOC("")}
 function MX(x,q,c,l) {while (x <= q) {DOC(gim(x) + " - ",0) , molad(CQ(x ++) + c,l)} DOC("")}
