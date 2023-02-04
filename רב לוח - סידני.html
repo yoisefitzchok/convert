@@ -99,7 +99,7 @@ function galgal(b,k,x,m,y) {return b * 10227 + k * 1461 + Mc(((x * 4) + Mc(m / 3
 function molad(c,l) {cixuv(c); k=""; if (c>0) {k=" - "+MAP} DOC((((MD+6)%7)+1)+","+MH+","+MP+k); if (l>0) {laqaz(LM,l*2-1) , DOC("")}}
 function RX(x,l) {var c = 0 , o = ta(x).OC.length; while (c < o+1) {DOC(XC[c%o] + " - ",0) , molad(CQ(x)+c ++,l)} DOC("")}
 function MX(x,q,c,l) {while (x <= q) {DOC(gim(x) + " - ",0) , molad(CQ(x ++) + c,l)} DOC("")}
-function cipus(y,x,h,t){ var c = Mf((y * 51840) + (x * 130680) + (h * 74377) + 36720) % 181440
+function cipus(y,x,h,t){ var c = (Mf((y * 24 + x) * 1080 + h) * 74377 + 36720) % 181440
 if (t != null) {c += t * 181440} var X = XQ(c); DOC(ta(X).XC[c - CQ(X)]+" "+gim(X)); return c}
 function sig(OD){ var HSC = Mf(YOM(OD).TSC * 24) + 1 , MSC = Mf(TSC * 1440) + 1 , HAP = Mf(TL * 24) - 156 , APH = APN[HAP % 7]
 if (MSC > 0) {DOC("דקה "+MSC+" לבריאת העולם"); if (HAP >= 0) {DOC("שעת שליטת "+APH)} return "שעה " + HSC + " לבריאת העולם"}}
